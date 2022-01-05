@@ -1,8 +1,8 @@
 import 'package:assets_audio_player/assets_audio_player.dart';
 
 class StrawberryAudio {
-  static const String AUDIO_CORRECT = "assets/audios/keyboard_correct.wav";
-  static const String AUDIO_WRONG = "assets/audios/keyboard_error.mp3";
+  static const String AUDIO_CORRECT = "packages/citmatel_strawberry_tools/assets/audios/keyboard_correct.wav";
+  static const String AUDIO_WRONG = "packages/citmatel_strawberry_tools/assets/audios/keyboard_error.mp3";
 
   final assetsAudioPlayer = AssetsAudioPlayer();
 
