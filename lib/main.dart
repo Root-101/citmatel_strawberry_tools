@@ -1,4 +1,6 @@
+import 'package:citmatel_strawberry_tools/src/a_utils/strawberry_audio.dart';
 import 'package:flutter/material.dart';
+import 'package:vibration/vibration.dart';
 
 void main() {
   runApp(const MyApp());
@@ -58,6 +60,14 @@ class _MyHomePageState extends State<MyHomePage> {
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
       _counter++;
+      Vibration.hasVibrator().then((value) {
+        if (value == true) {
+          Vibration.vibrate(duration: 500);
+        } else {
+          _counter += 100;
+        }
+        return value;
+      });
     });
   }
 
@@ -101,6 +111,18 @@ class _MyHomePageState extends State<MyHomePage> {
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                StrawberryAudio.playAudioCorrect();
+              },
+              child: Text("Good"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                StrawberryAudio.playAudioWrong();
+              },
+              child: Text("Bad"),
             ),
           ],
         ),
