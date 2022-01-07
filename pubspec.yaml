@@ -32,3 +32,5 @@ flutter:
   assets:
     - packages/citmatel_strawberry_tools/assets/audios/keyboard_correct.wav
     - packages/citmatel_strawberry_tools/assets/audios/keyboard_error.mp3
+    - packages/citmatel_strawberry_tools/assets/icons/baby_boy.png
+    - packages/citmatel_strawberry_tools/assets/icons/baby_girl.png
