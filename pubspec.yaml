@@ -20,6 +20,12 @@ dependencies:
   #Audio
   assets_audio_player: ^3.0.3+9
 
+  #Make Conffeti Effect
+  animated_background: ^2.0.0
+
+  #Animated Letters
+  animated_text_kit: ^4.2.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -32,3 +38,5 @@ flutter:
   assets:
     - packages/citmatel_strawberry_tools/assets/audios/keyboard_correct.wav
     - packages/citmatel_strawberry_tools/assets/audios/keyboard_error.mp3
+    - packages/citmatel_strawberry_tools/assets/icons/baby_boy.png
+    - packages/citmatel_strawberry_tools/assets/icons/baby_girl.png
