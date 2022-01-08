@@ -15,6 +15,9 @@ dependencies:
 
   cupertino_icons: ^1.0.2
 
+  # Architecture & Management
+  get: ^4.5.1
+
   #Utils
   vibration: ^1.7.4-nullsafety.0
   #Audio
@@ -38,5 +41,7 @@ flutter:
   assets:
     - packages/citmatel_strawberry_tools/assets/audios/keyboard_correct.wav
     - packages/citmatel_strawberry_tools/assets/audios/keyboard_error.mp3
+    - packages/citmatel_strawberry_tools/assets/audios/lose_sad_trombone.wav
+    - packages/citmatel_strawberry_tools/assets/audios/win_applause.wav
     - packages/citmatel_strawberry_tools/assets/icons/baby_boy.png
     - packages/citmatel_strawberry_tools/assets/icons/baby_girl.png
