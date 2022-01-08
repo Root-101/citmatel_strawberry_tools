@@ -12,6 +12,14 @@ class StrawberryAudio {
     playAudio(ToolsAssets.AUDIO_WRONG);
   }
 
+  static void playAudioWin() {
+    playAudio(ToolsAssets.AUDIO_WIN);
+  }
+
+  static void playAudioLose() {
+    playAudio(ToolsAssets.AUDIO_LOSE);
+  }
+
   static void playAudio(String audioUrl) {
     AssetsAudioPlayer.playAndForget(
       Audio(audioUrl),

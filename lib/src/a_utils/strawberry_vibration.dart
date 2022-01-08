@@ -6,4 +6,12 @@ class StrawberryVibration {
       duration: duration,
     );
   }
+
+  static Future<void> vibrateWithWinPattern({int duration = 7000}) {
+    return Vibration.vibrate(
+      pattern: [500, 500, 500, 1000],
+      intensities: [1, 255],
+      duration: duration,
+    );
+  }
 }
