@@ -10,6 +10,7 @@ class StrawberryFunction {
   static void winLevel() async {
     await Future.delayed(const Duration(seconds: 3));
     StrawberryAudio.playAudioWin();
+    StrawberryVibration.vibrateWithWinPattern();
     Get.offNamed(StrawberryLevelWin.ROUTE_NAME);
   }
 }
