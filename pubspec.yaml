@@ -25,6 +25,7 @@ dependencies:
 
   #Make Conffeti Effect
   animated_background: ^2.0.0
+  confetti: ^0.6.0
 
   #Animated Letters
   animated_text_kit: ^4.2.1
