@@ -10,4 +10,6 @@ class ToolsAssets {
   ////AUDIOS///
   static const String AUDIO_CORRECT = "$_audios/keyboard_correct.wav";
   static const String AUDIO_WRONG = "$_audios/keyboard_error.mp3";
+  static const String AUDIO_LOSE = "$_audios/lose_sad_trombone.wav";
+  static const String AUDIO_WIN = "$_audios/win_applause.wav";
 }
