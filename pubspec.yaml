@@ -18,6 +18,9 @@ dependencies:
   # Architecture & Management
   get: ^4.5.1
 
+  #Animations
+  flutter_spinkit: ^5.1.0
+
   #Utils
   vibration: ^1.7.4-nullsafety.0
   #Audio
