@@ -1,15 +1,18 @@
-import 'package:animated_background/animated_background.dart';
-import 'package:citmatel_strawberry_tools/src/a_utils/strawberry_animated_text_kit.dart';
+import 'package:citmatel_strawberry_tools/tools_exporter.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class StrawberryLevelWin extends StatefulWidget {
   static const ROUTE_NAME = "/tools-win-level-screen";
 
-  late Widget _childFirstText =
-      StrawberryAnimatedTextKit.congratsAnimatedText();
-  late Widget _childSecondText =
-      StrawberryAnimatedTextKit.congratsLongAnimatedText();
+  late Widget _childFirstText = StrawberryAnimatedTextKit.colorizeAnimatedText(
+    text: 'Felicidades',
+    repeatForever: true,
+  );
+
+  late Widget _childSecondText = StrawberryAnimatedTextKit.rotateAnimatedText(
+      texts: ['Has Ganado', 'Lo Lograste', 'Eres el Mejor'],
+      repeatForever: true);
 
   StrawberryLevelWin(
       {Key? key, Widget? childFirstText, Widget? childSecondText})
@@ -31,20 +34,11 @@ class _StrawberryLevelWinState extends State<StrawberryLevelWin>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: AnimatedBackground(
-        behaviour: RandomParticleBehaviour(
-          options: const ParticleOptions(
-            baseColor: Colors.blueAccent,
-          ),
-        ),
+      body: StrawberryWidgets.animateBackground(
         vsync: this,
-        child: AnimatedBackground(
-          behaviour: RandomParticleBehaviour(
-            options: const ParticleOptions(
-              baseColor: Colors.red,
-            ),
-          ),
+        child: StrawberryWidgets.animateBackground(
           vsync: this,
+          baseColor: Colors.red,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
