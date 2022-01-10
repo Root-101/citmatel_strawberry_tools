@@ -6,3 +6,4 @@ export 'strawberry_loading_spinkit.dart';
 export 'strawberry_vibration.dart';
 export 'strawberry_animated_text_kit.dart';
 export 'strawberry_widgets.dart';
+export 'strawberry_constants.dart';
