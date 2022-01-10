@@ -1,11 +1,29 @@
-import 'package:animated_background/animated_background.dart';
-import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:citmatel_strawberry_tools/tools_exporter.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class StrawberryLevelWin extends StatefulWidget {
   static const ROUTE_NAME = "/tools-win-level-screen";
 
-  const StrawberryLevelWin({Key? key}) : super(key: key);
+  late Widget _childFirstText = StrawberryAnimatedTextKit.colorizeAnimatedText(
+    text: 'Felicidades',
+    repeatForever: true,
+  );
+
+  late Widget _childSecondText = StrawberryAnimatedTextKit.rotateAnimatedText(
+      texts: ['Has Ganado', 'Lo Lograste', 'Eres el Mejor'],
+      repeatForever: true);
+
+  StrawberryLevelWin(
+      {Key? key, Widget? childFirstText, Widget? childSecondText})
+      : super(key: key) {
+    if (childFirstText != null) {
+      _childFirstText = childFirstText;
+    }
+    if (childSecondText != null) {
+      _childSecondText = childSecondText;
+    }
+  }
 
   @override
   State<StrawberryLevelWin> createState() => _StrawberryLevelWinState();
@@ -15,62 +33,18 @@ class _StrawberryLevelWinState extends State<StrawberryLevelWin>
     with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
-    const colorizeColors = [
-      Colors.purple,
-      Colors.blue,
-      Colors.yellow,
-      Colors.red,
-    ];
-
-    const colorizeTextStyle = TextStyle(
-      fontSize: 70.0,
-      fontFamily: 'Horizon',
-    );
     return Scaffold(
-      body: AnimatedBackground(
-        behaviour: RandomParticleBehaviour(
-          options: const ParticleOptions(
-            baseColor: Colors.blueAccent,
-          ),
-        ),
+      body: StrawberryWidgets.animateBackground(
         vsync: this,
-        child: AnimatedBackground(
-          behaviour: RandomParticleBehaviour(
-            options: const ParticleOptions(
-              baseColor: Colors.red,
-            ),
-          ),
+        child: StrawberryWidgets.animateBackground(
           vsync: this,
+          baseColor: Colors.red,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              SizedBox(
-                child: AnimatedTextKit(
-                  animatedTexts: [
-                    ColorizeAnimatedText(
-                      'Felicidades',
-                      textStyle: colorizeTextStyle,
-                      colors: colorizeColors,
-                    ),
-                  ],
-                  repeatForever: true,
-                ),
-              ),
-              DefaultTextStyle(
-                style: const TextStyle(
-                  fontSize: 50.0,
-                  color: Colors.blueAccent,
-                ),
-                child: AnimatedTextKit(
-                  animatedTexts: [
-                    RotateAnimatedText('Has Ganado'),
-                    RotateAnimatedText('Lo Lograste'),
-                    RotateAnimatedText('Eres el Mejor'),
-                  ],
-                  repeatForever: true,
-                ),
-              ),
+              widget._childFirstText,
+              widget._childSecondText,
             ],
           ),
         ),
