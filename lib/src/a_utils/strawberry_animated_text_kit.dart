@@ -1,18 +1,12 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:citmatel_strawberry_tools/src/a_utils/utils_exporter.dart';
 import 'package:flutter/material.dart';
 
 class StrawberryAnimatedTextKit {
-  static const colorizeColors = [
-    Colors.purple,
-    Colors.blue,
-    Colors.yellow,
-    Colors.red,
-  ];
-
   static Widget colorizeAnimatedText({
     required String text,
     double fontSize = 70.0,
-    List<MaterialColor> listOfColors = colorizeColors,
+    List<MaterialColor> listOfColors = StrawberryConstants.listOfColors,
     bool repeatForever = false,
     TextAlign textAlign = TextAlign.center,
   }) {
