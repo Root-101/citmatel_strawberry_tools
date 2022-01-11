@@ -56,7 +56,6 @@ class StrawberryWidgets {
 
   static Widget circularButtonWithIcon({
     required Function onPressed,
-    Color iconColor = Colors.white,
     Color splashColor = Colors.blueGrey,
     Color backgrounColor = Colors.lightBlue,
     Widget child = const Icon(Icons.settings_backup_restore_rounded),
@@ -68,8 +67,6 @@ class StrawberryWidgets {
       elevation: 20,
       // Highlight elevation is the elevation of the button when tapped.
       highlightElevation: 50,
-      // The forgroundColor property is used to change the color of a child — in this case, the icon’s color.
-      foregroundColor: iconColor,
       // The color of the splash.
       splashColor: splashColor,
       // What is supouse to happend when is pressed.
@@ -88,13 +85,41 @@ class StrawberryWidgets {
       preferences: AnimationPreferences(
         autoPlay: autoPlay,
       ),
-      child: Icon(
-        // The icon tha the button is going to have.
-        icon,
-        // The color of the icon.
-        color: iconColor,
-        // The size of the icon.
-        size: 40,
+      child: normalIcon(
+        icon: icon,
+        iconColor: iconColor,
+      ),
+    );
+  }
+
+  static Widget pulseIconAnimation({
+    IconData icon = Icons.settings_backup_restore_rounded,
+    Color iconColor = Colors.white,
+    AnimationPlayStates autoPlay = AnimationPlayStates.Loop,
+  }) {
+    return Pulse(
+      preferences: AnimationPreferences(
+        autoPlay: autoPlay,
+      ),
+      child: normalIcon(
+        icon: icon,
+        iconColor: iconColor,
+      ),
+    );
+  }
+
+  static Widget heartBeatIconAnimation({
+    IconData icon = Icons.settings_backup_restore_rounded,
+    Color iconColor = Colors.white,
+    AnimationPlayStates autoPlay = AnimationPlayStates.Loop,
+  }) {
+    return HeartBeat(
+      preferences: AnimationPreferences(
+        autoPlay: autoPlay,
+      ),
+      child: normalIcon(
+        icon: icon,
+        iconColor: iconColor,
       ),
     );
   }
