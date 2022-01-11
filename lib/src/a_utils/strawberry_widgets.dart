@@ -2,6 +2,7 @@ import 'package:animated_background/animated_background.dart';
 import 'package:citmatel_strawberry_tools/tools_exporter.dart';
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animator/flutter_animator.dart';
 
 class StrawberryWidgets {
   // Widgets comuns in StrawberrysProjects
@@ -52,4 +53,31 @@ class StrawberryWidgets {
       colors: listOfColors,
     );
   }
+
+  static Widget circularButtonWithIcon({
+    required Function onPressed,
+    Color iconColor = Colors.white,
+    Color splashColor = Colors.blueGrey,
+    Color backgrounColor = Colors.lightBlue,
+    Widget child = const Icon(Icons.settings_backup_restore_rounded),
+  }) {
+    return FloatingActionButton(
+      // The color of the circle.
+      backgroundColor: backgrounColor,
+      // The elevation of the button.
+      elevation: 20,
+      // Highlight elevation is the elevation of the button when tapped.
+      highlightElevation: 50,
+      // The forgroundColor property is used to change the color of a child — in this case, the icon’s color.
+      foregroundColor: iconColor,
+      // The color of the splash.
+      splashColor: splashColor,
+      // What is supouse to happend when is pressed.
+      onPressed: () => onPressed,
+      // The icon with the animation that the button is going to have.
+      child: child,
+    );
+  }
+
+ 
 }
