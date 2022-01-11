@@ -1,6 +1,7 @@
 import 'package:citmatel_strawberry_tools/tools_exporter.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class StrawberryLevelLose extends StatefulWidget {
   static const ROUTE_NAME = "/tools-loose-level-screen";
 
@@ -8,9 +9,14 @@ class StrawberryLevelLose extends StatefulWidget {
     texts: ['Has perdido.', 'Inténtalo de nuevo.', 'El que persevera triunfa.'],
   );
 
+  final Function()? leftButtonFunction;
+  final Function()? rightButtonFunction;
+
   StrawberryLevelLose({
     Key? key,
     Widget? childFirstText,
+    this.leftButtonFunction,
+    this.rightButtonFunction,
   }) : super(key: key) {
     if (childFirstText != null) {
       _childFirstText = childFirstText;
@@ -27,7 +33,15 @@ class _StrawberryLevelLoseState extends State<StrawberryLevelLose>
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: StrawberryWidgets.circularButtonWithIcon(
-        onPressed: () => print("object"),
+        onPressed: widget.rightButtonFunction,
+        // An example of how to use the functions of StrawberryFunction.winLevel
+        // onPressed: () => StrawberryFunction.winLevel(
+        //   childFirstText: StrawberryAnimatedTextKit.colorizeAnimatedText(
+        //     text: 'kanhodashodhas',
+        //     repeatForever: true,
+        //   ),
+        //   leftButtonFunction: () => StrawberryFunction.looseLevel(),
+        // ),
         child: StrawberryWidgets.pulseIconAnimation(
           icon: Icons.home_sharp,
         ),
@@ -45,7 +59,7 @@ class _StrawberryLevelLoseState extends State<StrawberryLevelLose>
                 alignment: Alignment.bottomLeft,
                 padding: const EdgeInsets.all(15),
                 child: StrawberryWidgets.circularButtonWithIcon(
-                  onPressed: () => print("object"),
+                  onPressed: widget.leftButtonFunction,
                   child: StrawberryWidgets.rotateIconAnimation(),
                 ),
               ),
