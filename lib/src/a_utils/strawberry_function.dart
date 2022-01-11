@@ -4,13 +4,13 @@ import 'package:get/get.dart';
 
 class StrawberryFunction {
   // This show a screen that tell to user it lost.
-  static void looseLevel({
-    Transition transition = Transition.zoom,
-    Duration duration = const Duration(seconds: 2),
-    Function()? leftButtonFunction,
-    Function()? rightButtonFunction,
-    Widget? childFirstText,
-  }) {
+  static void looseLevel(
+      {Transition transition = Transition.zoom,
+      Duration duration = const Duration(seconds: 2),
+      Function()? leftButtonFunction,
+      Function()? rightButtonFunction,
+      Widget? childFirstText,
+      ImageProvider? backgroundImage}) {
     StrawberryAudio.playAudioLose();
     Get.to(
       // Go to a determinated page.
@@ -21,6 +21,8 @@ class StrawberryFunction {
         leftButtonFunction: leftButtonFunction,
         // The Function that is going to be executed when the right button is pressed.
         rightButtonFunction: rightButtonFunction,
+        // The image thas is going to go in the background.
+        backgroundImage: backgroundImage,
       ),
       // The transition of one page to another.
       transition: transition,
@@ -30,15 +32,15 @@ class StrawberryFunction {
   }
 
   // This show a screen that tell to user it win.
-  static void winLevel({
-    Transition transition = Transition.zoom,
-    Duration duration = const Duration(seconds: 2),
-    Duration timeBeforeTheTransition = const Duration(seconds: 3),
-    Function()? leftButtonFunction,
-    Function()? rightButtonFunction,
-    Widget? childFirstText,
-    Widget? childSecondText,
-  }) async {
+  static void winLevel(
+      {Transition transition = Transition.zoom,
+      Duration duration = const Duration(seconds: 2),
+      Duration timeBeforeTheTransition = const Duration(seconds: 3),
+      Function()? leftButtonFunction,
+      Function()? rightButtonFunction,
+      Widget? childFirstText,
+      Widget? childSecondText,
+      ImageProvider? backgroundImage}) async {
     // Time before push one page above other.
     await Future.delayed(timeBeforeTheTransition);
     StrawberryAudio.playAudioWin();
@@ -54,6 +56,8 @@ class StrawberryFunction {
         leftButtonFunction: leftButtonFunction,
         // The Function that is going to be executed when the right button is pressed.
         rightButtonFunction: rightButtonFunction,
+        // The image thas is going to go in the background.
+        backgroundImage: backgroundImage,
       ),
       // The transition of one page to another.
       transition: transition,

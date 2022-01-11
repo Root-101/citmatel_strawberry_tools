@@ -1,5 +1,6 @@
 import 'package:citmatel_strawberry_tools/tools_exporter.dart';
 import 'package:flutter/material.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 // ignore: must_be_immutable
 class StrawberryLevelLose extends StatefulWidget {
@@ -12,14 +13,20 @@ class StrawberryLevelLose extends StatefulWidget {
   final Function()? leftButtonFunction;
   final Function()? rightButtonFunction;
 
+  ImageProvider _backgroundImage = MemoryImage(kTransparentImage);
+
   StrawberryLevelLose({
     Key? key,
     Widget? childFirstText,
     this.leftButtonFunction,
     this.rightButtonFunction,
+    ImageProvider? backgroundImage,
   }) : super(key: key) {
     if (childFirstText != null) {
       _childFirstText = childFirstText;
+    }
+    if (backgroundImage != null) {
+      _backgroundImage = backgroundImage;
     }
   }
 
@@ -46,28 +53,37 @@ class _StrawberryLevelLoseState extends State<StrawberryLevelLose>
           icon: Icons.home_sharp,
         ),
       ),
-      body: StrawberryWidgets.animateBackground(
-        vsync: this,
-        image: Image.asset(ToolsAssets.ICON_BABY_BOY),
+      body: Container(
+        decoration: BoxDecoration(
+          color: Colors.black,
+          image: DecorationImage(
+            image: widget._backgroundImage,
+            fit: BoxFit.cover,
+          ),
+        ),
         child: StrawberryWidgets.animateBackground(
           vsync: this,
-          baseColor: Colors.red,
-          image: Image.asset(ToolsAssets.ICON_BABY_GIRL),
-          child: Stack(
-            children: [
-              Container(
-                alignment: Alignment.bottomLeft,
-                padding: const EdgeInsets.all(15),
-                child: StrawberryWidgets.circularButtonWithIcon(
-                  onPressed: widget.leftButtonFunction,
-                  child: StrawberryWidgets.rotateIconAnimation(),
+          image: Image.asset(ToolsAssets.ICON_BABY_BOY),
+          child: StrawberryWidgets.animateBackground(
+            vsync: this,
+            baseColor: Colors.red,
+            image: Image.asset(ToolsAssets.ICON_BABY_GIRL),
+            child: Stack(
+              children: [
+                Container(
+                  alignment: Alignment.bottomLeft,
+                  padding: const EdgeInsets.all(15),
+                  child: StrawberryWidgets.circularButtonWithIcon(
+                    onPressed: widget.leftButtonFunction,
+                    child: StrawberryWidgets.rotateIconAnimation(),
+                  ),
                 ),
-              ),
-              Container(
-                alignment: Alignment.center,
-                child: widget._childFirstText,
-              ),
-            ],
+                Container(
+                  alignment: Alignment.center,
+                  child: widget._childFirstText,
+                ),
+              ],
+            ),
           ),
         ),
       ),
