@@ -55,7 +55,7 @@ class StrawberryWidgets {
   }
 
   static Widget circularButtonWithIcon({
-    required Function onPressed,
+    required Function()? onPressed,
     Color splashColor = Colors.blueGrey,
     Color backgrounColor = Colors.lightBlue,
     Widget child = const Icon(Icons.settings_backup_restore_rounded),
@@ -70,7 +70,7 @@ class StrawberryWidgets {
       // The color of the splash.
       splashColor: splashColor,
       // What is supouse to happend when is pressed.
-      onPressed: () => onPressed,
+      onPressed: onPressed,
       // The icon with the animation that the button is going to have.
       child: child,
     );
