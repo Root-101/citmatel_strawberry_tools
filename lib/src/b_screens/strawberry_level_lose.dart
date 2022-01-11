@@ -26,6 +26,12 @@ class _StrawberryLevelLoseState extends State<StrawberryLevelLose>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: StrawberryWidgets.circularButtonWithIcon(
+        onPressed: () => print("object"),
+        child: StrawberryWidgets.pulseIconAnimation(
+          icon: Icons.home_sharp,
+        ),
+      ),
       body: StrawberryWidgets.animateBackground(
         vsync: this,
         image: Image.asset(ToolsAssets.ICON_BABY_BOY),
@@ -33,9 +39,21 @@ class _StrawberryLevelLoseState extends State<StrawberryLevelLose>
           vsync: this,
           baseColor: Colors.red,
           image: Image.asset(ToolsAssets.ICON_BABY_GIRL),
-          child: Container(
-            alignment: Alignment.center,
-            child: widget._childFirstText,
+          child: Stack(
+            children: [
+              Container(
+                alignment: Alignment.bottomLeft,
+                padding: const EdgeInsets.all(15),
+                child: StrawberryWidgets.circularButtonWithIcon(
+                  onPressed: () => print("object"),
+                  child: StrawberryWidgets.rotateIconAnimation(),
+                ),
+              ),
+              Container(
+                alignment: Alignment.center,
+                child: widget._childFirstText,
+              ),
+            ],
           ),
         ),
       ),

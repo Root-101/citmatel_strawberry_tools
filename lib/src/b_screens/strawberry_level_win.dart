@@ -34,17 +34,37 @@ class _StrawberryLevelWinState extends State<StrawberryLevelWin>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: StrawberryWidgets.circularButtonWithIcon(
+        onPressed: () => print("object"),
+        child: StrawberryWidgets.pulseIconAnimation(
+          icon: Icons.home_sharp,
+        ),
+      ),
       body: StrawberryWidgets.animateBackground(
         vsync: this,
         child: StrawberryWidgets.animateBackground(
           vsync: this,
           baseColor: Colors.red,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              widget._childFirstText,
-              widget._childSecondText,
+          child: Stack(
+            children: [
+              Container(
+                alignment: Alignment.bottomLeft,
+                padding: const EdgeInsets.all(15),
+                child: StrawberryWidgets.circularButtonWithIcon(
+                  onPressed: () => print("object"),
+                  child: StrawberryWidgets.heartBeatIconAnimation(
+                    icon: Icons.next_plan_outlined,
+                  ),
+                ),
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  widget._childFirstText,
+                  widget._childSecondText,
+                ],
+              ),
             ],
           ),
         ),
