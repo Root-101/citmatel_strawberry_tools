@@ -14,9 +14,16 @@ class StrawberryLevelWin extends StatefulWidget {
       texts: ['Has Ganado', 'Lo Lograste', 'Eres el Mejor'],
       repeatForever: true);
 
-  StrawberryLevelWin(
-      {Key? key, Widget? childFirstText, Widget? childSecondText})
-      : super(key: key) {
+  final Function()? leftButtonFunction;
+  final Function()? rightButtonFunction;
+
+  StrawberryLevelWin({
+    Key? key,
+    Widget? childFirstText,
+    Widget? childSecondText,
+    this.leftButtonFunction,
+    this.rightButtonFunction,
+  }) : super(key: key) {
     if (childFirstText != null) {
       _childFirstText = childFirstText;
     }
@@ -35,7 +42,7 @@ class _StrawberryLevelWinState extends State<StrawberryLevelWin>
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: StrawberryWidgets.circularButtonWithIcon(
-        onPressed: () => print("object"),
+        onPressed: widget.rightButtonFunction,
         child: StrawberryWidgets.pulseIconAnimation(
           icon: Icons.home_sharp,
         ),
@@ -51,7 +58,7 @@ class _StrawberryLevelWinState extends State<StrawberryLevelWin>
                 alignment: Alignment.bottomLeft,
                 padding: const EdgeInsets.all(15),
                 child: StrawberryWidgets.circularButtonWithIcon(
-                  onPressed: () => print("object"),
+                  onPressed: widget.leftButtonFunction,
                   child: StrawberryWidgets.heartBeatIconAnimation(
                     icon: Icons.next_plan_outlined,
                   ),
