@@ -79,5 +79,37 @@ class StrawberryWidgets {
     );
   }
 
- 
+  static Widget rotateIconAnimation({
+    IconData icon = Icons.settings_backup_restore_rounded,
+    Color iconColor = Colors.white,
+    AnimationPlayStates autoPlay = AnimationPlayStates.Loop,
+  }) {
+    return RotateIn(
+      preferences: AnimationPreferences(
+        autoPlay: autoPlay,
+      ),
+      child: Icon(
+        // The icon tha the button is going to have.
+        icon,
+        // The color of the icon.
+        color: iconColor,
+        // The size of the icon.
+        size: 40,
+      ),
+    );
+  }
+
+  static Widget normalIcon({
+    IconData icon = Icons.settings_backup_restore_rounded,
+    Color iconColor = Colors.white,
+  }) {
+    return Icon(
+      // The icon tha the button is going to have.
+      icon,
+      // The color of the icon.
+      color: iconColor,
+      // The size of the icon.
+      size: 40,
+    );
+  }
 }
