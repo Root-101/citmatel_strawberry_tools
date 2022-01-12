@@ -68,21 +68,35 @@ class _StrawberryLevelLoseState extends State<StrawberryLevelLose>
             vsync: this,
             baseColor: Colors.red,
             image: Image.asset(ToolsAssets.ICON_BABY_GIRL),
-            child: Stack(
-              children: [
-                Container(
-                  alignment: Alignment.bottomLeft,
-                  padding: const EdgeInsets.all(15),
-                  child: StrawberryWidgets.circularButtonWithIcon(
-                    onPressed: widget.leftButtonFunction,
-                    child: StrawberryWidgets.rotateIconAnimation(),
+            child: Padding(
+              padding: const EdgeInsets.only(top: 130),
+              child: Stack(
+                children: [
+                  Container(
+                    alignment: Alignment.topCenter,
+                    height: 300,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(ToolsAssets.IMAGE_SAD_BRAIN),
+                        //   fit: BoxFit.cover,
+                      ),
+                    ),
                   ),
-                ),
-                Container(
-                  alignment: Alignment.center,
-                  child: widget._childFirstText,
-                ),
-              ],
+                  Container(
+                    alignment: Alignment.bottomLeft,
+                    padding: const EdgeInsets.all(15),
+                    child: StrawberryWidgets.circularButtonWithIcon(
+                      onPressed: widget.leftButtonFunction,
+                      child: StrawberryWidgets.rotateIconAnimation(),
+                    ),
+                  ),
+                  Container(
+                  padding: const EdgeInsets.only(top: 200),
+                    alignment: Alignment.center,
+                    child: widget._childFirstText,
+                  ),
+                ],
+              ),
             ),
           ),
         ),
