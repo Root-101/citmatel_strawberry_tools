@@ -7,6 +7,7 @@ class StrawberryLevelLose extends StatefulWidget {
   static const ROUTE_NAME = "/tools-loose-level-screen";
 
   late Widget _childFirstText = StrawberryAnimatedTextKit.rotateAnimatedText(
+    repeatForever: true,
     texts: ['Has perdido.', 'Inténtalo de nuevo.', 'El que persevera triunfa.'],
   );
 
@@ -67,45 +68,39 @@ class _StrawberryLevelLoseState extends State<StrawberryLevelLose>
           ),
         ),
         //// THE ANIMATED BACKGROUND ////
-        child: StrawberryWidgets.animateBackground(
+        child: StrawberryWidgets.animateRainBackground(
           vsync: this,
-          image: Image.asset(ToolsAssets.ICON_BABY_BOY),
-          child: StrawberryWidgets.animateBackground(
-            vsync: this,
-            baseColor: Colors.red,
-            image: Image.asset(ToolsAssets.ICON_BABY_GIRL),
-            child: Padding(
-              padding: const EdgeInsets.only(top: 130),
-              child: Stack(
-                children: [
-                  //// THE IMAGE OF THE BRAIN ////
-                  Container(
-                    alignment: Alignment.topCenter,
-                    height: 300,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage(ToolsAssetsSadBrain.randomSadBrain()),
-                      ),
+          child: Stack(
+            children: [
+              //// THE IMAGE OF THE BRAIN ////
+              Padding(
+                padding: const EdgeInsets.only(top: 330),
+                child: Container(
+                  alignment: Alignment.topCenter,
+                  height: 300,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(ToolsAssetsSadBrain.randomSadBrain()),
                     ),
                   ),
-                  //// THE LEFT BUTTON ////
-                  Container(
-                    alignment: Alignment.bottomLeft,
-                    padding: const EdgeInsets.all(15),
-                    child: StrawberryWidgets.circularButtonWithIcon(
-                      onPressed: widget.leftButtonFunction,
-                      child: StrawberryWidgets.rotateIconAnimation(),
-                    ),
-                  ),
-                  //// THE ANIMATED TEXT ////
-                  Container(
-                    padding: const EdgeInsets.only(top: 200),
-                    alignment: Alignment.center,
-                    child: widget._childFirstText,
-                  ),
-                ],
+                ),
               ),
-            ),
+              //// THE LEFT BUTTON ////
+              Container(
+                alignment: Alignment.bottomLeft,
+                padding: const EdgeInsets.all(15),
+                child: StrawberryWidgets.circularButtonWithIcon(
+                  onPressed: widget.leftButtonFunction,
+                  child: StrawberryWidgets.rotateIconAnimation(),
+                ),
+              ),
+              //// THE ANIMATED TEXT ////
+              Container(
+                padding: const EdgeInsets.only(top: 90),
+                alignment: Alignment.topCenter,
+                child: widget._childFirstText,
+              ),
+            ],
           ),
         ),
       ),
