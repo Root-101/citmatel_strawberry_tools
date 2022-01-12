@@ -29,6 +29,25 @@ class StrawberryWidgets {
     );
   }
 
+  // Makes the backgroun animated, like rain.
+  static Widget animateRainBackground({
+    required TickerProvider vsync,
+    required Widget child,
+    int numLines = 70,
+  }) {
+    return AnimatedBackground(
+      behaviour: RacingLinesBehaviour(
+          // The direction of the particles.
+          direction: LineDirection.Ttb,
+          // The number of lines in the screen.
+          numLines: numLines),
+      // So the particles can move arround the screen.
+      vsync: vsync,
+      // The widget tree above the background particle.
+      child: child,
+    );
+  }
+
   //Makes cofetti.
   static Widget confettiWidget({
     required ConfettiController confettiController,
