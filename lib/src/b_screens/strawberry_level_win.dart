@@ -78,13 +78,13 @@ class _StrawberryLevelWinState extends State<StrawberryLevelWin>
               children: [
                 //// THE IMAGE OF THE TROFIE ////
                 Padding(
-                  padding: const EdgeInsets.only(top: 70),
+                  padding: const EdgeInsets.only(top: 60),
                   child: Tada(
                     preferences: const AnimationPreferences(
                         autoPlay: AnimationPlayStates.Loop),
                     child: Container(
                       alignment: Alignment.bottomCenter,
-                      height: 200,
+                      height: 180,
                       decoration: BoxDecoration(
                         image: DecorationImage(
                           image: AssetImage(
@@ -97,12 +97,12 @@ class _StrawberryLevelWinState extends State<StrawberryLevelWin>
                 ),
                 //// THE ANIMATED TEXT ////
                 Padding(
-                  padding: const EdgeInsets.only(top: 290),
+                  padding: const EdgeInsets.only(top: 180),
                   child: Stack(
                     children: [
                       widget._childFirstText,
                       Padding(
-                        padding: const EdgeInsets.only(top: 40),
+                        padding: const EdgeInsets.only(top: 150),
                         child: widget._childSecondText,
                       ),
                     ],
@@ -116,7 +116,7 @@ class _StrawberryLevelWinState extends State<StrawberryLevelWin>
                         autoPlay: AnimationPlayStates.Loop),
                     child: Container(
                       alignment: Alignment.bottomCenter,
-                      height: 200,
+                      height: 180,
                       decoration: BoxDecoration(
                         image: DecorationImage(
                           image: AssetImage(
