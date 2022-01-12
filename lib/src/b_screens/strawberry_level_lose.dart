@@ -39,7 +39,9 @@ class _StrawberryLevelLoseState extends State<StrawberryLevelLose>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //// THE RIGHT BUTTON ////
       floatingActionButton: StrawberryWidgets.circularButtonWithIcon(
+        // The function to display when the rigth button is pressed.
         onPressed: widget.rightButtonFunction,
         // An example of how to use the functions of StrawberryFunction.winLevel
         // onPressed: () => StrawberryFunction.winLevel(
@@ -50,17 +52,21 @@ class _StrawberryLevelLoseState extends State<StrawberryLevelLose>
         //   leftButtonFunction: () => StrawberryFunction.looseLevel(),
         // ),
         child: StrawberryWidgets.pulseIconAnimation(
+          // The icon of the button with an animation.
           icon: Icons.home_sharp,
         ),
       ),
       body: Container(
         decoration: BoxDecoration(
+          // The background color.
           color: Colors.black,
           image: DecorationImage(
+            // If it exits a background image.
             image: widget._backgroundImage,
             fit: BoxFit.cover,
           ),
         ),
+        //// THE ANIMATED BACKGROUND ////
         child: StrawberryWidgets.animateBackground(
           vsync: this,
           image: Image.asset(ToolsAssets.ICON_BABY_BOY),
@@ -72,16 +78,17 @@ class _StrawberryLevelLoseState extends State<StrawberryLevelLose>
               padding: const EdgeInsets.only(top: 130),
               child: Stack(
                 children: [
+                  //// THE IMAGE OF THE BRAIN ////
                   Container(
                     alignment: Alignment.topCenter,
                     height: 300,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage(ToolsAssets.IMAGE_SAD_BRAIN),
-                        //   fit: BoxFit.cover,
+                        image: AssetImage(ToolsAssetsSadBrain.randomSadBrain()),
                       ),
                     ),
                   ),
+                  //// THE LEFT BUTTON ////
                   Container(
                     alignment: Alignment.bottomLeft,
                     padding: const EdgeInsets.all(15),
@@ -90,8 +97,9 @@ class _StrawberryLevelLoseState extends State<StrawberryLevelLose>
                       child: StrawberryWidgets.rotateIconAnimation(),
                     ),
                   ),
+                  //// THE ANIMATED TEXT ////
                   Container(
-                  padding: const EdgeInsets.only(top: 200),
+                    padding: const EdgeInsets.only(top: 200),
                     alignment: Alignment.center,
                     child: widget._childFirstText,
                   ),
