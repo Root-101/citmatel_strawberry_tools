@@ -51,5 +51,8 @@ flutter:
     - packages/citmatel_strawberry_tools/assets/audios/lose_sad_trombone.wav
     - packages/citmatel_strawberry_tools/assets/audios/win_applause.wav
     - packages/citmatel_strawberry_tools/assets/icons/baby_boy.png
-    - packages/citmatel_strawberry_tools/assets/icons/baby_girl.png    
-    - packages/citmatel_strawberry_tools/assets/images/sad_brain.png
+    - packages/citmatel_strawberry_tools/assets/icons/baby_girl.png
+    - packages/citmatel_strawberry_tools/assets/images/sad_brain/sad_brain.png
+    - packages/citmatel_strawberry_tools/assets/images/happy_brain/happy_1.png
+    - packages/citmatel_strawberry_tools/assets/images/happy_brain/happy_2.png
+    - packages/citmatel_strawberry_tools/assets/images/happy_brain/happy_3.png

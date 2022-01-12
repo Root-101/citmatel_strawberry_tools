@@ -2,7 +2,7 @@ class ToolsAssets {
   static const _assets = "packages/citmatel_strawberry_tools/assets";
   static const _icons = "$_assets/icons";
   static const _audios = "$_assets/audios";
-  static const _images = "$_assets/images";
+  static const images = "$_assets/images";
 
   ////ICONS////
   static const String ICON_BABY_BOY = "$_icons/baby_boy.png";
@@ -15,5 +15,4 @@ class ToolsAssets {
   static const String AUDIO_WIN = "$_audios/win_applause.wav";
 
   ////IMAGES///
-  static const String IMAGE_SAD_BRAIN = "$_images/sad_brain.png";
 }
