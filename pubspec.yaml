@@ -20,9 +20,12 @@ dependencies:
 
   #Animations
   flutter_spinkit: ^5.1.0
+  flutter_animator: ^3.2.0
 
   #Utils
   vibration: ^1.7.4-nullsafety.0
+  transparent_image: ^2.0.0
+
   #Audio
   assets_audio_player: ^3.0.3+9
 
@@ -49,3 +52,15 @@ flutter:
     - packages/citmatel_strawberry_tools/assets/audios/win_applause.wav
     - packages/citmatel_strawberry_tools/assets/icons/baby_boy.png
     - packages/citmatel_strawberry_tools/assets/icons/baby_girl.png
+    - packages/citmatel_strawberry_tools/assets/images/sad_brain/sad_brain.png
+    - packages/citmatel_strawberry_tools/assets/images/happy_brain/happy_1.png
+    - packages/citmatel_strawberry_tools/assets/images/happy_brain/happy_2.png
+    - packages/citmatel_strawberry_tools/assets/images/happy_brain/happy_3.png
+    - packages/citmatel_strawberry_tools/assets/images/trofie/cup_1.png
+    - packages/citmatel_strawberry_tools/assets/images/trofie/cup_2.png
+    - packages/citmatel_strawberry_tools/assets/images/trofie/cup_3.png
+    - packages/citmatel_strawberry_tools/assets/images/trofie/cup_4.png
+    - packages/citmatel_strawberry_tools/assets/images/trofie/cup_5.png
+    - packages/citmatel_strawberry_tools/assets/images/trofie/cup_6.png
+    - packages/citmatel_strawberry_tools/assets/images/trofie/cup_7.png
+    - packages/citmatel_strawberry_tools/assets/images/trofie/cup_8.png
