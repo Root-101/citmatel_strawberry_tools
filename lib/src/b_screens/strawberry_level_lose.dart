@@ -1,6 +1,5 @@
 import 'package:citmatel_strawberry_tools/tools_exporter.dart';
 import 'package:flutter/material.dart';
-import 'package:transparent_image/transparent_image.dart';
 
 // ignore: must_be_immutable
 class StrawberryLevelLose extends StatefulWidget {
@@ -14,8 +13,6 @@ class StrawberryLevelLose extends StatefulWidget {
   final Function()? leftButtonFunction;
   final Function()? rightButtonFunction;
 
-  ImageProvider _backgroundImage = MemoryImage(kTransparentImage);
-
   StrawberryLevelLose({
     Key? key,
     Widget? childFirstText,
@@ -25,9 +22,6 @@ class StrawberryLevelLose extends StatefulWidget {
   }) : super(key: key) {
     if (childFirstText != null) {
       _childFirstText = childFirstText;
-    }
-    if (backgroundImage != null) {
-      _backgroundImage = backgroundImage;
     }
   }
 
@@ -58,15 +52,7 @@ class _StrawberryLevelLoseState extends State<StrawberryLevelLose>
         ),
       ),
       body: Container(
-        decoration: BoxDecoration(
-          // The background color.
-          color: Colors.black,
-          image: DecorationImage(
-            // If it exits a background image.
-            image: widget._backgroundImage,
-            fit: BoxFit.cover,
-          ),
-        ),
+        color: Colors.black,
         //// THE ANIMATED BACKGROUND ////
         child: StrawberryWidgets.animateRainBackground(
           vsync: this,
