@@ -12,7 +12,7 @@ class StrawberryFunction {
       Widget? childFirstText,
       ImageProvider? backgroundImage}) {
     StrawberryAudio.playAudioLose();
-    Get.to(
+    Get.off(
       // Go to a determinated page.
       StrawberryLevelLose(
         // The list of texts an is animation that the screen is going to show.
@@ -45,7 +45,7 @@ class StrawberryFunction {
     await Future.delayed(timeBeforeTheTransition);
     StrawberryAudio.playAudioWin();
     StrawberryVibration.vibrateWithWinPattern();
-    Get.to(
+    Get.off(
       // Go to a determinated page.
       StrawberryLevelWin(
         // The first list of texts an is animation that the screen is going to show.
