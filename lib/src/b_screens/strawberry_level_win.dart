@@ -1,7 +1,7 @@
 import 'package:citmatel_strawberry_tools/tools_exporter.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animator/flutter_animator.dart';
-import 'package:transparent_image/transparent_image.dart';
 
 // ignore: must_be_immutable
 class StrawberryLevelWin extends StatefulWidget {
@@ -19,8 +19,6 @@ class StrawberryLevelWin extends StatefulWidget {
   final Function()? leftButtonFunction;
   final Function()? rightButtonFunction;
 
-  ImageProvider _backgroundImage = MemoryImage(kTransparentImage);
-
   StrawberryLevelWin({
     Key? key,
     Widget? childFirstText,
@@ -35,9 +33,6 @@ class StrawberryLevelWin extends StatefulWidget {
     if (childSecondText != null) {
       _childSecondText = childSecondText;
     }
-    if (backgroundImage != null) {
-      _backgroundImage = backgroundImage;
-    }
   }
 
   @override
@@ -48,98 +43,130 @@ class _StrawberryLevelWinState extends State<StrawberryLevelWin>
     with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
+    Size deviceSize = MediaQuery.of(context).size;
     return Scaffold(
-      //// THE RIGHT BUTTON ////
-      floatingActionButton: StrawberryWidgets.circularButtonWithIcon(
-        // The function to display when the rigth button is pressed.
-        onPressed: widget.rightButtonFunction,
-        child: StrawberryWidgets.pulseIconAnimation(
-          // The icon of the button with an animation.
-          icon: Icons.home_sharp,
-        ),
-      ),
       body: Container(
-        decoration: BoxDecoration(
-          // The background color.
-          color: Colors.black,
-          image: DecorationImage(
-            // If it exits a background image.
-            image: widget._backgroundImage,
-            fit: BoxFit.cover,
-          ),
-        ),
+        // The background color.
+        color: Colors.black,
         //// THE ANIMATED BACKGROUND ////
         child: StrawberryWidgets.animateBackground(
           vsync: this,
           child: StrawberryWidgets.animateBackground(
             vsync: this,
             baseColor: Colors.red,
-            child: Stack(
-              children: [
-                //// THE IMAGE OF THE TROFIE ////
-                Padding(
-                  padding: const EdgeInsets.only(top: 60),
-                  child: Tada(
-                    preferences: const AnimationPreferences(
-                        autoPlay: AnimationPlayStates.Loop),
-                    child: Container(
-                      alignment: Alignment.bottomCenter,
-                      height: 180,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage(
-                            ToolsAssetsTrofie.randomTrofie(),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                //// THE ANIMATED TEXT ////
-                Padding(
-                  padding: const EdgeInsets.only(top: 180),
-                  child: Stack(
-                    children: [
-                      widget._childFirstText,
-                      Padding(
-                        padding: const EdgeInsets.only(top: 150),
-                        child: widget._childSecondText,
-                      ),
-                    ],
-                  ),
-                ),
-                //// THE IMAGE OF THE BRAIN ////
-                Padding(
-                  padding: const EdgeInsets.only(top: 490, left: 25),
-                  child: Bounce(
-                    preferences: const AnimationPreferences(
-                        autoPlay: AnimationPlayStates.Loop),
-                    child: Container(
-                      alignment: Alignment.bottomCenter,
-                      height: 180,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage(
-                            ToolsAssetsHappyBrain.randomHappyBrain(),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                //// THE LEFT BUTTON ////
-                Container(
-                  alignment: Alignment.bottomLeft,
-                  padding: const EdgeInsets.all(15),
-                  child: StrawberryWidgets.circularButtonWithIcon(
-                    onPressed: widget.leftButtonFunction,
-                    child: StrawberryWidgets.heartBeatIconAnimation(
-                      icon: Icons.next_plan_outlined,
-                    ),
-                  ),
-                ),
-              ],
+            child: SafeArea(
+              child: Stack(
+                children: [
+                  _buildTrophy(deviceSize),
+                  _buildCharacter(deviceSize),
+                  ..._buildAnimatedText(deviceSize),
+                  _buildLeftButton(),
+                  _buildRightButton(),
+                ],
+              ),
             ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  _buildTrophy(Size deviceSize) {
+    double height = deviceSize.height / 4;
+
+    return Positioned(
+      top: 40.0,
+      left: 0.0,
+      right: 0.0,
+      child: Tada(
+        preferences:
+            const AnimationPreferences(autoPlay: AnimationPlayStates.Loop),
+        child: Container(
+          alignment: Alignment.bottomCenter,
+          height: height,
+          width: height,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(
+                ToolsAssetsTrofie.randomTrofie(),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  _buildCharacter(Size deviceSize) {
+    double height = deviceSize.height / 4;
+    return Positioned(
+      bottom: 60.0,
+      left: 0.0,
+      right: 0.0,
+      child: Bounce(
+        preferences:
+            const AnimationPreferences(autoPlay: AnimationPlayStates.Loop),
+        child: Container(
+          alignment: Alignment.bottomCenter,
+          height: height,
+          width: height,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(
+                ToolsAssetsHappyBrain.randomHappyBrain(),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  _buildAnimatedText(Size deviceSize) {
+    return [
+      Positioned(
+        top: deviceSize.height / 2 - 2 * 70 + 20,
+        left: 0.0,
+        right: 0.0,
+        child: widget._childFirstText,
+      ),
+      Positioned(
+        top: deviceSize.height / 2 - 50 - 20,
+        left: 0.0,
+        right: 0.0,
+        child: widget._childSecondText,
+      ),
+    ];
+  }
+
+  _buildLeftButton() {
+    return Positioned(
+      left: 10.0,
+      bottom: 10.0,
+      child: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: StrawberryWidgets.circularButtonWithIcon(
+          onPressed: widget.leftButtonFunction,
+          child: StrawberryWidgets.heartBeatIconAnimation(
+            icon: Icons.next_plan_outlined,
+          ),
+        ),
+      ),
+    );
+  }
+
+  _buildRightButton() {
+    return Positioned(
+      bottom: 10.0,
+      right: 10.0,
+      child: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: StrawberryWidgets.circularButtonWithIcon(
+          // The function to display when the rigth button is pressed.
+          onPressed: widget.rightButtonFunction,
+          child: StrawberryWidgets.pulseIconAnimation(
+            // The icon of the button with an animation.
+            icon: Icons.home_sharp,
           ),
         ),
       ),
