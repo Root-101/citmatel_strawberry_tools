@@ -63,4 +63,39 @@ class StrawberryAnimatedTextKit {
       ),
     );
   }
+
+  static Widget typewriterAnimatedText({
+    required List<String> texts,
+    double fontSize = 50.0,
+    Color color = Colors.blueAccent,
+    bool repeatForever = false,
+    TextAlign textAlign = TextAlign.center,
+    Function()? onTap,
+  }) {
+    return DefaultTextStyle(
+      style: TextStyle(
+        // The size of the font.
+        fontSize: fontSize,
+        // The color of the font
+        color: color,
+      ),
+      child: AnimatedTextKit(
+        // Generates as meny RotateAnimatedText as are in the texts list.
+        animatedTexts: List.generate(
+          // Amount of items in the text list.
+          texts.length,
+          // The effect for the AnimatedTextKit is going to be RotateAnimatedText.
+          (index) => TypewriterAnimatedText(
+            // The text to show.
+            texts[index],
+            // To align the text to the center.
+            textAlign: textAlign,
+          ),
+        ),
+        // Repeat the text rotate effect forever true or false.
+        repeatForever: repeatForever,
+        onTap: onTap,
+      ),
+    );
+  }
 }
