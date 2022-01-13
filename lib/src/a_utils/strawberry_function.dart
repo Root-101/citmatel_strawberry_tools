@@ -6,7 +6,7 @@ class StrawberryFunction {
   // This show a screen that tell to user it lost.
   static void looseLevel(
       {Transition transition = Transition.zoom,
-      Duration duration = const Duration(seconds: 2),
+      Duration duration = const Duration(milliseconds: 500),
       Function()? leftButtonFunction,
       Function()? rightButtonFunction,
       Widget? childFirstText,
@@ -34,8 +34,8 @@ class StrawberryFunction {
   // This show a screen that tell to user it win.
   static void winLevel(
       {Transition transition = Transition.zoom,
-      Duration duration = const Duration(seconds: 2),
-      Duration timeBeforeTheTransition = const Duration(seconds: 3),
+      Duration duration = const Duration(milliseconds: 500),
+      Duration timeBeforeTheTransition = const Duration(seconds: 1),
       Function()? leftButtonFunction,
       Function()? rightButtonFunction,
       Widget? childFirstText,
