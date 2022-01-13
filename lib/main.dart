@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         accentColor: Colors.deepOrange,
       ),
       //--------------------- <PAGINATION> -----------------------------------
-      initialRoute: StrawberryLevelWin.ROUTE_NAME,
+      initialRoute: StrawberryLevelLose.ROUTE_NAME,
       getPages: [
         GetPage(
           name: StrawberryLevelWin.ROUTE_NAME,

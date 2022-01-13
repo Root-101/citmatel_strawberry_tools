@@ -33,60 +33,81 @@ class _StrawberryLevelLoseState extends State<StrawberryLevelLose>
     with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
+    Size deviceSize = MediaQuery.of(context).size;
     return Scaffold(
-      //// THE RIGHT BUTTON ////
-      floatingActionButton: StrawberryWidgets.circularButtonWithIcon(
-        // The function to display when the rigth button is pressed.
-        onPressed: widget.rightButtonFunction,
-        // An example of how to use the functions of StrawberryFunction.winLevel
-        // onPressed: () => StrawberryFunction.winLevel(
-        //   childFirstText: StrawberryAnimatedTextKit.colorizeAnimatedText(
-        //     text: 'kanhodashodhas',
-        //     repeatForever: true,
-        //   ),
-        //   leftButtonFunction: () => StrawberryFunction.looseLevel(),
-        // ),
-        child: StrawberryWidgets.pulseIconAnimation(
-          // The icon of the button with an animation.
-          icon: Icons.home_sharp,
-        ),
-      ),
       body: Container(
         color: Colors.black,
-        //// THE ANIMATED BACKGROUND ////
         child: StrawberryWidgets.animateRainBackground(
           vsync: this,
-          child: Stack(
-            children: [
-              //// THE IMAGE OF THE BRAIN ////
-              Padding(
-                padding: const EdgeInsets.only(top: 330),
-                child: Container(
-                  alignment: Alignment.topCenter,
-                  height: 300,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(ToolsAssetsSadBrain.randomSadBrain()),
-                    ),
-                  ),
-                ),
-              ),
-              //// THE LEFT BUTTON ////
-              Container(
-                alignment: Alignment.bottomLeft,
-                padding: const EdgeInsets.all(15),
-                child: StrawberryWidgets.circularButtonWithIcon(
-                  onPressed: widget.leftButtonFunction,
-                  child: StrawberryWidgets.rotateIconAnimation(),
-                ),
-              ),
-              //// THE ANIMATED TEXT ////
-              Container(
-                padding: const EdgeInsets.only(top: 90),
-                alignment: Alignment.topCenter,
-                child: widget._childFirstText,
-              ),
-            ],
+          child: SafeArea(
+            child: Stack(
+              children: [
+                _buildCharacter(deviceSize),
+                _buildAnimatedText(deviceSize),
+                _buildLeftButton(),
+                _buildRightButton(),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  _buildAnimatedText(Size deviceSize) {
+    return Positioned(
+      top: 100,
+      left: 0.0,
+      right: 0.0,
+      child: widget._childFirstText,
+    );
+  }
+
+  _buildCharacter(Size deviceSize) {
+    double height = deviceSize.height / 4;
+    return Positioned(
+      bottom: 60.0,
+      left: 0.0,
+      right: 0.0,
+      child: Container(
+        alignment: Alignment.topCenter,
+        height: height,
+        width: height,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(ToolsAssetsSadBrain.randomSadBrain()),
+          ),
+        ),
+      ),
+    );
+  }
+
+  _buildLeftButton() {
+    return Positioned(
+      left: 10.0,
+      bottom: 10.0,
+      child: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: StrawberryWidgets.circularButtonWithIcon(
+          onPressed: widget.leftButtonFunction,
+          child: StrawberryWidgets.rotateIconAnimation(),
+        ),
+      ),
+    );
+  }
+
+  _buildRightButton() {
+    return Positioned(
+      bottom: 10.0,
+      right: 10.0,
+      child: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: StrawberryWidgets.circularButtonWithIcon(
+          // The function to display when the rigth button is pressed.
+          onPressed: widget.rightButtonFunction,
+          child: StrawberryWidgets.pulseIconAnimation(
+            // The icon of the button with an animation.
+            icon: Icons.home_sharp,
           ),
         ),
       ),
