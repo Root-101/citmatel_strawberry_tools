@@ -64,9 +64,9 @@ class _StrawberryLevelLoseState extends State<StrawberryLevelLose>
   }
 
   _buildCharacter(Size deviceSize) {
-    double height = deviceSize.height / 4;
+    double height = deviceSize.height / 3;
     return Positioned(
-      bottom: 60.0,
+      bottom: 75.0,
       left: 0.0,
       right: 0.0,
       child: Container(

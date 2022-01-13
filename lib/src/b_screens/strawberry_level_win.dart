@@ -41,6 +41,8 @@ class StrawberryLevelWin extends StatefulWidget {
 
 class _StrawberryLevelWinState extends State<StrawberryLevelWin>
     with TickerProviderStateMixin {
+  final double proportion = 4.0;
+
   @override
   Widget build(BuildContext context) {
     Size deviceSize = MediaQuery.of(context).size;
@@ -72,7 +74,7 @@ class _StrawberryLevelWinState extends State<StrawberryLevelWin>
   }
 
   _buildTrophy(Size deviceSize) {
-    double height = deviceSize.height / 4;
+    double height = deviceSize.height / proportion;
 
     return Positioned(
       top: 40.0,
@@ -98,7 +100,7 @@ class _StrawberryLevelWinState extends State<StrawberryLevelWin>
   }
 
   _buildCharacter(Size deviceSize) {
-    double height = deviceSize.height / 4;
+    double height = deviceSize.height / proportion;
     return Positioned(
       bottom: 60.0,
       left: 0.0,
@@ -125,13 +127,13 @@ class _StrawberryLevelWinState extends State<StrawberryLevelWin>
   _buildAnimatedText(Size deviceSize) {
     return [
       Positioned(
-        top: deviceSize.height / 2 - 2 * 70 + 20,
+        top: deviceSize.height / 2 - 100,
         left: 0.0,
         right: 0.0,
         child: widget._childFirstText,
       ),
       Positioned(
-        top: deviceSize.height / 2 - 50 - 20,
+        top: deviceSize.height / 2 - 60,
         left: 0.0,
         right: 0.0,
         child: widget._childSecondText,

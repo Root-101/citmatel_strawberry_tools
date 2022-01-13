@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class StrawberryAnimatedTextKit {
   static Widget colorizeAnimatedText({
     required String text,
-    double fontSize = 70.0,
+    double fontSize = 60.0,
     List<MaterialColor> listOfColors = StrawberryConstants.listOfColors,
     bool repeatForever = false,
     TextAlign textAlign = TextAlign.center,
