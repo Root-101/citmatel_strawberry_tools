@@ -7,3 +7,4 @@ export 'strawberry_vibration.dart';
 export 'strawberry_animated_text_kit.dart';
 export 'strawberry_widgets.dart';
 export 'strawberry_constants.dart';
+export 'strawberry_tutorial.dart';
