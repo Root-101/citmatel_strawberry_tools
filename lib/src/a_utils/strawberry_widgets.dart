@@ -76,12 +76,12 @@ class StrawberryWidgets {
   static Widget circularButtonWithIcon({
     required Function()? onPressed,
     Color splashColor = Colors.blueGrey,
-    Color backgrounColor = Colors.lightBlue,
+    Color backgroundColor = Colors.lightBlue,
     Widget child = const Icon(Icons.settings_backup_restore_rounded),
   }) {
     return FloatingActionButton(
       // The color of the circle.
-      backgroundColor: backgrounColor,
+      backgroundColor: backgroundColor,
       // The elevation of the button.
       elevation: 20,
       // Highlight elevation is the elevation of the button when tapped.
