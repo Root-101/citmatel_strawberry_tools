@@ -64,3 +64,8 @@ flutter:
     - packages/citmatel_strawberry_tools/assets/images/trofie/cup_6.png
     - packages/citmatel_strawberry_tools/assets/images/trofie/cup_7.png
     - packages/citmatel_strawberry_tools/assets/images/trofie/cup_8.png
+    - packages/citmatel_strawberry_tools/assets/images/brain_learn/brain_book.png
+    - packages/citmatel_strawberry_tools/assets/images/brain_learn/brain_light.png
+    - packages/citmatel_strawberry_tools/assets/images/brain_learn/brain_lupa.png
+    - packages/citmatel_strawberry_tools/assets/images/brain_learn/brain_ommm.png
+    - packages/citmatel_strawberry_tools/assets/images/brain_learn/brain_question.png
