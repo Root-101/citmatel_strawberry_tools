@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:citmatel_strawberry_tools/assets/assets_exporter.dart';
 import 'package:flutter/material.dart';
 import 'package:tutorial_coach_mark/tutorial_coach_mark.dart';
 
@@ -15,6 +16,9 @@ class StrawberryTutorial {
     String title = '',
     String description = '',
     ShapeLightFocus shape = ShapeLightFocus.RRect,
+    bool showImage = true,
+    bool showImageOnTop = true,
+    double imagePadding = 20,
   }) {
     return TargetFocus(
       // The identifyer of the target.
@@ -28,31 +32,77 @@ class StrawberryTutorial {
         TargetContent(
           // The aligment of the target content.
           align: contentAlign,
-          child: Container(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: textCrossAxisAlignment,
-              children: <Widget>[
-                Text(
-                  // This are the title settings.
-                  title,
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: textColor,
-                      fontSize: 20.0),
-                ),
-                // This are the description settings.
-                Padding(
-                  padding: const EdgeInsets.only(top: 10.0),
-                  child: Text(
-                    description,
-                    style: TextStyle(color: textColor),
-                  ),
-                )
-              ],
-            ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: textCrossAxisAlignment,
+            children: <Widget>[
+              showImage && showImageOnTop
+                  ? buildImage(imagePadding)
+                  : Container(),
+              buildTitle(title, textColor),
+              buildDescription(description, textColor),
+              showImage && !showImageOnTop
+                  ? buildImage(imagePadding)
+                  : Container(),
+            ],
           ),
-        )
+        ),
+      ],
+      // The shape of the target focus.
+      shape: shape,
+      radius: 5,
+    );
+  }
+
+  // Add a custom target to the list of targets in the tutorial.
+  // This one have the text in one side and the image in another.
+  // Or the title in one side and the description in another.
+  static TargetFocus addMultipleTarget({
+    required dynamic identify,
+    required GlobalKey<State<StatefulWidget>>? keyTarget,
+    Color? shadowColor,
+    Color textColor = Colors.white,
+    ContentAlign contentTextAlign = ContentAlign.top,
+    ContentAlign contentImageAlign = ContentAlign.bottom,
+    CrossAxisAlignment textCrossAxisAlignment = CrossAxisAlignment.center,
+    String title = '',
+    String description = '',
+    ShapeLightFocus shape = ShapeLightFocus.RRect,
+    double imagePadding = 20,
+    bool showImage = true,
+  }) {
+    return TargetFocus(
+      // The identifyer of the target.
+      identify: identify,
+      // The key of the widget that is been target on.
+      keyTarget: keyTarget,
+      // The color of the backgground shadow.
+      color: shadowColor,
+      // The contents in the background.
+      contents: [
+        TargetContent(
+          // The aligment of the target content.
+          align: contentTextAlign,
+          child: showImage
+              ? Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: textCrossAxisAlignment,
+                  children: <Widget>[
+                    buildTitle(title, textColor),
+                    buildDescription(description, textColor),
+                  ],
+                )
+              : Center(
+                  child: buildTitle(title, textColor),
+                ),
+        ),
+        TargetContent(
+          // The aligment of the target content.
+          align: contentImageAlign,
+          child: showImage
+              ? buildImage(imagePadding)
+              : buildDescription(description, textColor),
+        ),
       ],
       // The shape of the target focus.
       shape: shape,
@@ -94,5 +144,44 @@ class StrawberryTutorial {
         onClickOverlay: onClickOverlay)
       // And finally show the TutorialCoachMark previously initializated.
       ..show();
+  }
+
+  // Builds ar random image of a learning brain.
+  static Widget buildImage(double imagePadding) {
+    return Padding(
+      padding: EdgeInsets.only(bottom: imagePadding),
+      child: Image(
+        image: AssetImage(
+          ToolsAssetsBrainLearn.randomBrainLearn(),
+        ),
+        width: 300,
+      ),
+    );
+  }
+
+  static Widget buildTitle(String title, Color textColor) {
+    return Text(
+      // This are the title settings.
+      title,
+      style: TextStyle(
+        fontWeight: FontWeight.bold,
+        color: textColor,
+        fontSize: 20.0,
+      ),
+    );
+  }
+
+  static Widget buildDescription(String description, Color textColor) {
+    return // This are the description settings.
+        Padding(
+      padding: const EdgeInsets.only(
+        top: 10.0,
+        bottom: 20,
+      ),
+      child: Text(
+        description,
+        style: TextStyle(color: textColor),
+      ),
+    );
   }
 }
