@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
 class CommonsSingleLevel<SubLevelDomain> extends StatelessWidget {
-  final Function<Widget>(SubLevelDomain sublevel) singleLevelBuilder;
+  final Function(SubLevelDomain sublevel) singleLevelBuilder;
 
   final List<SubLevelDomain> subLevelsAll;
 
-  final DecorationImage themeImage;
+  final String urlThemePicture;
 
   final int crossAxisCount;
 
   const CommonsSingleLevel({
     required this.subLevelsAll,
     required this.singleLevelBuilder,
-    required this.themeImage,
+    required this.urlThemePicture,
     this.crossAxisCount = 2,
     Key? key,
   }) : super(key: key);
@@ -20,7 +20,7 @@ class CommonsSingleLevel<SubLevelDomain> extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(image: themeImage),
+      //decoration: BoxDecoration(image: ),
       child: GridView(
         physics: const BouncingScrollPhysics(),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
