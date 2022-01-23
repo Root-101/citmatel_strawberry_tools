@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:page_view_indicators/page_view_indicators.dart';
 
 class CommonsLevelsScreen<LevelDomain> extends StatelessWidget {
-  static const ROUTE_NAME = "/CommonsLevelsScreen";
-
   final List<LevelDomain> levelsFindAll;
 
   final Function(LevelDomain levelDomain) buildSingleLevel;
