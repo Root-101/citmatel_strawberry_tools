@@ -7,11 +7,14 @@ class StrawberryFunction {
   static void looseLevel(
       {Transition transition = Transition.zoom,
       Duration duration = const Duration(milliseconds: 500),
+      Duration timeBeforeTheTransition = const Duration(seconds: 2),
       Function()? leftButtonFunction,
       Function()? rightButtonFunction,
       Widget? childFirstText,
-      ImageProvider? backgroundImage}) {
+      ImageProvider? backgroundImage}) async {
     StrawberryAudio.playAudioLose();
+    // Time before push one page above other.
+    await Future.delayed(timeBeforeTheTransition);
     Get.off(
       // Go to a determinated page.
       StrawberryLevelLose(
@@ -35,15 +38,15 @@ class StrawberryFunction {
   static void winLevel(
       {Transition transition = Transition.zoom,
       Duration duration = const Duration(milliseconds: 500),
-      Duration timeBeforeTheTransition = const Duration(seconds: 1),
+      Duration timeBeforeTheTransition = const Duration(seconds: 2),
       Function()? leftButtonFunction,
       Function()? rightButtonFunction,
       Widget? childFirstText,
       Widget? childSecondText,
       ImageProvider? backgroundImage}) async {
+    StrawberryAudio.playAudioWin();
     // Time before push one page above other.
     await Future.delayed(timeBeforeTheTransition);
-    StrawberryAudio.playAudioWin();
     StrawberryVibration.vibrateWithWinPattern();
     Get.off(
       // Go to a determinated page.
