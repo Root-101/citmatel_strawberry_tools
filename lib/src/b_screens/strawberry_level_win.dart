@@ -8,7 +8,7 @@ class StrawberryLevelWin extends StatefulWidget {
   static const ROUTE_NAME = "/tools-win-level-screen";
 
   late Widget _childFirstText = StrawberryAnimatedTextKit.colorizeAnimatedText(
-    text: ' Felicidades',
+    text: 'Felicidades',
     repeatForever: true,
   );
 
