@@ -20,7 +20,12 @@ class CommonsSingleLevel<SubLevelDomain> extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      //decoration: BoxDecoration(image: ),
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(urlThemePicture),
+          fit: BoxFit.cover,
+        ),
+      ),
       child: GridView(
         physics: const BouncingScrollPhysics(),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
