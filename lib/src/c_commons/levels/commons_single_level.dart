@@ -55,7 +55,7 @@ class CommonsSingleLevel<SubLevelDomain> extends StatelessWidget {
             //centrar el titulo
             centerTitle: true,
             //boton de regresar
-            leading: const BackButton(color: Colors.black),
+            leading: const BackButton(color: Colors.white),
           ),
           SliverGrid.count(
             crossAxisCount: crossAxisCount,
