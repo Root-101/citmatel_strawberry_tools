@@ -8,8 +8,8 @@ class CommonsSingleLevel<SubLevelDomain> extends StatelessWidget {
 
   final String themeTitle;
   final String urlThemePicture;
-  final Color colorStrong;
-  final Color colorLight;
+  final Color colorPrimary;
+  final Color colorSecondary;
 
   final int maxStars;
   final int winedStars;
@@ -21,8 +21,8 @@ class CommonsSingleLevel<SubLevelDomain> extends StatelessWidget {
   const CommonsSingleLevel({
     required this.themeTitle,
     required this.urlThemePicture,
-    required this.colorStrong,
-    required this.colorLight,
+    required this.colorPrimary,
+    required this.colorSecondary,
     required this.maxStars,
     required this.winedStars,
     required this.subLevelsAll,
@@ -38,9 +38,9 @@ class CommonsSingleLevel<SubLevelDomain> extends StatelessWidget {
     //const BorderRadius.all(Radius.elliptical(100, 50));
 
     double expandedHeight = MediaQuery.of(context).size.height * 0.3;
-    return Scaffold(
-      backgroundColor: colorLight.withOpacity(0.5),
-      body: SliverFab(
+    return Container(
+      color: colorSecondary,
+      child: SliverFab(
         floatingWidget: StrawberryWidgets.circularButtonWithIcon(
           onPressed: () {},
           child: StrawberryWidgets.pulseIconAnimation(
@@ -51,7 +51,8 @@ class CommonsSingleLevel<SubLevelDomain> extends StatelessWidget {
         slivers: <Widget>[
           CommonsSliverAppBar.buildAppBar(
             context: context,
-            backgroundColor: colorStrong,
+            expandedHeight: expandedHeight,
+            backgroundColor: colorPrimary,
             title: themeTitle,
             urlBackgroundImage: urlThemePicture,
           ),

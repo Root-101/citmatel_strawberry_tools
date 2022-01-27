@@ -22,6 +22,7 @@ class CommonsLevelsThemeScreen<LevelDomain> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double expandedHeight = MediaQuery.of(context).size.height * 0.3;
     return Scaffold(
       body: SliverFab(
         floatingWidget: StrawberryWidgets.circularButtonWithIcon(
@@ -29,9 +30,11 @@ class CommonsLevelsThemeScreen<LevelDomain> extends StatelessWidget {
           child: StrawberryWidgets.pulseIconAnimation(icon: Icons.ac_unit),
         ),
         floatingPosition: const FloatingPosition(right: 16),
+        expandedHeight: expandedHeight,
         slivers: <Widget>[
           CommonsSliverAppBar.buildAppBar(
             context: context,
+            expandedHeight: expandedHeight,
             backgroundColor: Colors.indigoAccent,
             title: title,
             urlBackgroundImage: urlSliverBackground,

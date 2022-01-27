@@ -7,11 +7,14 @@ class CommonsSingleSubLevelTile extends StatelessWidget {
   final int contPlayedTimes;
   final Widget openWidget;
 
+  final Color colorPrimary;
+
   const CommonsSingleSubLevelTile({
     this.color = Colors.grey,
     required this.stars,
     required this.contPlayedTimes,
     required this.openWidget,
+    this.colorPrimary = Colors.white,
     Key? key,
   }) : super(key: key);
 
@@ -24,6 +27,8 @@ class CommonsSingleSubLevelTile extends StatelessWidget {
         transitionType: ContainerTransitionType.fadeThrough,
         closedBuilder: (context, action) => _buildClosed(),
         openBuilder: (context, action) => _buildOpen(),
+        closedColor: colorPrimary,
+        middleColor: colorPrimary,
       ),
     );
   }

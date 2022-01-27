@@ -8,14 +8,14 @@ class CommonsLevelsThemeSingleTile<LevelDomain> extends StatelessWidget {
   final Function(LevelDomain levelDomain) buildThemeUrlImage;
   final Widget openWidget;
 
-  final Color color;
+  final Color colorPrimary;
 
   const CommonsLevelsThemeSingleTile({
     required this.singleLevelDomain,
     required this.buildThemeName,
     required this.buildThemeUrlImage,
     required this.openWidget,
-    this.color = Colors.grey,
+    this.colorPrimary = Colors.white,
     Key? key,
   }) : super(key: key);
 
@@ -26,6 +26,8 @@ class CommonsLevelsThemeSingleTile<LevelDomain> extends StatelessWidget {
       transitionType: ContainerTransitionType.fadeThrough,
       closedBuilder: (context, action) => _buildClosed(),
       openBuilder: (context, action) => _buildOpen(),
+      closedColor: colorPrimary,
+      middleColor: colorPrimary,
     );
   }
 
