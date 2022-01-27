@@ -20,9 +20,14 @@ class CommonsSingleSubLevelTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    RoundedRectangleBorder closedShape = const RoundedRectangleBorder(
+      borderRadius: BorderRadius.all(Radius.circular(25.0)),
+    );
+
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(10.0),
       child: OpenContainer(
+        closedShape: closedShape,
         transitionDuration: const Duration(milliseconds: 500),
         transitionType: ContainerTransitionType.fadeThrough,
         closedBuilder: (context, action) => _buildClosed(),

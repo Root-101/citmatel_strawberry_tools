@@ -41,6 +41,8 @@ class CommonsLevelsThemeScreen<LevelDomain> extends StatelessWidget {
           ),
           SliverGrid.count(
             crossAxisCount: crossAxisCount,
+            crossAxisSpacing: 5,
+            mainAxisSpacing: 5,
             children: levelsFindAll
                 .map(
                   (e) => Function.apply(singleThemeTileBuilder, [e]) as Widget,

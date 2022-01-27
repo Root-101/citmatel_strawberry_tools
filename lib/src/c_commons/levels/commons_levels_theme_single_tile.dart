@@ -1,4 +1,5 @@
 import 'package:animations/animations.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CommonsLevelsThemeSingleTile<LevelDomain> extends StatelessWidget {
@@ -21,13 +22,21 @@ class CommonsLevelsThemeSingleTile<LevelDomain> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return OpenContainer(
-      transitionDuration: const Duration(milliseconds: 500),
-      transitionType: ContainerTransitionType.fadeThrough,
-      closedBuilder: (context, action) => _buildClosed(),
-      openBuilder: (context, action) => _buildOpen(),
-      closedColor: colorPrimary,
-      middleColor: colorPrimary,
+    RoundedRectangleBorder closedShape = const RoundedRectangleBorder(
+      borderRadius: BorderRadius.all(Radius.circular(25.0)),
+    );
+
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: OpenContainer(
+        closedShape: closedShape,
+        transitionDuration: const Duration(milliseconds: 500),
+        transitionType: ContainerTransitionType.fadeThrough,
+        closedBuilder: (context, action) => _buildClosed(),
+        openBuilder: (context, action) => _buildOpen(),
+        closedColor: colorPrimary,
+        middleColor: colorPrimary,
+      ),
     );
   }
 
@@ -37,19 +46,15 @@ class CommonsLevelsThemeSingleTile<LevelDomain> extends StatelessWidget {
       buildThemeUrlImage,
       [singleLevelDomain],
     );
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(10),
-      child: Container(
-        padding: const EdgeInsets.all(10),
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(imageUrl),
-            fit: BoxFit.cover,
-          ),
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(imageUrl),
+          fit: BoxFit.cover,
         ),
-        child: Stack(
-          children: [_buildThemeTitle()],
-        ),
+      ),
+      child: Stack(
+        children: [_buildThemeTitle()],
       ),
     );
   }
@@ -70,6 +75,12 @@ class CommonsLevelsThemeSingleTile<LevelDomain> extends StatelessWidget {
       bottom: 10,
       child: Text(
         themeName,
+        textAlign: TextAlign.center,
+        style: const TextStyle(
+          fontSize: 20,
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+        ),
       ),
     );
   }

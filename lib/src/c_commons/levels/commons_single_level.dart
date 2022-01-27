@@ -58,6 +58,8 @@ class CommonsSingleLevel<SubLevelDomain> extends StatelessWidget {
           ),
           SliverGrid.count(
             crossAxisCount: crossAxisCount,
+            crossAxisSpacing: 5,
+            mainAxisSpacing: 5,
             children: subLevelsAll
                 .map(
                   (e) =>
