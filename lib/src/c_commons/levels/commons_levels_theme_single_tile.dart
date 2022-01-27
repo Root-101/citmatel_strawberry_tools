@@ -5,6 +5,7 @@ class CommonsLevelsThemeSingleTile<LevelDomain> extends StatelessWidget {
   final LevelDomain singleLevelDomain;
 
   final Function(LevelDomain levelDomain) buildThemeName;
+  final Function(LevelDomain levelDomain) buildThemeUrlImage;
   final Widget openWidget;
 
   final Color color;
@@ -12,6 +13,7 @@ class CommonsLevelsThemeSingleTile<LevelDomain> extends StatelessWidget {
   const CommonsLevelsThemeSingleTile({
     required this.singleLevelDomain,
     required this.buildThemeName,
+    required this.buildThemeUrlImage,
     required this.openWidget,
     this.color = Colors.grey,
     Key? key,
@@ -29,19 +31,22 @@ class CommonsLevelsThemeSingleTile<LevelDomain> extends StatelessWidget {
 
   //Tile chiquito que se muestra en la lista con todos los subniveles
   _buildClosed() {
-    String themeName = Function.apply(
-      buildThemeName,
+    String imageUrl = Function.apply(
+      buildThemeUrlImage,
       [singleLevelDomain],
     );
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
       child: Container(
         padding: const EdgeInsets.all(10),
-        color: color,
-        child: Column(
-          children: [
-            Text(themeName),
-          ],
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(imageUrl),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Stack(
+          children: [_buildThemeTitle()],
         ),
       ),
     );
@@ -50,5 +55,20 @@ class CommonsLevelsThemeSingleTile<LevelDomain> extends StatelessWidget {
   //Screen grande para cuando se entra al subnivel, pantalla de cargando para el sub nivel
   _buildOpen() {
     return openWidget;
+  }
+
+  _buildThemeTitle() {
+    String themeName = Function.apply(
+      buildThemeName,
+      [singleLevelDomain],
+    );
+    return Positioned(
+      left: 0,
+      right: 0,
+      bottom: 10,
+      child: Text(
+        themeName,
+      ),
+    );
   }
 }
