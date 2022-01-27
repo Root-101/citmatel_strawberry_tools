@@ -1,4 +1,5 @@
 import 'package:citmatel_strawberry_tools/src/a_utils/strawberry_widgets.dart';
+import 'package:citmatel_strawberry_tools/src/c_commons/commons_exporter.dart';
 import 'package:flutter/material.dart';
 import 'package:sliver_fab/sliver_fab.dart';
 
@@ -34,6 +35,7 @@ class CommonsSingleLevel<SubLevelDomain> extends StatelessWidget {
   Widget build(BuildContext context) {
     BorderRadius borderRadius =
         const BorderRadius.vertical(bottom: Radius.circular(25));
+    //const BorderRadius.all(Radius.elliptical(100, 50));
 
     double expandedHeight = MediaQuery.of(context).size.height * 0.3;
     return Scaffold(
@@ -47,32 +49,11 @@ class CommonsSingleLevel<SubLevelDomain> extends StatelessWidget {
         floatingPosition: const FloatingPosition(right: 16),
         expandedHeight: expandedHeight,
         slivers: <Widget>[
-          SliverAppBar(
-            shape: RoundedRectangleBorder(
-              borderRadius: borderRadius,
-            ),
-            expandedHeight: expandedHeight,
-            floating: true,
-            pinned: true,
-            elevation: 1.0,
+          CommonsSliverAppBar.buildAppBar(
+            context: context,
             backgroundColor: colorStrong,
-            leading: const BackButton(color: Colors.white),
-            flexibleSpace: FlexibleSpaceBar(
-              title: Text(themeTitle),
-              centerTitle: true,
-              collapseMode: CollapseMode.pin,
-              background: ClipRRect(
-                borderRadius: borderRadius,
-                child: Container(
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(urlThemePicture),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            title: themeTitle,
+            urlBackgroundImage: urlThemePicture,
           ),
           SliverGrid.count(
             crossAxisCount: crossAxisCount,
