@@ -1,6 +1,3 @@
-import 'dart:ui';
-
-import 'package:background_app_bar/background_app_bar.dart';
 import 'package:citmatel_strawberry_tools/src/a_utils/strawberry_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:sliver_fab/sliver_fab.dart';
@@ -10,6 +7,8 @@ class CommonsSingleLevel<SubLevelDomain> extends StatelessWidget {
 
   final String themeTitle;
   final String urlThemePicture;
+  final Color colorStrong;
+  final Color colorLight;
 
   final int maxStars;
   final int winedStars;
@@ -20,10 +19,12 @@ class CommonsSingleLevel<SubLevelDomain> extends StatelessWidget {
 
   const CommonsSingleLevel({
     required this.themeTitle,
+    required this.urlThemePicture,
+    required this.colorStrong,
+    required this.colorLight,
     required this.maxStars,
     required this.winedStars,
     required this.subLevelsAll,
-    required this.urlThemePicture,
     required this.singleSubLevelTileBuilder,
     this.crossAxisCount = 2,
     Key? key,
@@ -31,8 +32,12 @@ class CommonsSingleLevel<SubLevelDomain> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    BorderRadius borderRadius =
+        const BorderRadius.vertical(bottom: Radius.circular(25));
+
     double expandedHeight = MediaQuery.of(context).size.height * 0.3;
     return Scaffold(
+      backgroundColor: colorLight.withOpacity(0.5),
       body: SliverFab(
         floatingWidget: StrawberryWidgets.circularButtonWithIcon(
           onPressed: () {},
@@ -43,38 +48,25 @@ class CommonsSingleLevel<SubLevelDomain> extends StatelessWidget {
         expandedHeight: expandedHeight,
         slivers: <Widget>[
           SliverAppBar(
+            shape: RoundedRectangleBorder(
+              borderRadius: borderRadius,
+            ),
             expandedHeight: expandedHeight,
             floating: true,
             pinned: true,
-            elevation: 0.0,
-            backgroundColor: Colors.transparent,
+            elevation: 1.0,
+            backgroundColor: colorStrong,
             leading: const BackButton(color: Colors.white),
-            flexibleSpace: BackgroundFlexibleSpaceBar(
-              collapseMode: CollapseMode.pin,
-              title: Text(
-                themeTitle,
-                style: const TextStyle(
-                  fontSize: 30,
-                ),
-              ),
+            flexibleSpace: FlexibleSpaceBar(
+              title: Text(themeTitle),
               centerTitle: true,
-              titlePadding: const EdgeInsets.only(left: 20.0, bottom: 20.0),
+              collapseMode: CollapseMode.pin,
               background: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: borderRadius,
                 child: Container(
-                  child: BackdropFilter(
-                    filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.black.withOpacity(0.5),
-                      ),
-                    ),
-                  ),
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage(
-                        urlThemePicture,
-                      ),
+                      image: AssetImage(urlThemePicture),
                       fit: BoxFit.cover,
                     ),
                   ),
