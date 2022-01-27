@@ -17,6 +17,7 @@ dependencies:
 
   # Architecture & Management
   get: ^4.5.1
+  clean_core: ^1.2.1-SNAPSHOT.20220116
 
   #Animations
   animations: ^2.0.2
@@ -61,11 +62,11 @@ flutter:
     - packages/citmatel_strawberry_tools/assets/icons/baby_girl.png
 
     - packages/citmatel_strawberry_tools/assets/images/sad_brain/sad_brain.png
-    -
+
     - packages/citmatel_strawberry_tools/assets/images/happy_brain/happy_1.png
     - packages/citmatel_strawberry_tools/assets/images/happy_brain/happy_2.png
     - packages/citmatel_strawberry_tools/assets/images/happy_brain/happy_3.png
-    -
+
     - packages/citmatel_strawberry_tools/assets/images/trofie/cup_1.png
     - packages/citmatel_strawberry_tools/assets/images/trofie/cup_2.png
     - packages/citmatel_strawberry_tools/assets/images/trofie/cup_3.png
@@ -74,7 +75,7 @@ flutter:
     - packages/citmatel_strawberry_tools/assets/images/trofie/cup_6.png
     - packages/citmatel_strawberry_tools/assets/images/trofie/cup_7.png
     - packages/citmatel_strawberry_tools/assets/images/trofie/cup_8.png
-    -
+
     - packages/citmatel_strawberry_tools/assets/images/brain_learn/brain_book.png
     - packages/citmatel_strawberry_tools/assets/images/brain_learn/brain_light.png
     - packages/citmatel_strawberry_tools/assets/images/brain_learn/brain_lupa.png
