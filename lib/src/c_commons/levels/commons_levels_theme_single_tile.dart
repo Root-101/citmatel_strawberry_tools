@@ -1,18 +1,20 @@
 import 'package:animations/animations.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class CommonsSingleSubLevelTile extends StatelessWidget {
-  final Color color;
-  final int stars;
-  final int contPlayedTimes;
+class CommonsLevelsThemeSingleTile<LevelDomain> extends StatelessWidget {
+  final LevelDomain singleLevelDomain;
+
+  final Function(LevelDomain levelDomain) buildThemeName;
+  final Function(LevelDomain levelDomain) buildThemeUrlImage;
   final Widget openWidget;
 
   final Color colorPrimary;
 
-  const CommonsSingleSubLevelTile({
-    this.color = Colors.grey,
-    required this.stars,
-    required this.contPlayedTimes,
+  const CommonsLevelsThemeSingleTile({
+    required this.singleLevelDomain,
+    required this.buildThemeName,
+    required this.buildThemeUrlImage,
     required this.openWidget,
     this.colorPrimary = Colors.white,
     Key? key,
@@ -40,13 +42,19 @@ class CommonsSingleSubLevelTile extends StatelessWidget {
 
   //Tile chiquito que se muestra en la lista con todos los subniveles
   _buildClosed() {
+    String imageUrl = Function.apply(
+      buildThemeUrlImage,
+      [singleLevelDomain],
+    );
     return Container(
-      color: color,
-      child: Column(
-        children: [
-          Text('start $stars'),
-          Text('played times $contPlayedTimes'),
-        ],
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(imageUrl),
+          fit: BoxFit.cover,
+        ),
+      ),
+      child: Stack(
+        children: [_buildThemeTitle()],
       ),
     );
   }
@@ -54,5 +62,26 @@ class CommonsSingleSubLevelTile extends StatelessWidget {
   //Screen grande para cuando se entra al subnivel, pantalla de cargando para el sub nivel
   _buildOpen() {
     return openWidget;
+  }
+
+  _buildThemeTitle() {
+    String themeName = Function.apply(
+      buildThemeName,
+      [singleLevelDomain],
+    );
+    return Positioned(
+      left: 0,
+      right: 0,
+      bottom: 10,
+      child: Text(
+        themeName,
+        textAlign: TextAlign.center,
+        style: const TextStyle(
+          fontSize: 20,
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    );
   }
 }

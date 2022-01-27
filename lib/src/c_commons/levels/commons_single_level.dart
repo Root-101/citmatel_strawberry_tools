@@ -1,67 +1,69 @@
+import 'package:citmatel_strawberry_tools/src/a_utils/strawberry_widgets.dart';
+import 'package:citmatel_strawberry_tools/src/c_commons/commons_exporter.dart';
 import 'package:flutter/material.dart';
+import 'package:sliver_fab/sliver_fab.dart';
 
 class CommonsSingleLevel<SubLevelDomain> extends StatelessWidget {
-  final String moduleName;
+  final List<SubLevelDomain> subLevelsAll;
+
   final String themeTitle;
+  final String urlThemePicture;
+  final Color colorPrimary;
+  final Color colorSecondary;
+
   final int maxStars;
   final int winedStars;
 
-  final Function(SubLevelDomain sublevel) singleLevelBuilder;
-
-  final List<SubLevelDomain> subLevelsAll;
-
-  final String urlThemePicture;
+  final Function(SubLevelDomain subLevel) singleSubLevelTileBuilder;
 
   final int crossAxisCount;
 
   const CommonsSingleLevel({
-    required this.moduleName,
     required this.themeTitle,
+    required this.urlThemePicture,
+    required this.colorPrimary,
+    required this.colorSecondary,
     required this.maxStars,
     required this.winedStars,
     required this.subLevelsAll,
-    required this.singleLevelBuilder,
-    required this.urlThemePicture,
+    required this.singleSubLevelTileBuilder,
     this.crossAxisCount = 2,
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    BorderRadius borderRadius =
+        const BorderRadius.vertical(bottom: Radius.circular(25));
+    //const BorderRadius.all(Radius.elliptical(100, 50));
+
+    double expandedHeight = MediaQuery.of(context).size.height * 0.3;
     return Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(urlThemePicture),
-          fit: BoxFit.cover,
+      color: colorSecondary,
+      child: SliverFab(
+        floatingWidget: StrawberryWidgets.circularButtonWithIcon(
+          onPressed: () {},
+          child: StrawberryWidgets.pulseIconAnimation(
+              icon: Icons.radio_button_checked_sharp),
         ),
-      ),
-      child: CustomScrollView(
-        slivers: [
-          SliverAppBar(
-            actions: [
-              //estrellas
-              _buildStars(),
-            ],
-            /*expandedHeight: MediaQuery.of(context).size.height * 0.3,
-            flexibleSpace: FlexibleSpaceBar(
-              background: Container(
-                color: Colors.red,
-              ),
-            ),*/
-            //para que salga cuando se escrolea hacia arriba aunque no haya llegado al principio
-            floating: true,
-            //titulo
-            title: Text(themeTitle),
-            //centrar el titulo
-            centerTitle: true,
-            //boton de regresar
-            leading: const BackButton(color: Colors.white),
+        floatingPosition: const FloatingPosition(right: 16),
+        expandedHeight: expandedHeight,
+        slivers: <Widget>[
+          CommonsSliverAppBar.buildAppBar(
+            context: context,
+            expandedHeight: expandedHeight,
+            backgroundColor: colorPrimary,
+            title: themeTitle,
+            urlBackgroundImage: urlThemePicture,
           ),
           SliverGrid.count(
             crossAxisCount: crossAxisCount,
+            crossAxisSpacing: 5,
+            mainAxisSpacing: 5,
             children: subLevelsAll
                 .map(
-                  (e) => Function.apply(singleLevelBuilder, [e]) as Widget,
+                  (e) =>
+                      Function.apply(singleSubLevelTileBuilder, [e]) as Widget,
                 )
                 .toList(),
           ),
