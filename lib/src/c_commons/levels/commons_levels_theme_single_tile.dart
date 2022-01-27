@@ -1,0 +1,54 @@
+import 'package:animations/animations.dart';
+import 'package:flutter/material.dart';
+
+class CommonsLevelsThemeSingleTile<LevelDomain> extends StatelessWidget {
+  final LevelDomain singleLevelDomain;
+
+  final Function(LevelDomain levelDomain) buildThemeName;
+  final Widget openWidget;
+
+  final Color color;
+
+  const CommonsLevelsThemeSingleTile({
+    required this.singleLevelDomain,
+    required this.buildThemeName,
+    required this.openWidget,
+    this.color = Colors.grey,
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return OpenContainer(
+      transitionDuration: const Duration(milliseconds: 500),
+      transitionType: ContainerTransitionType.fadeThrough,
+      closedBuilder: (context, action) => _buildClosed(),
+      openBuilder: (context, action) => _buildOpen(),
+    );
+  }
+
+  //Tile chiquito que se muestra en la lista con todos los subniveles
+  _buildClosed() {
+    String themeName = Function.apply(
+      buildThemeName,
+      [singleLevelDomain],
+    );
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(10),
+      child: Container(
+        padding: const EdgeInsets.all(10),
+        color: color,
+        child: Column(
+          children: [
+            Text(themeName),
+          ],
+        ),
+      ),
+    );
+  }
+
+  //Screen grande para cuando se entra al subnivel, pantalla de cargando para el sub nivel
+  _buildOpen() {
+    return openWidget;
+  }
+}
