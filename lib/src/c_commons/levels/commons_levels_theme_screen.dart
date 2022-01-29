@@ -1,11 +1,15 @@
 import 'package:citmatel_strawberry_tools/tools_exporter.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:sliver_fab/sliver_fab.dart';
 
 class CommonsLevelsThemeScreen<LevelDomain> extends StatelessWidget {
   final List<LevelDomain> levelsFindAll;
 
   final Function(LevelDomain levelDomain) singleThemeTileBuilder;
+
+  ///Widget que va a salir cuando se selecciona, el por detras se encarga de navegacion y scaffold y demas
+  final Function onRandomTap;
   final String urlSliverBackground;
 
   final int crossAxisCount;
@@ -15,6 +19,7 @@ class CommonsLevelsThemeScreen<LevelDomain> extends StatelessWidget {
     required this.levelsFindAll,
     required this.singleThemeTileBuilder,
     required this.urlSliverBackground,
+    required this.onRandomTap,
     this.crossAxisCount = 2,
     this.title = "Temas",
     Key? key,
@@ -26,7 +31,13 @@ class CommonsLevelsThemeScreen<LevelDomain> extends StatelessWidget {
     return Scaffold(
       body: SliverFab(
         floatingWidget: StrawberryWidgets.circularButtonWithIcon(
-          onPressed: () {},
+          onPressed: () {
+            Get.to(
+              Scaffold(
+                body: Function.apply(onRandomTap, []) as Widget,
+              ),
+            );
+          },
           child: StrawberryWidgets.pulseIconAnimation(icon: Icons.ac_unit),
         ),
         floatingPosition: const FloatingPosition(right: 16),
