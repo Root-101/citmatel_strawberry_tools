@@ -1,11 +1,14 @@
 import 'package:citmatel_strawberry_tools/tools_exporter.dart';
+import 'package:clean_core/clean_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sliver_fab/sliver_fab.dart';
 
-class CommonsLevelsThemeScreen<LevelDomain> extends StatelessWidget {
+class CommonsLevelsThemeScreen<LevelDomain extends IntIdentifier>
+    extends StatelessWidget {
   final List<LevelDomain> levelsFindAll;
 
+  final CommonsLevelsThemeSingleTile tutorialTile;
   final Function(LevelDomain levelDomain) singleThemeTileBuilder;
 
   ///Widget que va a salir cuando se selecciona, el por detras se encarga de navegacion y scaffold y demas
@@ -15,7 +18,8 @@ class CommonsLevelsThemeScreen<LevelDomain> extends StatelessWidget {
   final int crossAxisCount;
   final String title;
 
-  const CommonsLevelsThemeScreen({
+  CommonsLevelsThemeScreen({
+    required this.tutorialTile,
     required this.levelsFindAll,
     required this.singleThemeTileBuilder,
     required this.urlSliverBackground,
@@ -23,7 +27,10 @@ class CommonsLevelsThemeScreen<LevelDomain> extends StatelessWidget {
     this.crossAxisCount = 2,
     this.title = "Temas",
     Key? key,
-  }) : super(key: key);
+  }) : super(key: key) {
+    levelsFindAll.removeWhere(
+        (element) => element.id == tutorialTile.singleLevelDomain.id);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,11 +61,15 @@ class CommonsLevelsThemeScreen<LevelDomain> extends StatelessWidget {
             crossAxisCount: crossAxisCount,
             crossAxisSpacing: 5,
             mainAxisSpacing: 5,
-            children: levelsFindAll
-                .map(
-                  (e) => Function.apply(singleThemeTileBuilder, [e]) as Widget,
-                )
-                .toList(),
+            children: [
+              tutorialTile,
+              ...levelsFindAll
+                  .map(
+                    (e) =>
+                        Function.apply(singleThemeTileBuilder, [e]) as Widget,
+                  )
+                  .toList()
+            ],
           )
         ],
       ),
