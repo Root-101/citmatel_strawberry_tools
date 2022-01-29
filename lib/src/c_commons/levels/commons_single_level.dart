@@ -1,6 +1,7 @@
 import 'package:citmatel_strawberry_tools/src/a_utils/strawberry_widgets.dart';
 import 'package:citmatel_strawberry_tools/src/c_commons/commons_exporter.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:sliver_fab/sliver_fab.dart';
 
 class CommonsSingleLevel<SubLevelDomain> extends StatelessWidget {
@@ -13,6 +14,10 @@ class CommonsSingleLevel<SubLevelDomain> extends StatelessWidget {
 
   final int maxStars;
   final int winedStars;
+
+  ///Widget que va a salir cuando se selecciona, el por detras se encarga de navegacion y scaffold y demas
+  final dynamic levelDomain;
+  final Function onRandomOfTap;
 
   final Function(SubLevelDomain subLevel) singleSubLevelTileBuilder;
 
@@ -27,6 +32,8 @@ class CommonsSingleLevel<SubLevelDomain> extends StatelessWidget {
     required this.winedStars,
     required this.subLevelsAll,
     required this.singleSubLevelTileBuilder,
+    required this.levelDomain,
+    required this.onRandomOfTap,
     this.crossAxisCount = 2,
     Key? key,
   }) : super(key: key);
@@ -42,7 +49,13 @@ class CommonsSingleLevel<SubLevelDomain> extends StatelessWidget {
       color: colorSecondary,
       child: SliverFab(
         floatingWidget: StrawberryWidgets.circularButtonWithIcon(
-          onPressed: () {},
+          onPressed: () {
+            Get.to(
+              Scaffold(
+                body: Function.apply(onRandomOfTap, [levelDomain]) as Widget,
+              ),
+            );
+          },
           child: StrawberryWidgets.pulseIconAnimation(
               icon: Icons.radio_button_checked_sharp),
         ),
