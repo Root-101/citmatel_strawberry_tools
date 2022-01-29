@@ -38,6 +38,8 @@ class CommonsLevelsThemeScreen<LevelDomain extends IntIdentifier>
     return Scaffold(
       body: SliverFab(
         floatingWidget: StrawberryWidgets.circularButtonWithIcon(
+          backgroundColor: Colors.green[800]!,
+          splashColor: Colors.green,
           onPressed: () {
             Get.to(
               Scaffold(
@@ -45,7 +47,9 @@ class CommonsLevelsThemeScreen<LevelDomain extends IntIdentifier>
               ),
             );
           },
-          child: StrawberryWidgets.pulseIconAnimation(icon: Icons.ac_unit),
+          child: StrawberryWidgets.pulseIconAnimation(
+            icon: Icons.play_arrow_rounded,
+          ),
         ),
         floatingPosition: const FloatingPosition(right: 16),
         expandedHeight: expandedHeight,

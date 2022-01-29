@@ -49,6 +49,8 @@ class CommonsSingleLevel<SubLevelDomain> extends StatelessWidget {
       color: colorSecondary,
       child: SliverFab(
         floatingWidget: StrawberryWidgets.circularButtonWithIcon(
+          backgroundColor: Colors.green[800]!,
+          splashColor: Colors.green,
           onPressed: () {
             Get.to(
               Scaffold(
@@ -57,7 +59,7 @@ class CommonsSingleLevel<SubLevelDomain> extends StatelessWidget {
             );
           },
           child: StrawberryWidgets.pulseIconAnimation(
-              icon: Icons.radio_button_checked_sharp),
+              icon: Icons.play_arrow_rounded),
         ),
         floatingPosition: const FloatingPosition(right: 16),
         expandedHeight: expandedHeight,
