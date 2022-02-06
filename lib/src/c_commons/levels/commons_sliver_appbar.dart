@@ -6,6 +6,8 @@ class CommonsSliverAppBar {
     required Color backgroundColor,
     required String title,
     required String urlBackgroundImage,
+    required int maxStars,
+    required int winedStars,
     double? expandedHeight,
     BorderRadius? borderRadius,
   }) {
@@ -33,6 +35,30 @@ class CommonsSliverAppBar {
               image: AssetImage(urlBackgroundImage),
               fit: BoxFit.cover,
             ),
+          ),
+          child: Stack(
+            children: [
+              Positioned(
+                top: 50,
+                right: 10,
+                child: Row(
+                  children: [
+                    Text(
+                      "$winedStars / $maxStars",
+                      style: const TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 20),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    const Icon(
+                      Icons.stars,
+                      color: Colors.yellow,
+                    )
+                  ],
+                ),
+              )
+            ],
           ),
         ),
       ),
