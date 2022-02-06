@@ -1,4 +1,5 @@
 import 'package:animations/animations.dart';
+import 'package:citmatel_strawberry_tools/src/c_commons/all/commons_all_exporter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -11,11 +12,16 @@ class CommonsLevelsThemeSingleTile<LevelDomain> extends StatelessWidget {
 
   final Color colorPrimary;
 
+  final int maxStars;
+  final int winedStars;
+
   const CommonsLevelsThemeSingleTile({
     required this.singleLevelDomain,
     required this.buildThemeName,
     required this.buildThemeUrlImage,
     required this.openWidget,
+    required this.maxStars,
+    required this.winedStars,
     this.colorPrimary = Colors.white,
     Key? key,
   }) : super(key: key);
@@ -54,7 +60,11 @@ class CommonsLevelsThemeSingleTile<LevelDomain> extends StatelessWidget {
         ),
       ),
       child: Stack(
-        children: [_buildThemeTitle()],
+        children: [
+          _buildThemeTitle(),
+          _buildThemeStars(),
+          _buildWoned(),
+        ],
       ),
     );
   }
@@ -62,6 +72,17 @@ class CommonsLevelsThemeSingleTile<LevelDomain> extends StatelessWidget {
   //Screen grande para cuando se entra al subnivel, pantalla de cargando para el sub nivel
   _buildOpen() {
     return openWidget;
+  }
+
+  _buildThemeStars() {
+    return Positioned(
+      top: 20,
+      right: 20,
+      child: CommonsStarsGeneralIndicator(
+        winedStars: winedStars,
+        maxStars: maxStars,
+      ),
+    );
   }
 
   _buildThemeTitle() {
@@ -83,5 +104,19 @@ class CommonsLevelsThemeSingleTile<LevelDomain> extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  _buildWoned() {
+    return winedStars >= maxStars
+        ? const Positioned(
+            bottom: 0,
+            right: 0,
+            child: Icon(
+              Icons.done_outline_sharp,
+              color: Colors.lightGreen,
+              size: 50,
+            ),
+          )
+        : Container();
   }
 }
