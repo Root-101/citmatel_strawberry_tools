@@ -70,6 +70,8 @@ class CommonsSingleLevel<SubLevelDomain> extends StatelessWidget {
             backgroundColor: colorPrimary,
             title: themeTitle,
             urlBackgroundImage: urlThemePicture,
+            maxStars: maxStars,
+            winedStars: winedStars,
           ),
           SliverGrid.count(
             crossAxisCount: crossAxisCount,
@@ -84,24 +86,6 @@ class CommonsSingleLevel<SubLevelDomain> extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-
-  _buildStars() {
-    return Row(
-      children: [
-        Text("$winedStars  /  $maxStars"),
-        const SizedBox(
-          width: 10,
-        ),
-        const Icon(
-          Icons.star,
-          color: Colors.yellow,
-        ),
-        const SizedBox(
-          width: 10,
-        ),
-      ],
     );
   }
 }
