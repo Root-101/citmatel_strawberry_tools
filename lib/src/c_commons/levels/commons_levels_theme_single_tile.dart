@@ -15,6 +15,8 @@ class CommonsLevelsThemeSingleTile<LevelDomain> extends StatelessWidget {
   final int maxStars;
   final int winedStars;
 
+  final bool wonedLevel;
+
   const CommonsLevelsThemeSingleTile({
     required this.singleLevelDomain,
     required this.buildThemeName,
@@ -22,6 +24,7 @@ class CommonsLevelsThemeSingleTile<LevelDomain> extends StatelessWidget {
     required this.openWidget,
     required this.maxStars,
     required this.winedStars,
+    required this.wonedLevel,
     this.colorPrimary = Colors.white,
     Key? key,
   }) : super(key: key);
@@ -107,7 +110,7 @@ class CommonsLevelsThemeSingleTile<LevelDomain> extends StatelessWidget {
   }
 
   _buildWoned() {
-    return winedStars >= maxStars
+    return wonedLevel
         ? const Positioned(
             bottom: 0,
             right: 0,
