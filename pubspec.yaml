@@ -84,3 +84,6 @@ flutter:
 
     #imagenes de los temas
     - packages/citmatel_strawberry_tools/assets/images/themes/cultura_general.jpg
+
+    #imagenes generale
+    - packages/citmatel_strawberry_tools/assets/images/level_completed.png

@@ -1,5 +1,6 @@
 import 'package:animations/animations.dart';
 import 'package:citmatel_strawberry_tools/src/c_commons/all/commons_all_exporter.dart';
+import 'package:citmatel_strawberry_tools/tools_exporter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -111,13 +112,13 @@ class CommonsLevelsThemeSingleTile<LevelDomain> extends StatelessWidget {
 
   _buildWoned() {
     return wonedLevel
-        ? const Positioned(
-            bottom: 0,
-            right: 0,
-            child: Icon(
-              Icons.done_outline_sharp,
-              color: Colors.lightGreen,
-              size: 50,
+        ? Positioned(
+            bottom: 5,
+            right: 5,
+            child: Image.asset(
+              ToolsAssets.THEME_COMPLETED,
+              width: 50,
+              height: 50,
             ),
           )
         : Container();
