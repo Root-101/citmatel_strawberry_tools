@@ -1,3 +1,4 @@
+import 'package:citmatel_strawberry_tools/src/c_commons/all/commons_all_exporter.dart';
 import 'package:flutter/material.dart';
 
 class CommonsSliverAppBar {
@@ -41,21 +42,9 @@ class CommonsSliverAppBar {
               Positioned(
                 top: 50,
                 right: 10,
-                child: Row(
-                  children: [
-                    Text(
-                      "$winedStars / $maxStars",
-                      style: const TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 20),
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    const Icon(
-                      Icons.stars,
-                      color: Colors.yellow,
-                    )
-                  ],
+                child: CommonsStarsGeneralIndicator(
+                  winedStars: winedStars,
+                  maxStars: maxStars,
                 ),
               )
             ],
