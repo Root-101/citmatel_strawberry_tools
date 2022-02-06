@@ -83,7 +83,12 @@ flutter:
     - packages/citmatel_strawberry_tools/assets/images/brain_learn/brain_question.png
 
     #imagenes de los temas
-    - packages/citmatel_strawberry_tools/assets/images/themes/cultura_general.jpg
+    - packages/citmatel_strawberry_tools/assets/images/themes/cultura_general.png
+    - packages/citmatel_strawberry_tools/assets/images/themes/ciencias.png
+    - packages/citmatel_strawberry_tools/assets/images/themes/geografia.png
+    - packages/citmatel_strawberry_tools/assets/images/themes/historia.png
+    - packages/citmatel_strawberry_tools/assets/images/themes/tecnologia.png
+    - packages/citmatel_strawberry_tools/assets/images/themes/tutorial.png
 
     #imagenes generale
     - packages/citmatel_strawberry_tools/assets/images/level_completed.png
