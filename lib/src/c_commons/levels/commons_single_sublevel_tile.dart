@@ -1,9 +1,11 @@
 import 'package:animations/animations.dart';
+import 'package:citmatel_strawberry_tools/src/c_commons/all/commons_all_exporter.dart';
 import 'package:flutter/material.dart';
 
 class CommonsSingleSubLevelTile extends StatelessWidget {
   final Color color;
   final int stars;
+  final int maxStars;
   final int contPlayedTimes;
   final Widget openWidget;
 
@@ -12,6 +14,7 @@ class CommonsSingleSubLevelTile extends StatelessWidget {
   const CommonsSingleSubLevelTile({
     this.color = Colors.grey,
     required this.stars,
+    required this.maxStars,
     required this.contPlayedTimes,
     required this.openWidget,
     this.colorPrimary = Colors.white,
@@ -44,7 +47,7 @@ class CommonsSingleSubLevelTile extends StatelessWidget {
       color: color,
       child: Column(
         children: [
-          Text('start $stars'),
+          CommonsStarsIndicator(stars: stars, maxStars: maxStars),
           Text('played times $contPlayedTimes'),
         ],
       ),

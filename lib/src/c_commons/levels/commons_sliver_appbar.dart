@@ -1,3 +1,4 @@
+import 'package:citmatel_strawberry_tools/src/c_commons/all/commons_all_exporter.dart';
 import 'package:flutter/material.dart';
 
 class CommonsSliverAppBar {
@@ -6,6 +7,8 @@ class CommonsSliverAppBar {
     required Color backgroundColor,
     required String title,
     required String urlBackgroundImage,
+    required int maxStars,
+    required int winedStars,
     double? expandedHeight,
     BorderRadius? borderRadius,
   }) {
@@ -33,6 +36,18 @@ class CommonsSliverAppBar {
               image: AssetImage(urlBackgroundImage),
               fit: BoxFit.cover,
             ),
+          ),
+          child: Stack(
+            children: [
+              Positioned(
+                top: 50,
+                right: 10,
+                child: CommonsStarsGeneralIndicator(
+                  winedStars: winedStars,
+                  maxStars: maxStars,
+                ),
+              )
+            ],
           ),
         ),
       ),

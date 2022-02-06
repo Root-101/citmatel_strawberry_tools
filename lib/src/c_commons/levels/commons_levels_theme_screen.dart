@@ -18,6 +18,8 @@ class CommonsLevelsThemeScreen<LevelDomain extends IntIdentifier>
   final int crossAxisCount;
   final String title;
 
+  final int maxStars;
+  final int winedStars;
   CommonsLevelsThemeScreen({
     required this.tutorialTile,
     required this.levelsFindAll,
@@ -26,6 +28,8 @@ class CommonsLevelsThemeScreen<LevelDomain extends IntIdentifier>
     required this.onRandomTap,
     this.crossAxisCount = 2,
     this.title = "Temas",
+    required this.maxStars,
+    required this.winedStars,
     Key? key,
   }) : super(key: key) {
     levelsFindAll.removeWhere(
@@ -60,6 +64,8 @@ class CommonsLevelsThemeScreen<LevelDomain extends IntIdentifier>
             backgroundColor: Colors.indigoAccent,
             title: title,
             urlBackgroundImage: urlSliverBackground,
+            maxStars: maxStars,
+            winedStars: winedStars,
           ),
           SliverGrid.count(
             crossAxisCount: crossAxisCount,
