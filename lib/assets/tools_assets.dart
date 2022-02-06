@@ -15,4 +15,5 @@ class ToolsAssets {
   static const String AUDIO_WIN = "$_audios/win_applause.wav";
 
   ////IMAGES///
+  static const String THEME_COMPLETED = "$images/level_completed.png";
 }
