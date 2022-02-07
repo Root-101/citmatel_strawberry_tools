@@ -114,12 +114,12 @@ class CommonsLevelsThemeSingleTile<LevelDomain> extends StatelessWidget {
   _buildWoned() {
     return wonedLevel
         ? Positioned(
-            top: 5,
-            left: 5,
+            top: 10,
+            left: 10,
             child: Image.asset(
               ToolsAssets.THEME_COMPLETED,
-              width: 50,
-              height: 50,
+              width: 40,
+              height: 40,
             ),
           )
         : Container();
