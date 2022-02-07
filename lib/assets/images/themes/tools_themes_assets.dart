@@ -18,7 +18,7 @@ class ToolsThemesAssets {
   static final ToolsThemesBackgroundImage THEME_CIENCIAS_BACKGROUND =
       ToolsThemesBackgroundImage(
     urlImage: ToolsThemesAssets.THEME_CIENCIAS,
-    colorStrong: const Color(0xff3647db),
+    colorStrong: const Color(0xff3b4c96),
     colorLight: const Color(0xff3fd4fc).withOpacity(0.5),
   );
 
