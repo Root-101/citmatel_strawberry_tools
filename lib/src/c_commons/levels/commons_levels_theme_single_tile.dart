@@ -80,11 +80,12 @@ class CommonsLevelsThemeSingleTile<LevelDomain> extends StatelessWidget {
 
   _buildThemeStars() {
     return Positioned(
-      top: 20,
-      right: 20,
+      top: 10,
+      right: 10,
       child: CommonsStarsGeneralIndicator(
         winedStars: winedStars,
         maxStars: maxStars,
+        size: 15,
       ),
     );
   }
@@ -113,8 +114,8 @@ class CommonsLevelsThemeSingleTile<LevelDomain> extends StatelessWidget {
   _buildWoned() {
     return wonedLevel
         ? Positioned(
-            bottom: 5,
-            right: 5,
+            top: 5,
+            left: 5,
             child: Image.asset(
               ToolsAssets.THEME_COMPLETED,
               width: 50,
