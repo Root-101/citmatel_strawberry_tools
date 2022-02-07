@@ -3,32 +3,46 @@ import 'package:flutter/material.dart';
 class CommonsStarsGeneralIndicator extends StatelessWidget {
   final int winedStars;
   final int maxStars;
+  final double size;
 
   const CommonsStarsGeneralIndicator({
     required this.winedStars,
     required this.maxStars,
+    this.size = 20,
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Text(
-          "$winedStars / $maxStars",
-          style: const TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 20,
-          ),
+    return Container(
+      decoration: const BoxDecoration(
+        color: Colors.white38,
+        borderRadius: BorderRadius.all(
+          Radius.circular(25),
         ),
-        const SizedBox(
-          width: 10,
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(6.0),
+        child: Row(
+          children: [
+            Text(
+              "$winedStars / $maxStars",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: size,
+              ),
+            ),
+            const SizedBox(
+              width: 5,
+            ),
+            const Icon(
+              Icons.stars,
+              color: Colors.yellow,
+              size: 20,
+            )
+          ],
         ),
-        const Icon(
-          Icons.stars,
-          color: Colors.yellow,
-        )
-      ],
+      ),
     );
   }
 }
