@@ -156,4 +156,50 @@ class StrawberryWidgets {
       size: 40,
     );
   }
+
+  static StrawberryCustomAppBar customAppBar({
+    required String nivel,
+    required String tema,
+    TextStyle nivelTextStyle = const TextStyle(
+      fontWeight: FontWeight.bold,
+      color: Colors.white,
+      fontSize: 20,
+    ),
+    TextStyle temaTextStyle = const TextStyle(
+      fontWeight: FontWeight.bold,
+      color: Colors.white,
+      fontSize: 25,
+    ),
+    int stars = 1,
+    int maxStar = 3,
+    bool halfStarExits = true,
+  }) {
+    return StrawberryCustomAppBar(
+      changeOrderOfTheChilds: true,
+      smallChild: const Center(
+        child: Icon(
+          Icons.arrow_back,
+          color: Colors.white,
+        ),
+      ),
+      largeChild: Row(
+        children: [
+          Text(
+            "# $nivel",
+            style: nivelTextStyle,
+          ),
+          Text(
+            tema,
+            style: temaTextStyle,
+          ),
+          CommonsStarsIndicator(
+            stars: stars,
+            maxStars: maxStar,
+            halfStarExits: halfStarExits,
+          ),
+        ],
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      ),
+    );
+  }
 }

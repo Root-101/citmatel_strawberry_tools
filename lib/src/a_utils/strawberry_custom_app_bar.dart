@@ -12,8 +12,8 @@ class StrawberryCustomAppBar extends StatelessWidget
   final double contentHeight;
   // The color of the bar.
   final Color? color;
-  // The shadow color of the bar.
-  final Color? shadowColor;
+  // The opacity in the color of the bar.
+  final double opacity;
   // This bool changes the order of the childs.
   // Meaning that in false the large child is to the left and the small one to the rigth.
   // If it is set to true the large child will be in the right and the small one in the left.
@@ -33,60 +33,72 @@ class StrawberryCustomAppBar extends StatelessWidget
       required this.smallChild,
       required this.largeChild,
       this.elevation = 10,
-      this.contentHeight = 50,
-      this.color,
-      this.shadowColor,
+      this.contentHeight = 40,
+      this.color = Colors.transparent,
+      this.opacity = 0.2,
       this.changeOrderOfTheChilds = false,
-      this.appBarSize = const Size.fromHeight(60.0),
+      this.appBarSize = const Size.fromHeight(50.0),
       this.smallBarPressed,
       this.largeBarPressed})
       : preferredSize = appBarSize,
         super(key: key);
 
-  // This makes a cicular border in the top left of a RoundedRectangleBorder.
-  static const ShapeBorder topLeftBarShape = RoundedRectangleBorder(
-    borderRadius: BorderRadius.only(
-      topLeft: Radius.circular(30),
-    ),
+  // This makes a cicular border in the top left.
+  static const BorderRadius topLeftBarShape = BorderRadius.only(
+    topLeft: Radius.circular(30),
   );
 
-  // This makes a cicular border in the bottom right of a RoundedRectangleBorder.
-  static const ShapeBorder bottomRightBarShape = RoundedRectangleBorder(
-    borderRadius: BorderRadius.only(
-      bottomRight: Radius.circular(30),
-    ),
+  // This makes a cicular border in the bottom right..
+  static const BorderRadius bottomRightBarShape = BorderRadius.only(
+    bottomRight: Radius.circular(30),
   );
 
-  Widget buildLargeBarCard(ShapeBorder shapeBorder, BuildContext context) {
+  Widget buildLargeBarCard(BorderRadius shapeBorder, BuildContext context) {
     return Card(
       elevation: elevation,
-      shape: shapeBorder,
+      shape: RoundedRectangleBorder(
+        borderRadius: shapeBorder,
+      ),
       color: color,
-      shadowColor: shadowColor,
-      child: InkWell(
-        onTap: largeBarPressed,
-        child: SizedBox(
-          width: MediaQuery.of(context).size.width / 1.5,
-          height: contentHeight,
-          child: largeChild,
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: shapeBorder,
+          color: Colors.black.withOpacity(opacity),
+        ),
+        child: InkWell(
+          onTap: largeBarPressed,
+          child: SizedBox(
+            width: MediaQuery.of(context).size.width / 1.3,
+            height: contentHeight,
+            child: largeChild,
+          ),
         ),
       ),
     );
   }
 
-  Widget buildSmallBarCard(ShapeBorder shapeBorder) {
+  Widget buildSmallBarCard(BorderRadius shapeBorder) {
     return Card(
       elevation: elevation,
-      shape: shapeBorder,
+      shape: RoundedRectangleBorder(
+        borderRadius: shapeBorder,
+      ),
       color: color,
-      shadowColor: shadowColor,
-      child: MaterialButton(
-        height: contentHeight,
-        minWidth: 50,
-        elevation: elevation,
-        shape: shapeBorder,
-        onPressed: smallBarPressed,
-        child: smallChild,
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: shapeBorder,
+          color: Colors.black.withOpacity(opacity),
+        ),
+        child: MaterialButton(
+          height: contentHeight,
+          minWidth: 30,
+          elevation: elevation,
+          shape: RoundedRectangleBorder(
+            borderRadius: shapeBorder,
+          ),
+          onPressed: smallBarPressed,
+          child: smallChild,
+        ),
       ),
     );
   }

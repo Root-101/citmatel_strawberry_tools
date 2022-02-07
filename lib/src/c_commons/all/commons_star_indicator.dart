@@ -33,7 +33,8 @@ class CommonsStarsIndicator extends StatelessWidget {
   }
 
   List<Widget> _buildAllEmpty() {
-    return List.generate(maxStars - stars, (_) => _buildEmptyStar());
+    return List.generate(
+        maxStars - stars - (halfStarExits ? 1 : 0), (_) => _buildEmptyStar());
   }
 
   List<Widget> _buildAllFull() {
