@@ -4,6 +4,7 @@ import 'package:citmatel_strawberry_tools/tools_exporter.dart';
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animator/flutter_animator.dart';
+import 'package:glassmorphism/glassmorphism.dart';
 
 class StrawberryWidgets {
   // Widgets comuns in StrawberrysProjects
@@ -163,12 +164,12 @@ class StrawberryWidgets {
     required String tema,
     TextStyle nivelTextStyle = const TextStyle(
       fontWeight: FontWeight.bold,
-      color: Colors.black,
+      color: Colors.white,
       fontSize: 20,
     ),
     TextStyle temaTextStyle = const TextStyle(
       fontWeight: FontWeight.bold,
-      color: Colors.black,
+      color: Colors.white,
       fontSize: 25,
     ),
     int stars = 1,
@@ -180,7 +181,7 @@ class StrawberryWidgets {
       smallChild: const Center(
         child: Icon(
           Icons.arrow_back,
-          color: Colors.black,
+          color: Colors.white,
         ),
       ),
       largeChild: Row(
