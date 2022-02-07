@@ -133,7 +133,7 @@ class StrawberryTutorial {
         // The padding to the target focus.
         paddingFocus: 10,
         // The opacity in the shadow.
-        opacityShadow: 0.8,
+        opacityShadow: 0.95,
         // What happends when the tutorial finish.
         onFinish: onFinish,
         // What happends when a target is pressed.
@@ -154,7 +154,7 @@ class StrawberryTutorial {
         image: AssetImage(
           ToolsAssetsBrainLearn.randomBrainLearn(),
         ),
-        width: 300,
+        width: 250,
       ),
     );
   }
@@ -166,7 +166,7 @@ class StrawberryTutorial {
       style: TextStyle(
         fontWeight: FontWeight.bold,
         color: textColor,
-        fontSize: 20.0,
+        fontSize: 30.0,
       ),
     );
   }
@@ -180,7 +180,10 @@ class StrawberryTutorial {
       ),
       child: Text(
         description,
-        style: TextStyle(color: textColor),
+        style: TextStyle(
+          color: textColor,
+          fontSize: 20.0,
+        ),
       ),
     );
   }
