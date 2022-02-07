@@ -95,3 +95,21 @@ class StrawberryCustomAppBar extends StatelessWidget
     );
   }
 }
+
+//////////////  EXAMPLE   /////////////////
+// Scaffold(
+//         appBar: const StrawberryCustomAppBar(
+//           largeChild: Center(
+//               child: Text(
+//             'Title',
+//             style: TextStyle(
+//               fontSize: 30,
+//               fontWeight: FontWeight.bold,
+//             ),
+//           )),
+//           smallChild: Icon(
+//             Icons.ac_unit,
+//             color: Colors.black,
+//           ),
+//         ),
+// ),
