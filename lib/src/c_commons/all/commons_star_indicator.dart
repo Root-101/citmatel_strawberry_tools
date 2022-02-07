@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+// ignore: must_be_immutable
 class CommonsStarsIndicator extends StatelessWidget {
   final int maxStars;
   final int stars;
+  final bool halfStarExits;
   bool filledStarsRight;
 
   CommonsStarsIndicator({
     required this.stars,
     required this.maxStars,
-    this.filledStarsRight = true,
+    this.halfStarExits = false,
+    this.filledStarsRight = false,
     Key? key,
   }) : super(key: key);
 
@@ -22,6 +26,7 @@ class CommonsStarsIndicator extends StatelessWidget {
             ]
           : [
               ..._buildAllFull(),
+              _buildHalfStar(),
               ..._buildAllEmpty(),
             ],
     );
@@ -36,15 +41,24 @@ class CommonsStarsIndicator extends StatelessWidget {
   }
 
   Widget _buildEmptyStar() {
-    return const Icon(
-      Icons.star_border_outlined,
+    return const FaIcon(
+      FontAwesomeIcons.star,
       color: Colors.yellow,
     );
   }
 
+  Widget _buildHalfStar() {
+    return halfStarExits
+        ? const FaIcon(
+            FontAwesomeIcons.starHalfAlt,
+            color: Colors.yellow,
+          )
+        : const SizedBox();
+  }
+
   Widget _buildFullStar() {
-    return const Icon(
-      Icons.star,
+    return const FaIcon(
+      FontAwesomeIcons.solidStar,
       color: Colors.yellow,
     );
   }
