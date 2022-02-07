@@ -1,6 +1,4 @@
-import 'package:citmatel_strawberry_tools/src/a_utils/strawberry_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:glassmorphism/glassmorphism.dart';
 
 class StrawberryCustomAppBar extends StatelessWidget
     implements PreferredSizeWidget {

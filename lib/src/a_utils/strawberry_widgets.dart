@@ -1,10 +1,8 @@
 import 'package:animated_background/animated_background.dart';
-import 'package:citmatel_strawberry_tools/src/a_utils/utils_exporter.dart';
 import 'package:citmatel_strawberry_tools/tools_exporter.dart';
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animator/flutter_animator.dart';
-import 'package:glassmorphism/glassmorphism.dart';
 
 class StrawberryWidgets {
   // Widgets comuns in StrawberrysProjects
