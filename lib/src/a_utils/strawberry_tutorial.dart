@@ -27,6 +27,8 @@ class StrawberryTutorial {
       keyTarget: keyTarget,
       // The color of the backgground shadow.
       color: shadowColor,
+      // If is true the overlay will show the next step when is pressed
+      enableOverlayTab: true,
       // The contents in the background.
       contents: [
         TargetContent(
@@ -78,6 +80,8 @@ class StrawberryTutorial {
       keyTarget: keyTarget,
       // The color of the backgground shadow.
       color: shadowColor,
+      // If is true the overlay will show the next step when is pressed
+      enableOverlayTab: true,
       // The contents in the background.
       contents: [
         TargetContent(
