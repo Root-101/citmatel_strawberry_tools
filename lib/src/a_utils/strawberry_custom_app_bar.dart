@@ -2,15 +2,27 @@ import 'package:flutter/material.dart';
 
 class StrawberryCustomAppBar extends StatelessWidget
     implements PreferredSizeWidget {
+  // The small child in the app bar.
   final Widget smallChild;
+  // The large child in the app bar.
   final Widget largeChild;
+  // The elevation of the app bar, meaning the cards.
   final double elevation;
+  // The height of the contents in the bar.
   final double contentHeight;
+  // The color of the bar.
   final Color? color;
+  // The shadow color of the bar.
   final Color? shadowColor;
+  // This bool changes the order of the childs.
+  // Meaning that in false the large child is to the left and the small one to the rigth.
+  // If it is set to true the large child will be in the right and the small one in the left.
   final bool changeOrderOfTheChilds;
+  // The size this widget would prefer if it were otherwise unconstrained.
   final Size appBarSize;
+  // The function that will be call when the small child is pressed.
   final Function()? smallBarPressed;
+  // The function that will be call when the large child is pressed.
   final Function()? largeBarPressed;
 
   @override
@@ -31,12 +43,14 @@ class StrawberryCustomAppBar extends StatelessWidget
       : preferredSize = appBarSize,
         super(key: key);
 
+  // This makes a cicular border in the top left of a RoundedRectangleBorder.
   static const ShapeBorder topLeftBarShape = RoundedRectangleBorder(
     borderRadius: BorderRadius.only(
       topLeft: Radius.circular(30),
     ),
   );
 
+  // This makes a cicular border in the bottom right of a RoundedRectangleBorder.
   static const ShapeBorder bottomRightBarShape = RoundedRectangleBorder(
     borderRadius: BorderRadius.only(
       bottomRight: Radius.circular(30),
