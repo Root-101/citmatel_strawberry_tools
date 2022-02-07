@@ -1,8 +1,10 @@
 import 'package:animated_background/animated_background.dart';
+import 'package:citmatel_strawberry_tools/src/a_utils/utils_exporter.dart';
 import 'package:citmatel_strawberry_tools/tools_exporter.dart';
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animator/flutter_animator.dart';
+import 'package:glassmorphism/glassmorphism.dart';
 
 class StrawberryWidgets {
   // Widgets comuns in StrawberrysProjects
@@ -154,6 +156,52 @@ class StrawberryWidgets {
       color: iconColor,
       // The size of the icon.
       size: 40,
+    );
+  }
+
+  static StrawberryCustomAppBar customAppBar({
+    required String nivel,
+    required String tema,
+    TextStyle nivelTextStyle = const TextStyle(
+      fontWeight: FontWeight.bold,
+      color: Colors.white,
+      fontSize: 20,
+    ),
+    TextStyle temaTextStyle = const TextStyle(
+      fontWeight: FontWeight.bold,
+      color: Colors.white,
+      fontSize: 25,
+    ),
+    int stars = 1,
+    int maxStar = 3,
+    bool halfStarExits = true,
+  }) {
+    return StrawberryCustomAppBar(
+      changeOrderOfTheChilds: true,
+      smallChild: const Center(
+        child: Icon(
+          Icons.arrow_back,
+          color: Colors.white,
+        ),
+      ),
+      largeChild: Row(
+        children: [
+          Text(
+            "# $nivel",
+            style: nivelTextStyle,
+          ),
+          Text(
+            tema,
+            style: temaTextStyle,
+          ),
+          CommonsStarsIndicator(
+            stars: stars,
+            maxStars: maxStar,
+            halfStarExits: halfStarExits,
+          ),
+        ],
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      ),
     );
   }
 }
