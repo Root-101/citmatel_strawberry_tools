@@ -31,7 +31,7 @@ class CommonsLevelsThemeScreen<LevelDomain extends IntIdentifier>
     required this.onRandomTap,
     this.crossAxisCount = 2,
     this.title = "Temas",
-    this.backgroundColor = Colors.white,
+    this.backgroundColor = Colors.grey,
     this.appbarBackgroundColor = Colors.redAccent,
     required this.maxStars,
     required this.winedStars,
@@ -44,50 +44,54 @@ class CommonsLevelsThemeScreen<LevelDomain extends IntIdentifier>
   @override
   Widget build(BuildContext context) {
     double expandedHeight = MediaQuery.of(context).size.height * 0.3;
-    return Container(
-      color: backgroundColor,
-      child: SliverFab(
-        floatingWidget: StrawberryWidgets.circularButtonWithIcon(
-          backgroundColor: Colors.green[800]!,
-          splashColor: Colors.green,
-          onPressed: () {
-            Get.to(
-              Scaffold(
-                body: Function.apply(onRandomTap, []) as Widget,
-              ),
-            );
-          },
-          child: StrawberryWidgets.pulseIconAnimation(
-            icon: Icons.play_arrow_rounded,
+    //scaffold para el fondo blanco
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Container(
+        color: backgroundColor,
+        child: SliverFab(
+          floatingWidget: StrawberryWidgets.circularButtonWithIcon(
+            backgroundColor: Colors.green[800]!,
+            splashColor: Colors.green,
+            onPressed: () {
+              Get.to(
+                Scaffold(
+                  body: Function.apply(onRandomTap, []) as Widget,
+                ),
+              );
+            },
+            child: StrawberryWidgets.pulseIconAnimation(
+              icon: Icons.play_arrow_rounded,
+            ),
           ),
+          floatingPosition: const FloatingPosition(right: 16),
+          expandedHeight: expandedHeight,
+          slivers: <Widget>[
+            CommonsSliverAppBar.buildAppBar(
+              context: context,
+              expandedHeight: expandedHeight,
+              backgroundColor: appbarBackgroundColor,
+              title: title,
+              urlBackgroundImage: urlSliverBackground,
+              maxStars: maxStars,
+              winedStars: winedStars,
+            ),
+            SliverGrid.count(
+              crossAxisCount: crossAxisCount,
+              crossAxisSpacing: 5,
+              mainAxisSpacing: 5,
+              children: [
+                tutorialTile,
+                ...levelsFindAll
+                    .map(
+                      (e) =>
+                          Function.apply(singleThemeTileBuilder, [e]) as Widget,
+                    )
+                    .toList()
+              ],
+            )
+          ],
         ),
-        floatingPosition: const FloatingPosition(right: 16),
-        expandedHeight: expandedHeight,
-        slivers: <Widget>[
-          CommonsSliverAppBar.buildAppBar(
-            context: context,
-            expandedHeight: expandedHeight,
-            backgroundColor: appbarBackgroundColor,
-            title: title,
-            urlBackgroundImage: urlSliverBackground,
-            maxStars: maxStars,
-            winedStars: winedStars,
-          ),
-          SliverGrid.count(
-            crossAxisCount: crossAxisCount,
-            crossAxisSpacing: 5,
-            mainAxisSpacing: 5,
-            children: [
-              tutorialTile,
-              ...levelsFindAll
-                  .map(
-                    (e) =>
-                        Function.apply(singleThemeTileBuilder, [e]) as Widget,
-                  )
-                  .toList()
-            ],
-          )
-        ],
       ),
     );
   }
