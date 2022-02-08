@@ -45,46 +45,49 @@ class CommonsSingleLevel<SubLevelDomain> extends StatelessWidget {
     //const BorderRadius.all(Radius.elliptical(100, 50));
 
     double expandedHeight = MediaQuery.of(context).size.height * 0.3;
-    return Container(
-      color: colorSecondary,
-      child: SliverFab(
-        floatingWidget: StrawberryWidgets.circularButtonWithIcon(
-          backgroundColor: Colors.green[800]!,
-          splashColor: Colors.green,
-          onPressed: () {
-            Get.to(
-              Scaffold(
-                body: Function.apply(onRandomOfTap, [levelDomain]) as Widget,
-              ),
-            );
-          },
-          child: StrawberryWidgets.pulseIconAnimation(
-              icon: Icons.play_arrow_rounded),
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Container(
+        color: colorSecondary,
+        child: SliverFab(
+          floatingWidget: StrawberryWidgets.circularButtonWithIcon(
+            backgroundColor: Colors.green[800]!,
+            splashColor: Colors.green,
+            onPressed: () {
+              Get.to(
+                Scaffold(
+                  body: Function.apply(onRandomOfTap, [levelDomain]) as Widget,
+                ),
+              );
+            },
+            child: StrawberryWidgets.pulseIconAnimation(
+                icon: Icons.play_arrow_rounded),
+          ),
+          floatingPosition: const FloatingPosition(right: 16),
+          expandedHeight: expandedHeight,
+          slivers: <Widget>[
+            CommonsSliverAppBar.buildAppBar(
+              context: context,
+              expandedHeight: expandedHeight,
+              backgroundColor: colorPrimary,
+              title: themeTitle,
+              urlBackgroundImage: urlThemePicture,
+              maxStars: maxStars,
+              winedStars: winedStars,
+            ),
+            SliverGrid.count(
+              crossAxisCount: crossAxisCount,
+              crossAxisSpacing: 5,
+              mainAxisSpacing: 5,
+              children: subLevelsAll
+                  .map(
+                    (e) => Function.apply(singleSubLevelTileBuilder, [e])
+                        as Widget,
+                  )
+                  .toList(),
+            ),
+          ],
         ),
-        floatingPosition: const FloatingPosition(right: 16),
-        expandedHeight: expandedHeight,
-        slivers: <Widget>[
-          CommonsSliverAppBar.buildAppBar(
-            context: context,
-            expandedHeight: expandedHeight,
-            backgroundColor: colorPrimary,
-            title: themeTitle,
-            urlBackgroundImage: urlThemePicture,
-            maxStars: maxStars,
-            winedStars: winedStars,
-          ),
-          SliverGrid.count(
-            crossAxisCount: crossAxisCount,
-            crossAxisSpacing: 5,
-            mainAxisSpacing: 5,
-            children: subLevelsAll
-                .map(
-                  (e) =>
-                      Function.apply(singleSubLevelTileBuilder, [e]) as Widget,
-                )
-                .toList(),
-          ),
-        ],
       ),
     );
   }
