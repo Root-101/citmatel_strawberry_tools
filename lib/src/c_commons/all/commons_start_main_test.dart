@@ -2,6 +2,7 @@ import 'package:citmatel_strawberry_tools/src/c_commons/all/commons_all_exporter
 import 'package:flutter/material.dart';
 
 void main() {
+  //flutter run -t lib/src/c_commons/all/commons_start_main_test.dart
   runApp(const CommonStarTest());
 }
 
@@ -20,8 +21,8 @@ class CommonStarTest extends StatelessWidget {
       home: Scaffold(
         body: Center(
           child: CommonsStarsIndicator(
-            stars: 2,
-            maxStars: 3,
+            stars: 7,
+            maxStars: 6,
           ),
         ),
       ),
