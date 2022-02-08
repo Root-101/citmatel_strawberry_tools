@@ -1,55 +1,56 @@
+import 'package:citmatel_strawberry_tools/src/a_utils/strawberry_custom_app_bar.dart';
 import 'package:citmatel_strawberry_tools/src/c_commons/all/commons_all_exporter.dart';
 import 'package:flutter/material.dart';
 
 class CommonsSubLevelBuilder {
   static Scaffold buildScaffold({
-    required appBarTitle,
-    required level,
-    required winedStars,
-    required maxStars,
-    required Widget body,
-    Color appBarBackgroundColor = Colors.transparent,
-    double appBarElevation = 0.0,
+    required int nivel,
+    required String tema,
+    TextStyle nivelTextStyle = const TextStyle(
+      fontWeight: FontWeight.bold,
+      color: Colors.white,
+      fontSize: 20,
+    ),
+    TextStyle temaTextStyle = const TextStyle(
+      fontWeight: FontWeight.bold,
+      color: Colors.white,
+      fontSize: 25,
+    ),
+    int stars = 1,
+    int maxStar = 3,
+    bool halfStarExits = true,
+    Widget? body,
   }) {
     return Scaffold(
       backgroundColor: Colors.transparent,
-      appBar: buildAppBar(
-        title: appBarTitle,
-        level: level,
-        winedStars: winedStars,
-        maxStars: maxStars,
-        backgroundColor: appBarBackgroundColor,
-        elevation: appBarElevation,
+      appBar: StrawberryCustomAppBar(
+        changeOrderOfTheChilds: true,
+        smallChild: const Center(
+          child: Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ),
+        ),
+        largeChild: Row(
+          children: [
+            Text(
+              "# $nivel",
+              style: nivelTextStyle,
+            ),
+            Text(
+              tema,
+              style: temaTextStyle,
+            ),
+            CommonsStarsIndicator(
+              stars: stars,
+              maxStars: maxStar,
+              halfStarExits: halfStarExits,
+            ),
+          ],
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        ),
       ),
       body: body,
-    );
-  }
-
-  static AppBar buildAppBar({
-    required title,
-    required level,
-    required winedStars,
-    required maxStars,
-    Color backgroundColor = Colors.transparent,
-    double elevation = 0.0,
-  }) {
-    return AppBar(
-      backgroundColor: backgroundColor,
-      elevation: elevation,
-      title: Text("$title. Nivel $level."),
-      centerTitle: true,
-      actions: [
-        CommonsStarsIndicator(
-          stars: winedStars,
-          maxStars: maxStars,
-        ),
-        const SizedBox(
-          width: 15,
-        ),
-      ],
-      leading: const BackButton(
-        color: Colors.white,
-      ),
     );
   }
 }
