@@ -1,17 +1,21 @@
 import 'dart:async';
 
+import 'package:citmatel_strawberry_tools/src/a_utils/strawberry_animated_text_kit.dart';
+import 'package:citmatel_strawberry_tools/src/a_utils/strawberry_loading_spinkit.dart';
 import 'package:flutter/material.dart';
 
 class PlainSubLevelLoading extends StatefulWidget {
   static const Duration DEFAULT_DURATION = Duration(seconds: 3);
   final String backgroundURL;
-  final Widget loading;
+  final List<String> firstText;
+  final List<String> secondText;
   final Widget subLevel;
   final Duration duration;
 
   const PlainSubLevelLoading({
     required this.backgroundURL,
-    required this.loading,
+    required this.firstText,
+    this.secondText = const [''],
     required this.subLevel,
     this.duration = DEFAULT_DURATION,
     Key? key,
@@ -28,7 +32,30 @@ class _PlainSubLevelLoadingState extends State<PlainSubLevelLoading> {
 
   @override
   void initState() {
-    _animatedWidget = widget.loading;
+    _animatedWidget = Container(
+      padding: const EdgeInsets.all(30.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          StrawberryAnimatedTextKit.typewriterAnimatedText(
+            texts: widget.firstText,
+            color: Colors.white,
+            repeatForever: true,
+          ),
+          StrawberryAnimatedTextKit.typewriterAnimatedText(
+            texts: widget.secondText,
+            color: Colors.white,
+            repeatForever: true,
+          ),
+          SizedBox(
+            height: 350,
+            width: 350,
+            child: StrawberryLoadingSpinkit.randomLoadingSpinkit(),
+          ),
+          //a random loading every time
+        ],
+      ),
+    );
     timer = Timer(Duration(seconds: widget.duration.inSeconds), () {
       setState(() {
         _animatedWidget = widget.subLevel;
