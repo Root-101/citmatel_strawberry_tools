@@ -37,17 +37,19 @@ class CommonsSliverAppBar {
               fit: BoxFit.cover,
             ),
           ),
-          child: Stack(
-            children: [
-              Positioned(
-                top: 50,
-                right: 10,
-                child: CommonsStarsGeneralIndicator(
-                  winedStars: winedStars,
-                  maxStars: maxStars,
-                ),
-              )
-            ],
+          child: SafeArea(
+            child: Stack(
+              children: [
+                Positioned(
+                  top: 15,
+                  right: 20,
+                  child: CommonsStarsGeneralIndicator(
+                    winedStars: winedStars,
+                    maxStars: maxStars,
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),
