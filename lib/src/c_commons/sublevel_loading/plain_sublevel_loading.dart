@@ -39,17 +39,23 @@ class _PlainSubLevelLoadingState extends State<PlainSubLevelLoading> {
     _animatedWidget = Container(
       padding: const EdgeInsets.all(30.0),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          StrawberryAnimatedTextKit.typewriterAnimatedText(
-            texts: widget.firstText,
-            color: Colors.white,
-            repeatForever: true,
+          FittedBox(
+            fit: BoxFit.contain,
+            child: StrawberryAnimatedTextKit.typewriterAnimatedText(
+              texts: widget.firstText,
+              color: Colors.white,
+              repeatForever: true,
+            ),
           ),
-          StrawberryAnimatedTextKit.typewriterAnimatedText(
-            texts: widget.secondText,
-            color: Colors.white,
-            repeatForever: true,
+          FittedBox(
+            fit: BoxFit.contain,
+            child: StrawberryAnimatedTextKit.typewriterAnimatedText(
+              texts: widget.secondText,
+              color: Colors.white,
+              repeatForever: true,
+            ),
           ),
           SizedBox(
             height: 350,
