@@ -75,11 +75,13 @@ class StrawberryWidgets {
 
   static Widget circularButtonWithIcon({
     required Function()? onPressed,
+    String heroTag = '<FloatingActionButton: circularButtonWithIcon>',
     Color splashColor = Colors.blueGrey,
     Color backgroundColor = Colors.lightBlue,
     Widget child = const Icon(Icons.settings_backup_restore_rounded),
   }) {
     return FloatingActionButton(
+      heroTag: heroTag,
       // The color of the circle.
       backgroundColor: backgroundColor,
       // The elevation of the button.

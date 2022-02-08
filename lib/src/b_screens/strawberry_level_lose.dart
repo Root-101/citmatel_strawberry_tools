@@ -89,6 +89,7 @@ class _StrawberryLevelLoseState extends State<StrawberryLevelLose>
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: StrawberryWidgets.circularButtonWithIcon(
+          heroTag: 'leftButton',
           onPressed: widget.leftButtonFunction,
           child: StrawberryWidgets.rotateIconAnimation(),
         ),
@@ -103,6 +104,7 @@ class _StrawberryLevelLoseState extends State<StrawberryLevelLose>
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: StrawberryWidgets.circularButtonWithIcon(
+          heroTag: 'rightButton',
           // The function to display when the rigth button is pressed.
           onPressed: widget.rightButtonFunction,
           child: StrawberryWidgets.pulseIconAnimation(
