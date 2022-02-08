@@ -6,17 +6,21 @@ import 'package:flutter/material.dart';
 
 class PlainSubLevelLoading extends StatefulWidget {
   static const Duration DEFAULT_DURATION = Duration(seconds: 3);
-  final String backgroundURL;
+  // final String backgroundURL;
   final List<String> firstText;
   final List<String> secondText;
   final Widget subLevel;
   final Duration duration;
+  final Color firstColor;
+  final Color secondColor;
 
   const PlainSubLevelLoading({
-    required this.backgroundURL,
+//    required this.backgroundURL,
     required this.firstText,
     this.secondText = const [''],
     required this.subLevel,
+    this.firstColor = Colors.red,
+    this.secondColor = Colors.blue,
     this.duration = DEFAULT_DURATION,
     Key? key,
   }) : super(key: key);
@@ -75,10 +79,13 @@ class _PlainSubLevelLoadingState extends State<PlainSubLevelLoading> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.transparent, //pa si por si acaso
-        image: DecorationImage(
-          image: AssetImage(widget.backgroundURL),
-          fit: BoxFit.cover,
+        gradient: LinearGradient(
+          begin: Alignment.topRight,
+          end: Alignment.bottomLeft,
+          colors: [
+            widget.firstColor,
+            widget.secondColor,
+          ],
         ),
       ),
       child: AnimatedSwitcher(
