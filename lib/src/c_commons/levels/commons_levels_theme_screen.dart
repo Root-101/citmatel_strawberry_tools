@@ -14,12 +14,14 @@ class CommonsLevelsThemeScreen<LevelDomain extends IntIdentifier>
   ///Widget que va a salir cuando se selecciona, el por detras se encarga de navegacion y scaffold y demas
   final Function onRandomTap;
   final String urlSliverBackground;
+  final Color backgroundColor;
 
   final int crossAxisCount;
   final String title;
 
   final int maxStars;
   final int winedStars;
+
   CommonsLevelsThemeScreen({
     required this.tutorialTile,
     required this.levelsFindAll,
@@ -28,6 +30,7 @@ class CommonsLevelsThemeScreen<LevelDomain extends IntIdentifier>
     required this.onRandomTap,
     this.crossAxisCount = 2,
     this.title = "Temas",
+    this.backgroundColor = Colors.white,
     required this.maxStars,
     required this.winedStars,
     Key? key,
@@ -39,8 +42,9 @@ class CommonsLevelsThemeScreen<LevelDomain extends IntIdentifier>
   @override
   Widget build(BuildContext context) {
     double expandedHeight = MediaQuery.of(context).size.height * 0.3;
-    return Scaffold(
-      body: SliverFab(
+    return Container(
+      color: backgroundColor,
+      child: SliverFab(
         floatingWidget: StrawberryWidgets.circularButtonWithIcon(
           backgroundColor: Colors.green[800]!,
           splashColor: Colors.green,
