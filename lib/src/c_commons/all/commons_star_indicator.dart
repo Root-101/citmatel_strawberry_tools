@@ -6,61 +6,64 @@ class CommonsStarsIndicator extends StatelessWidget {
   final int maxStars;
   final int stars;
   final bool halfStarExits;
-  bool filledStarsRight;
+  final double normalSize;
+  final double bigSize;
+  final int bigStarIndex;
+  bool _halfStarIsPainted = false;
 
   CommonsStarsIndicator({
     required this.stars,
     required this.maxStars,
     this.halfStarExits = false,
-    this.filledStarsRight = false,
+    this.normalSize = 30,
+    this.bigSize = 50,
+    this.bigStarIndex = 2,
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: filledStarsRight
-          ? [
-              ..._buildAllEmpty(),
-              ..._buildAllFull(),
-            ]
-          : [
-              ..._buildAllFull(),
-              _buildHalfStar(),
-              ..._buildAllEmpty(),
-            ],
-    );
+    return Row(children: [
+      ..._buildAllStars(),
+    ]);
   }
 
-  List<Widget> _buildAllEmpty() {
-    return List.generate(
-        maxStars - stars - (halfStarExits ? 1 : 0), (_) => _buildEmptyStar());
+  List<Widget> _buildAllStars() {
+    return List.generate(maxStars, (index) {
+      if (index < stars) {
+        return _buildFullStar(bigStarIndex - 1 == index ? bigSize : normalSize);
+      }
+      if (halfStarExits && !_halfStarIsPainted) {
+        _halfStarIsPainted = true;
+        return _buildHalfStar(bigStarIndex - 1 == index ? bigSize : normalSize);
+      }
+      return _buildEmptyStar(bigStarIndex - 1 == index ? bigSize : normalSize);
+    });
   }
 
-  List<Widget> _buildAllFull() {
-    return List.generate(stars, (_) => _buildFullStar());
-  }
-
-  Widget _buildEmptyStar() {
-    return const FaIcon(
+  Widget _buildEmptyStar(double size) {
+    return FaIcon(
       FontAwesomeIcons.star,
       color: Colors.yellow,
+      size: size,
     );
   }
 
-  Widget _buildHalfStar() {
+  Widget _buildHalfStar(double size) {
     return halfStarExits
-        ? const FaIcon(
+        ? FaIcon(
             FontAwesomeIcons.starHalfAlt,
             color: Colors.yellow,
+            size: size,
           )
         : const SizedBox();
   }
 
-  Widget _buildFullStar() {
-    return const FaIcon(
+  Widget _buildFullStar(double size) {
+    return FaIcon(
       FontAwesomeIcons.solidStar,
       color: Colors.yellow,
+      size: size,
     );
   }
 }
