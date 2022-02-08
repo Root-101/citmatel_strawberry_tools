@@ -197,7 +197,6 @@ class StrawberryWidgets {
           CommonsStarsIndicator(
             stars: stars,
             maxStars: maxStar,
-            halfStarExits: halfStarExits,
           ),
         ],
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,

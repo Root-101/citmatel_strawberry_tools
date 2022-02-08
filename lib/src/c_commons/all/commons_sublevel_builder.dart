@@ -18,7 +18,6 @@ class CommonsSubLevelBuilder {
     ),
     int stars = 1,
     int maxStar = 3,
-    bool halfStarExits = true,
     Widget? body,
   }) {
     return Scaffold(
@@ -44,7 +43,6 @@ class CommonsSubLevelBuilder {
             CommonsStarsIndicator(
               stars: stars,
               maxStars: maxStar,
-              halfStarExits: halfStarExits,
             ),
           ],
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
