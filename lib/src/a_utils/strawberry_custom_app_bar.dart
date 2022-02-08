@@ -10,8 +10,6 @@ class StrawberryCustomAppBar extends StatelessWidget
   final double elevation;
   // The height of the contents in the bar.
   final double contentHeight;
-  // The color of the bar.
-  final Color? color;
   // The opacity in the color of the bar.
   final double opacity;
   // This bool changes the order of the childs.
@@ -34,7 +32,6 @@ class StrawberryCustomAppBar extends StatelessWidget
       required this.largeChild,
       this.elevation = 10,
       this.contentHeight = 40,
-      this.color = Colors.transparent,
       this.opacity = 0.2,
       this.changeOrderOfTheChilds = false,
       this.appBarSize = const Size.fromHeight(50.0),
@@ -54,51 +51,37 @@ class StrawberryCustomAppBar extends StatelessWidget
   );
 
   Widget buildLargeBarCard(BorderRadius shapeBorder, BuildContext context) {
-    return Card(
-      elevation: elevation,
-      shape: RoundedRectangleBorder(
+    return Container(
+      decoration: BoxDecoration(
         borderRadius: shapeBorder,
+        color: Colors.black.withOpacity(opacity),
       ),
-      color: color,
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: shapeBorder,
-          color: Colors.black.withOpacity(opacity),
-        ),
-        child: InkWell(
-          onTap: largeBarPressed,
-          child: SizedBox(
-            width: MediaQuery.of(context).size.width / 1.3,
-            height: contentHeight,
-            child: largeChild,
-          ),
+      child: InkWell(
+        onTap: largeBarPressed,
+        child: SizedBox(
+          width: MediaQuery.of(context).size.width / 1.3,
+          height: contentHeight,
+          child: largeChild,
         ),
       ),
     );
   }
 
   Widget buildSmallBarCard(BorderRadius shapeBorder) {
-    return Card(
-      elevation: elevation,
-      shape: RoundedRectangleBorder(
+    return Container(
+      decoration: BoxDecoration(
         borderRadius: shapeBorder,
+        color: Colors.black.withOpacity(opacity),
       ),
-      color: color,
-      child: Container(
-        decoration: BoxDecoration(
+      child: MaterialButton(
+        height: contentHeight,
+        minWidth: 30,
+        elevation: elevation,
+        shape: RoundedRectangleBorder(
           borderRadius: shapeBorder,
-          color: Colors.black.withOpacity(opacity),
         ),
-        child: MaterialButton(
-          height: contentHeight,
-          minWidth: 30,
-          elevation: elevation,
-          shape: RoundedRectangleBorder(
-            borderRadius: shapeBorder,
-          ),
-          onPressed: smallBarPressed,
-          child: smallChild,
-        ),
+        onPressed: smallBarPressed,
+        child: smallChild,
       ),
     );
   }
