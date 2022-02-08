@@ -26,7 +26,27 @@ class CommonsSliverAppBar {
       backgroundColor: backgroundColor,
       leading: const BackButton(color: Colors.white),
       flexibleSpace: FlexibleSpaceBar(
-        title: Text(title),
+        title: Text(
+          title,
+          style: const TextStyle(
+            fontFamily: 'Lobster',
+            fontSize: 30,
+            color: Colors.black,
+            shadows: [
+              Shadow(
+                color: Colors.blue,
+                blurRadius: 10.0,
+                offset: Offset(5.0, 5.0),
+              ),
+              Shadow(
+                color: Colors.red,
+                blurRadius: 10.0,
+                offset: Offset(-5.0, 5.0),
+              ),
+            ],
+          ),
+          maxLines: 1,
+        ),
         centerTitle: true,
         collapseMode: CollapseMode.pin,
         background: Container(
