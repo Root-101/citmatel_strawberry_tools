@@ -6,6 +6,7 @@ class CommonsSingleSubLevelTile extends StatelessWidget {
   final Color backgroundColor;
   final int stars;
   final int maxStars;
+  final int startMultiplier;
   final int contPlayedTimes;
   final int level;
   final Widget openWidget;
@@ -21,6 +22,7 @@ class CommonsSingleSubLevelTile extends StatelessWidget {
     ),
     required this.stars,
     required this.maxStars,
+    this.startMultiplier = 2, //por defecto dos para tener la media estrella
     required this.contPlayedTimes,
     required this.level,
     required this.openWidget,
@@ -59,7 +61,11 @@ class CommonsSingleSubLevelTile extends StatelessWidget {
             'Nivel: $level',
             style: textStyle,
           ),
-          CommonsStarsIndicator(stars: stars, maxStars: maxStars),
+          CommonsStarsIndicator(
+            stars: stars,
+            maxStars: maxStars,
+            startMultiplier: startMultiplier,
+          ),
           Text(
             'Intentos: $contPlayedTimes',
             style: textStyle,
