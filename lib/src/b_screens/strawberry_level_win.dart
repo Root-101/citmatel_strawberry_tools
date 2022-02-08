@@ -148,6 +148,7 @@ class _StrawberryLevelWinState extends State<StrawberryLevelWin>
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: StrawberryWidgets.circularButtonWithIcon(
+          heroTag: 'leftButton',
           onPressed: widget.leftButtonFunction,
           child: StrawberryWidgets.heartBeatIconAnimation(
             icon: Icons.next_plan_outlined,
@@ -164,6 +165,7 @@ class _StrawberryLevelWinState extends State<StrawberryLevelWin>
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: StrawberryWidgets.circularButtonWithIcon(
+          heroTag: 'rightButton',
           // The function to display when the rigth button is pressed.
           onPressed: widget.rightButtonFunction,
           child: StrawberryWidgets.pulseIconAnimation(
