@@ -23,9 +23,12 @@ class CommonsStarsIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(children: [
-      ..._buildAllStars(),
-    ]);
+    return Row(
+      children: [
+        ..._buildAllStars(),
+      ],
+      mainAxisAlignment: MainAxisAlignment.center,
+    );
   }
 
   List<Widget> _buildAllStars() {
