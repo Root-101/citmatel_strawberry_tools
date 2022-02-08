@@ -15,6 +15,7 @@ class CommonsLevelsThemeScreen<LevelDomain extends IntIdentifier>
   final Function onRandomTap;
   final String urlSliverBackground;
   final Color backgroundColor;
+  final Color appbarBackgroundColor;
 
   final int crossAxisCount;
   final String title;
@@ -31,6 +32,7 @@ class CommonsLevelsThemeScreen<LevelDomain extends IntIdentifier>
     this.crossAxisCount = 2,
     this.title = "Temas",
     this.backgroundColor = Colors.white,
+    this.appbarBackgroundColor = Colors.redAccent,
     required this.maxStars,
     required this.winedStars,
     Key? key,
@@ -65,7 +67,7 @@ class CommonsLevelsThemeScreen<LevelDomain extends IntIdentifier>
           CommonsSliverAppBar.buildAppBar(
             context: context,
             expandedHeight: expandedHeight,
-            backgroundColor: Colors.indigoAccent,
+            backgroundColor: appbarBackgroundColor,
             title: title,
             urlBackgroundImage: urlSliverBackground,
             maxStars: maxStars,
