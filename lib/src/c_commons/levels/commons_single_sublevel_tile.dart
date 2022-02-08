@@ -3,19 +3,26 @@ import 'package:citmatel_strawberry_tools/src/c_commons/all/commons_all_exporter
 import 'package:flutter/material.dart';
 
 class CommonsSingleSubLevelTile extends StatelessWidget {
-  final Color color;
+  final Color backgroundColor;
   final int stars;
   final int maxStars;
   final int contPlayedTimes;
+  final int level;
   final Widget openWidget;
-
+  final TextStyle textStyle;
   final Color colorPrimary;
 
   const CommonsSingleSubLevelTile({
-    this.color = Colors.grey,
+    this.backgroundColor = Colors.grey,
+    this.textStyle = const TextStyle(
+      fontSize: 20,
+      fontWeight: FontWeight.bold,
+      color: Colors.white,
+    ),
     required this.stars,
     required this.maxStars,
     required this.contPlayedTimes,
+    required this.level,
     required this.openWidget,
     this.colorPrimary = Colors.white,
     Key? key,
@@ -44,11 +51,19 @@ class CommonsSingleSubLevelTile extends StatelessWidget {
   //Tile chiquito que se muestra en la lista con todos los subniveles
   _buildClosed() {
     return Container(
-      color: color,
+      color: backgroundColor,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
+          Text(
+            'Nivel: $level',
+            style: textStyle,
+          ),
           CommonsStarsIndicator(stars: stars, maxStars: maxStars),
-          Text('played times $contPlayedTimes'),
+          Text(
+            'Intentos: $contPlayedTimes',
+            style: textStyle,
+          ),
         ],
       ),
     );
