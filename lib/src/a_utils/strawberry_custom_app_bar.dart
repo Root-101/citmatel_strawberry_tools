@@ -31,10 +31,10 @@ class StrawberryCustomAppBar extends StatelessWidget
       required this.smallChild,
       required this.largeChild,
       this.elevation = 10,
-      this.contentHeight = 40,
+      this.contentHeight = 30,
       this.opacity = 0.2,
       this.changeOrderOfTheChilds = false,
-      this.appBarSize = const Size.fromHeight(50.0),
+      this.appBarSize = const Size.fromHeight(40.0),
       this.smallBarPressed,
       this.largeBarPressed})
       : preferredSize = appBarSize,
@@ -52,18 +52,30 @@ class StrawberryCustomAppBar extends StatelessWidget
 
   Widget buildLargeBarCard(BorderRadius shapeBorder, BuildContext context) {
     return Container(
+      width: MediaQuery.of(context).size.width / 1.3,
       decoration: BoxDecoration(
         borderRadius: shapeBorder,
         color: Colors.black.withOpacity(opacity),
       ),
-      child: InkWell(
-        onTap: largeBarPressed,
-        child: SizedBox(
-          width: MediaQuery.of(context).size.width / 1.3,
-          height: contentHeight,
-          child: largeChild,
+      child: MaterialButton(
+        height: contentHeight,
+        minWidth: MediaQuery.of(context).size.width / 1.3,
+        elevation: elevation,
+        shape: RoundedRectangleBorder(
+          borderRadius: shapeBorder,
         ),
+        onPressed: largeBarPressed,
+        child: largeChild,
       ),
+
+      // child: InkWell(
+      //   onTap: largeBarPressed,
+      //   child: SizedBox(
+      //     width: MediaQuery.of(context).size.width / 1.3,
+      //     height: contentHeight,
+      //     child: largeChild,
+      //   ),
+      // ),
     );
   }
 
