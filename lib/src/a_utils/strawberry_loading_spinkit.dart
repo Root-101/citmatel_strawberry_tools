@@ -6,46 +6,52 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 class StrawberryLoadingSpinkit {
   static final Random _random = Random();
 
-  static randomLoadingSpinkit() {
-    return kits[_random.nextInt(kits.length)];
+  static randomLoadingSpinkit({Color color = Colors.white, double size = 50}) {
+    return kits(color: color, size: size)[_random.nextInt(kits().length)];
   }
 
-  static const kits = <Widget>[
-    SpinKitRotatingCircle(color: Colors.white),
-    SpinKitRotatingPlain(color: Colors.white),
-    SpinKitChasingDots(color: Colors.white),
-    SpinKitPumpingHeart(color: Colors.white),
-    SpinKitPulse(color: Colors.white),
-    SpinKitDoubleBounce(color: Colors.white),
-    SpinKitWave(color: Colors.white, type: SpinKitWaveType.start),
-    SpinKitWave(color: Colors.white, type: SpinKitWaveType.center),
-    SpinKitWave(color: Colors.white, type: SpinKitWaveType.end),
-    SpinKitPianoWave(color: Colors.white, type: SpinKitPianoWaveType.start),
-    SpinKitPianoWave(color: Colors.white, type: SpinKitPianoWaveType.center),
-    SpinKitPianoWave(color: Colors.white, type: SpinKitPianoWaveType.end),
-    SpinKitThreeBounce(color: Colors.white),
-    SpinKitThreeInOut(color: Colors.white),
-    SpinKitWanderingCubes(color: Colors.white),
-    SpinKitWanderingCubes(color: Colors.white, shape: BoxShape.circle),
-    SpinKitCircle(color: Colors.white),
-    SpinKitFadingFour(color: Colors.white),
-    SpinKitFadingFour(color: Colors.white, shape: BoxShape.rectangle),
-    SpinKitFadingCube(color: Colors.white),
-    SpinKitCubeGrid(size: 51.0, color: Colors.white),
-    SpinKitFoldingCube(color: Colors.white),
-    SpinKitRing(color: Colors.white),
-    SpinKitDualRing(color: Colors.white),
-    SpinKitSpinningLines(color: Colors.white),
-    SpinKitFadingGrid(color: Colors.white),
-    SpinKitFadingGrid(color: Colors.white, shape: BoxShape.rectangle),
-    SpinKitSquareCircle(color: Colors.white),
-    SpinKitSpinningCircle(color: Colors.white),
-    SpinKitSpinningCircle(color: Colors.white, shape: BoxShape.rectangle),
-    SpinKitFadingCircle(color: Colors.white),
-    SpinKitHourGlass(color: Colors.white),
-    SpinKitPouringHourGlass(color: Colors.white),
-    SpinKitPouringHourGlassRefined(color: Colors.white),
-    SpinKitRipple(color: Colors.white),
-    SpinKitDancingSquare(color: Colors.white),
-  ];
+  static List<Widget> kits({Color color = Colors.white, double size = 50}) {
+    return <Widget>[
+      SpinKitRotatingCircle(color: color, size: size),
+      SpinKitRotatingPlain(color: color, size: size),
+      SpinKitChasingDots(color: color, size: size),
+      SpinKitPumpingHeart(color: color, size: size),
+      SpinKitPulse(color: color, size: size),
+      SpinKitDoubleBounce(color: color, size: size),
+      SpinKitWave(color: color, size: size, type: SpinKitWaveType.start),
+      SpinKitWave(color: color, size: size, type: SpinKitWaveType.center),
+      SpinKitWave(color: color, size: size, type: SpinKitWaveType.end),
+      SpinKitPianoWave(
+          color: color, size: size, type: SpinKitPianoWaveType.start),
+      SpinKitPianoWave(
+          color: color, size: size, type: SpinKitPianoWaveType.center),
+      SpinKitPianoWave(
+          color: color, size: size, type: SpinKitPianoWaveType.end),
+      SpinKitThreeBounce(color: color, size: size),
+      SpinKitThreeInOut(color: color, size: size),
+      SpinKitWanderingCubes(color: color, size: size),
+      SpinKitWanderingCubes(color: color, size: size, shape: BoxShape.circle),
+      SpinKitCircle(color: color, size: size),
+      SpinKitFadingFour(color: color, size: size),
+      SpinKitFadingFour(color: color, size: size, shape: BoxShape.rectangle),
+      SpinKitFadingCube(color: color, size: size),
+      SpinKitCubeGrid(color: color, size: size),
+      SpinKitFoldingCube(color: color, size: size),
+      SpinKitRing(color: color, size: size),
+      SpinKitDualRing(color: color, size: size),
+      SpinKitSpinningLines(color: color, size: size),
+      SpinKitFadingGrid(color: color, size: size),
+      SpinKitFadingGrid(color: color, size: size, shape: BoxShape.rectangle),
+      SpinKitSquareCircle(color: color, size: size),
+      SpinKitSpinningCircle(color: color, size: size),
+      SpinKitSpinningCircle(
+          color: color, size: size, shape: BoxShape.rectangle),
+      SpinKitFadingCircle(color: color, size: size),
+      SpinKitHourGlass(color: color, size: size),
+      SpinKitPouringHourGlass(color: color, size: size),
+      SpinKitPouringHourGlassRefined(color: color, size: size),
+      SpinKitRipple(color: color, size: size),
+      SpinKitDancingSquare(color: color, size: size),
+    ];
+  }
 }
