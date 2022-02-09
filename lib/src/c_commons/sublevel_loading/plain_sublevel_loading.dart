@@ -38,6 +38,7 @@ class _PlainSubLevelLoadingState extends State<PlainSubLevelLoading> {
   void initState() {
     _animatedWidget = Container(
       padding: const EdgeInsets.all(30.0),
+      alignment: Alignment.center,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -57,10 +58,9 @@ class _PlainSubLevelLoadingState extends State<PlainSubLevelLoading> {
               repeatForever: true,
             ),
           ),
-          SizedBox(
-            height: 350,
-            width: 350,
-            child: StrawberryLoadingSpinkit.randomLoadingSpinkit(),
+          FittedBox(
+            fit: BoxFit.contain,
+            child: StrawberryLoadingSpinkit.randomLoadingSpinkit(size: 100),
           ),
           //a random loading every time
         ],
