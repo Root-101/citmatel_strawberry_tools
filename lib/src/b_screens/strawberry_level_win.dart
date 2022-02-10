@@ -1,5 +1,4 @@
 import 'package:citmatel_strawberry_tools/tools_exporter.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animator/flutter_animator.dart';
 
@@ -12,12 +11,17 @@ class StrawberryLevelWin extends StatefulWidget {
   final Function()? leftButtonFunction;
   final Function()? rightButtonFunction;
 
+  final int stars;
+  final int maxStar;
+
   StrawberryLevelWin({
     Key? key,
     String? childFirstText,
     this.leftButtonFunction,
     this.rightButtonFunction,
     ImageProvider? backgroundImage,
+    required this.stars,
+    required this.maxStar,
   }) : super(key: key) {
     if (childFirstText != null) {
       _childFirstText = childFirstText;
@@ -30,7 +34,7 @@ class StrawberryLevelWin extends StatefulWidget {
 
 class _StrawberryLevelWinState extends State<StrawberryLevelWin>
     with TickerProviderStateMixin {
-  final double proportion = 5.0;
+  final double proportion = 4.2;
 
   @override
   Widget build(BuildContext context) {
@@ -48,6 +52,11 @@ class _StrawberryLevelWinState extends State<StrawberryLevelWin>
             child: SafeArea(
               child: Stack(
                 children: [
+                  _buildStars(
+                    stars: widget.stars,
+                    maxStar: widget.maxStar,
+                    deviceSize: deviceSize,
+                  ),
                   _buildTrophy(deviceSize),
                   _buildCharacter(deviceSize),
                   _buildAnimatedText(deviceSize, widget._childFirstText),
@@ -115,7 +124,7 @@ class _StrawberryLevelWinState extends State<StrawberryLevelWin>
 
   _buildAnimatedText(Size deviceSize, String text) {
     return Positioned(
-      top: deviceSize.height / 2 - 150,
+      top: deviceSize.height / 2 - 135,
       left: 0.0,
       right: 0.0,
       child: FittedBox(
@@ -158,6 +167,26 @@ class _StrawberryLevelWinState extends State<StrawberryLevelWin>
             // The icon of the button with an animation.
             icon: Icons.home_sharp,
           ),
+        ),
+      ),
+    );
+  }
+
+  _buildStars({
+    required int stars,
+    required int maxStar,
+    required deviceSize,
+  }) {
+    return Positioned(
+      top: deviceSize.height / 2 - 30,
+      left: 0.0,
+      right: 0.0,
+      child: Center(
+        child: CommonsStarsIndicator(
+          stars: stars,
+          maxStars: maxStar,
+          normalSize: deviceSize.width / 7,
+          bigSize: deviceSize.width / 4,
         ),
       ),
     );
