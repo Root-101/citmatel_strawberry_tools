@@ -41,7 +41,7 @@ class StrawberryLevelWin extends StatefulWidget {
 
 class _StrawberryLevelWinState extends State<StrawberryLevelWin>
     with TickerProviderStateMixin {
-  final double proportion = 4.0;
+  final double proportion = 5.0;
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +61,7 @@ class _StrawberryLevelWinState extends State<StrawberryLevelWin>
                 children: [
                   _buildTrophy(deviceSize),
                   _buildCharacter(deviceSize),
-                  ..._buildAnimatedText(deviceSize),
+                  _buildAnimatedText(deviceSize),
                   _buildLeftButton(),
                   _buildRightButton(),
                 ],
@@ -77,7 +77,7 @@ class _StrawberryLevelWinState extends State<StrawberryLevelWin>
     double height = deviceSize.height / proportion;
 
     return Positioned(
-      top: 40.0,
+      top: deviceSize.height / 19,
       left: 0.0,
       right: 0.0,
       child: Tada(
@@ -102,7 +102,7 @@ class _StrawberryLevelWinState extends State<StrawberryLevelWin>
   _buildCharacter(Size deviceSize) {
     double height = deviceSize.height / proportion;
     return Positioned(
-      bottom: 60.0,
+      bottom: deviceSize.height / 15,
       left: 0.0,
       right: 0.0,
       child: Bounce(
@@ -125,20 +125,12 @@ class _StrawberryLevelWinState extends State<StrawberryLevelWin>
   }
 
   _buildAnimatedText(Size deviceSize) {
-    return [
-      Positioned(
-        top: deviceSize.height / 2 - 100,
-        left: 0.0,
-        right: 0.0,
-        child: widget._childFirstText,
-      ),
-      Positioned(
-        top: deviceSize.height / 2 - 60,
-        left: 0.0,
-        right: 0.0,
-        child: widget._childSecondText,
-      ),
-    ];
+    return Positioned(
+      top: deviceSize.height / 2 - 150,
+      left: 0.0,
+      right: 0.0,
+      child: widget._childFirstText,
+    );
   }
 
   _buildLeftButton() {
