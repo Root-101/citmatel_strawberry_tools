@@ -7,7 +7,7 @@ class CommonsSubLevelBuilder {
   static Scaffold buildScaffold({
     required int nivel,
     required String tema,
-    required Size size,
+    required Size deviceSize,
     TextStyle? nivelTextStyle,
     TextStyle? temaTextStyle,
     int stars = 1,
@@ -20,16 +20,16 @@ class CommonsSubLevelBuilder {
         changeOrderOfTheChilds: true,
         smallChild: Center(
           child: SizedBox(
-            width: size.width / 11,
-            height: size.width / 13,
+            width: deviceSize.width / 11,
+            height: deviceSize.width / 13,
             child: const BackButton(
               color: Colors.white,
             ),
           ),
         ),
         largeChild: SizedBox(
-          width: size.width / 1,
-          height: size.width / 13,
+          width: deviceSize.width / 1,
+          height: deviceSize.width / 13,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -40,19 +40,19 @@ class CommonsSubLevelBuilder {
                     TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
-                      fontSize: size.width / 20,
+                      fontSize: deviceSize.width / 20,
                     ),
                 maxLines: 1,
               ),
               SizedBox(
-                width: size.width / 4,
+                width: deviceSize.width / 4,
                 child: AutoSizeText(
                   "$tema  ",
                   style: temaTextStyle ??
                       TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
-                        fontSize: size.width / 16,
+                        fontSize: deviceSize.width / 16,
                       ),
                   maxLines: 1,
                 ),
@@ -60,8 +60,8 @@ class CommonsSubLevelBuilder {
               CommonsStarsIndicator(
                 stars: stars,
                 maxStars: maxStar,
-                normalSize: size.width / 14,
-                bigSize: size.width / 9,
+                normalSize: deviceSize.width / 14,
+                bigSize: deviceSize.width / 9,
               ),
             ],
           ),
