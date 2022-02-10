@@ -5,17 +5,18 @@ import 'package:flutter/material.dart';
 class StrawberryLevelLose extends StatefulWidget {
   static const ROUTE_NAME = "/tools-loose-level-screen";
 
-  late Widget _childFirstText = StrawberryAnimatedTextKit.rotateAnimatedText(
-    repeatForever: true,
-    texts: ['Has perdido.', 'Inténtalo de nuevo.', 'El que persevera triunfa.'],
-  );
+  late List<String> _childFirstText = [
+    'Has perdido.',
+    'Inténtalo de nuevo.',
+    'El que persevera triunfa.'
+  ];
 
   final Function()? leftButtonFunction;
   final Function()? rightButtonFunction;
 
   StrawberryLevelLose({
     Key? key,
-    Widget? childFirstText,
+    List<String>? childFirstText,
     this.leftButtonFunction,
     this.rightButtonFunction,
     ImageProvider? backgroundImage,
@@ -43,7 +44,7 @@ class _StrawberryLevelLoseState extends State<StrawberryLevelLose>
             child: Stack(
               children: [
                 _buildCharacter(deviceSize),
-                _buildAnimatedText(deviceSize),
+                _buildAnimatedText(deviceSize, widget._childFirstText),
                 _buildLeftButton(),
                 _buildRightButton(),
               ],
@@ -54,18 +55,14 @@ class _StrawberryLevelLoseState extends State<StrawberryLevelLose>
     );
   }
 
-  _buildAnimatedText(Size deviceSize) {
+  _buildAnimatedText(Size deviceSize, List<String> texts) {
     return Positioned(
       top: deviceSize.height / 3,
       left: 0.0,
       right: 0.0,
       child: StrawberryAnimatedTextKit.rotateAnimatedText(
         repeatForever: true,
-        texts: [
-          'Has perdido.',
-          'Inténtalo de nuevo.',
-          'El que persevera triunfa.'
-        ],
+        texts: texts,
         fontSize: deviceSize.width / 10,
       ),
     );
