@@ -56,17 +56,25 @@ class _StrawberryLevelLoseState extends State<StrawberryLevelLose>
 
   _buildAnimatedText(Size deviceSize) {
     return Positioned(
-      top: 100,
+      top: deviceSize.height / 3,
       left: 0.0,
       right: 0.0,
-      child: widget._childFirstText,
+      child: StrawberryAnimatedTextKit.rotateAnimatedText(
+        repeatForever: true,
+        texts: [
+          'Has perdido.',
+          'Inténtalo de nuevo.',
+          'El que persevera triunfa.'
+        ],
+        fontSize: deviceSize.width / 10,
+      ),
     );
   }
 
   _buildCharacter(Size deviceSize) {
     double height = deviceSize.height / 3;
     return Positioned(
-      bottom: 75.0,
+      bottom: deviceSize.height / 15,
       left: 0.0,
       right: 0.0,
       child: Container(
