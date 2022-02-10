@@ -5,20 +5,26 @@ import 'package:flutter/material.dart';
 class StrawberryLevelLose extends StatefulWidget {
   static const ROUTE_NAME = "/tools-loose-level-screen";
 
-  late Widget _childFirstText = StrawberryAnimatedTextKit.rotateAnimatedText(
-    repeatForever: true,
-    texts: ['Has perdido.', 'Inténtalo de nuevo.', 'El que persevera triunfa.'],
-  );
+  late List<String> _childFirstText = [
+    'Has perdido.',
+    'Inténtalo de nuevo.',
+    'El que persevera triunfa.'
+  ];
 
   final Function()? leftButtonFunction;
   final Function()? rightButtonFunction;
 
+  final int stars;
+  final int maxStar;
+
   StrawberryLevelLose({
     Key? key,
-    Widget? childFirstText,
+    List<String>? childFirstText,
     this.leftButtonFunction,
     this.rightButtonFunction,
     ImageProvider? backgroundImage,
+    required this.stars,
+    required this.maxStar,
   }) : super(key: key) {
     if (childFirstText != null) {
       _childFirstText = childFirstText;
@@ -42,8 +48,18 @@ class _StrawberryLevelLoseState extends State<StrawberryLevelLose>
           child: SafeArea(
             child: Stack(
               children: [
-                _buildCharacter(deviceSize),
-                _buildAnimatedText(deviceSize),
+                _buildStars(
+                  stars: widget.stars,
+                  maxStar: widget.maxStar,
+                  deviceSize: deviceSize,
+                ),
+                _buildCharacter(
+                  deviceSize,
+                ),
+                _buildAnimatedText(
+                  deviceSize,
+                  widget._childFirstText,
+                ),
                 _buildLeftButton(),
                 _buildRightButton(),
               ],
@@ -54,19 +70,23 @@ class _StrawberryLevelLoseState extends State<StrawberryLevelLose>
     );
   }
 
-  _buildAnimatedText(Size deviceSize) {
+  _buildAnimatedText(Size deviceSize, List<String> texts) {
     return Positioned(
-      top: 100,
+      top: deviceSize.height / 3.5,
       left: 0.0,
       right: 0.0,
-      child: widget._childFirstText,
+      child: StrawberryAnimatedTextKit.rotateAnimatedText(
+        repeatForever: true,
+        texts: texts,
+        fontSize: deviceSize.width / 10,
+      ),
     );
   }
 
   _buildCharacter(Size deviceSize) {
     double height = deviceSize.height / 3;
     return Positioned(
-      bottom: 75.0,
+      bottom: deviceSize.height / 19,
       left: 0.0,
       right: 0.0,
       child: Container(
@@ -111,6 +131,26 @@ class _StrawberryLevelLoseState extends State<StrawberryLevelLose>
             // The icon of the button with an animation.
             icon: Icons.home_sharp,
           ),
+        ),
+      ),
+    );
+  }
+
+  _buildStars({
+    required int stars,
+    required int maxStar,
+    required deviceSize,
+  }) {
+    return Positioned(
+      top: deviceSize.height / 11,
+      left: 0.0,
+      right: 0.0,
+      child: Center(
+        child: CommonsStarsIndicator(
+          stars: stars,
+          maxStars: maxStar,
+          normalSize: deviceSize.width / 7,
+          bigSize: deviceSize.width / 4,
         ),
       ),
     );
