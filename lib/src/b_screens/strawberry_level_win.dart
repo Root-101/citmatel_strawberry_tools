@@ -7,31 +7,20 @@ import 'package:flutter_animator/flutter_animator.dart';
 class StrawberryLevelWin extends StatefulWidget {
   static const ROUTE_NAME = "/tools-win-level-screen";
 
-  late Widget _childFirstText = StrawberryAnimatedTextKit.colorizeAnimatedText(
-    text: 'Felicidades',
-    repeatForever: true,
-  );
-
-  late Widget _childSecondText = StrawberryAnimatedTextKit.rotateAnimatedText(
-      texts: ['Has Ganado', 'Lo Lograste', 'Eres el Mejor'],
-      repeatForever: true);
+  late String _childFirstText = 'Felicidades';
 
   final Function()? leftButtonFunction;
   final Function()? rightButtonFunction;
 
   StrawberryLevelWin({
     Key? key,
-    Widget? childFirstText,
-    Widget? childSecondText,
+    String? childFirstText,
     this.leftButtonFunction,
     this.rightButtonFunction,
     ImageProvider? backgroundImage,
   }) : super(key: key) {
     if (childFirstText != null) {
       _childFirstText = childFirstText;
-    }
-    if (childSecondText != null) {
-      _childSecondText = childSecondText;
     }
   }
 
@@ -61,7 +50,7 @@ class _StrawberryLevelWinState extends State<StrawberryLevelWin>
                 children: [
                   _buildTrophy(deviceSize),
                   _buildCharacter(deviceSize),
-                  _buildAnimatedText(deviceSize),
+                  _buildAnimatedText(deviceSize, widget._childFirstText),
                   _buildLeftButton(),
                   _buildRightButton(),
                 ],
@@ -124,12 +113,17 @@ class _StrawberryLevelWinState extends State<StrawberryLevelWin>
     );
   }
 
-  _buildAnimatedText(Size deviceSize) {
+  _buildAnimatedText(Size deviceSize, String text) {
     return Positioned(
       top: deviceSize.height / 2 - 150,
       left: 0.0,
       right: 0.0,
-      child: widget._childFirstText,
+      child: FittedBox(
+        child: StrawberryAnimatedTextKit.colorizeAnimatedText(
+          text: 'Felicidades',
+          repeatForever: true,
+        ),
+      ),
     );
   }
 
