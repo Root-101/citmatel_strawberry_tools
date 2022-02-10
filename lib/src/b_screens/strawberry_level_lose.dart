@@ -14,12 +14,17 @@ class StrawberryLevelLose extends StatefulWidget {
   final Function()? leftButtonFunction;
   final Function()? rightButtonFunction;
 
+  final int stars;
+  final int maxStar;
+
   StrawberryLevelLose({
     Key? key,
     List<String>? childFirstText,
     this.leftButtonFunction,
     this.rightButtonFunction,
     ImageProvider? backgroundImage,
+    required this.stars,
+    required this.maxStar,
   }) : super(key: key) {
     if (childFirstText != null) {
       _childFirstText = childFirstText;
@@ -43,8 +48,18 @@ class _StrawberryLevelLoseState extends State<StrawberryLevelLose>
           child: SafeArea(
             child: Stack(
               children: [
-                _buildCharacter(deviceSize),
-                _buildAnimatedText(deviceSize, widget._childFirstText),
+                _buildStars(
+                  stars: widget.stars,
+                  maxStar: widget.maxStar,
+                  deviceSize: deviceSize,
+                ),
+                _buildCharacter(
+                  deviceSize,
+                ),
+                _buildAnimatedText(
+                  deviceSize,
+                  widget._childFirstText,
+                ),
                 _buildLeftButton(),
                 _buildRightButton(),
               ],
@@ -57,7 +72,7 @@ class _StrawberryLevelLoseState extends State<StrawberryLevelLose>
 
   _buildAnimatedText(Size deviceSize, List<String> texts) {
     return Positioned(
-      top: deviceSize.height / 3,
+      top: deviceSize.height / 3.5,
       left: 0.0,
       right: 0.0,
       child: StrawberryAnimatedTextKit.rotateAnimatedText(
@@ -71,7 +86,7 @@ class _StrawberryLevelLoseState extends State<StrawberryLevelLose>
   _buildCharacter(Size deviceSize) {
     double height = deviceSize.height / 3;
     return Positioned(
-      bottom: deviceSize.height / 15,
+      bottom: deviceSize.height / 19,
       left: 0.0,
       right: 0.0,
       child: Container(
@@ -116,6 +131,26 @@ class _StrawberryLevelLoseState extends State<StrawberryLevelLose>
             // The icon of the button with an animation.
             icon: Icons.home_sharp,
           ),
+        ),
+      ),
+    );
+  }
+
+  _buildStars({
+    required int stars,
+    required int maxStar,
+    required deviceSize,
+  }) {
+    return Positioned(
+      top: deviceSize.height / 11,
+      left: 0.0,
+      right: 0.0,
+      child: Center(
+        child: CommonsStarsIndicator(
+          stars: stars,
+          maxStars: maxStar,
+          normalSize: deviceSize.width / 7,
+          bigSize: deviceSize.width / 4,
         ),
       ),
     );
