@@ -23,12 +23,18 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage(
           name: StrawberryLevelWin.ROUTE_NAME,
-          page: () => StrawberryLevelWin(),
+          page: () => StrawberryLevelWin(
+            stars: 0,
+            maxStar: 3,
+          ),
           transition: Transition.circularReveal,
         ),
         GetPage(
           name: StrawberryLevelLose.ROUTE_NAME,
-          page: () => StrawberryLevelLose(),
+          page: () => StrawberryLevelLose(
+            stars: 0,
+            maxStar: 3,
+          ),
           transition: Transition.leftToRightWithFade,
         ),
       ],

@@ -90,6 +90,7 @@ flutter:
     - packages/citmatel_strawberry_tools/assets/images/themes/historia.png
     - packages/citmatel_strawberry_tools/assets/images/themes/tecnologia.png
     - packages/citmatel_strawberry_tools/assets/images/themes/tutorial.png
+    - packages/citmatel_strawberry_tools/assets/images/themes/mitology.png
 
     #imagenes generale
     - packages/citmatel_strawberry_tools/assets/images/level_completed.png

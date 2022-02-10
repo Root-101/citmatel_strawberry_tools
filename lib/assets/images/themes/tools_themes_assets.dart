@@ -38,6 +38,14 @@ class ToolsThemesAssets {
     colorLight: const Color(0xffca1a41).withOpacity(0.5),
   );
 
+  static const String THEME_MITOLOGY = "$_assets/mitology.png";
+  static final ToolsThemesBackgroundImage THEME_MITOLOGY_BACKGROUND =
+      ToolsThemesBackgroundImage(
+    urlImage: ToolsThemesAssets.THEME_MITOLOGY,
+    colorStrong: const Color(0xff744e6c),
+    colorLight: const Color(0xff896683).withOpacity(0.5),
+  );
+
   static const String THEME_GEOGRAFIA = "$_assets/geografia.png";
   static const String THEME_HISTORIA = "$_assets/historia.png";
 }
