@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:citmatel_strawberry_tools/assets/assets_exporter.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:tutorial_coach_mark/tutorial_coach_mark.dart';
 
 class StrawberryTutorial {
@@ -164,30 +165,23 @@ class StrawberryTutorial {
   }
 
   static Widget buildTitle(String title, Color textColor) {
+    // This are the title settings.
     return Text(
-      // This are the title settings.
       title,
-      style: TextStyle(
-        fontWeight: FontWeight.bold,
-        color: textColor,
-        fontSize: 30.0,
-      ),
+      style: Get.theme.textTheme.subtitle1?.copyWith(color: textColor),
     );
   }
 
   static Widget buildDescription(String description, Color textColor) {
-    return // This are the description settings.
-        Padding(
+    // This are the description settings.
+    return Padding(
       padding: const EdgeInsets.only(
         top: 10.0,
         bottom: 20,
       ),
       child: Text(
         description,
-        style: TextStyle(
-          color: textColor,
-          fontSize: 20.0,
-        ),
+        style: Get.theme.textTheme.bodyText1?.copyWith(color: textColor),
       ),
     );
   }
