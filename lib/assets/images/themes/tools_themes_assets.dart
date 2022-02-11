@@ -54,5 +54,13 @@ class ToolsThemesAssets {
     colorLight: const Color(0xff896683).withOpacity(0.5),
   );
 
+  static const String THEME_ARTE = "$_assets/arte.png";
+  static final ToolsThemesBackgroundImage THEME_ARTE_BACKGROUND =
+      ToolsThemesBackgroundImage(
+    urlImage: ToolsThemesAssets.THEME_ARTE,
+    colorStrong: const Color(0xff654a3c),
+    colorLight: const Color(0xff9a725d).withOpacity(0.5),
+  );
+
   static const String THEME_HISTORIA = "$_assets/historia.png";
 }
