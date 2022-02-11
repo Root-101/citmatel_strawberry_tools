@@ -1,6 +1,7 @@
 import 'package:animations/animations.dart';
 import 'package:citmatel_strawberry_tools/src/c_commons/all/commons_all_exporter.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CommonsSingleSubLevelTile extends StatelessWidget {
   final Color backgroundColor;
@@ -10,16 +11,10 @@ class CommonsSingleSubLevelTile extends StatelessWidget {
   final int contPlayedTimes;
   final int level;
   final Widget openWidget;
-  final TextStyle textStyle;
   final Color colorPrimary;
 
   const CommonsSingleSubLevelTile({
     this.backgroundColor = Colors.grey,
-    this.textStyle = const TextStyle(
-      fontSize: 20,
-      fontWeight: FontWeight.bold,
-      color: Colors.white,
-    ),
     required this.stars,
     required this.maxStars,
     this.startMultiplier = 2, //por defecto dos para tener la media estrella
@@ -59,7 +54,7 @@ class CommonsSingleSubLevelTile extends StatelessWidget {
         children: [
           Text(
             'Nivel: $level',
-            style: textStyle,
+            style: Get.theme.textTheme.subtitle2,
           ),
           CommonsStarsIndicator(
             stars: stars,
@@ -68,7 +63,7 @@ class CommonsSingleSubLevelTile extends StatelessWidget {
           ),
           Text(
             'Intentos: $contPlayedTimes',
-            style: textStyle,
+            style: Get.theme.textTheme.subtitle2,
           ),
         ],
       ),

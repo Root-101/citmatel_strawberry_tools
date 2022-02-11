@@ -3,6 +3,7 @@ import 'package:citmatel_strawberry_tools/src/c_commons/all/commons_all_exporter
 import 'package:citmatel_strawberry_tools/tools_exporter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CommonsLevelsThemeSingleTile<LevelDomain> extends StatelessWidget {
   final LevelDomain singleLevelDomain;
@@ -102,11 +103,7 @@ class CommonsLevelsThemeSingleTile<LevelDomain> extends StatelessWidget {
       child: Text(
         themeName,
         textAlign: TextAlign.center,
-        style: const TextStyle(
-          fontSize: 20,
-          color: Colors.white,
-          fontWeight: FontWeight.bold,
-        ),
+        style: Get.theme.textTheme.subtitle2,
       ),
     );
   }
