@@ -47,5 +47,12 @@ class ToolsThemesAssets {
   );
 
   static const String THEME_GEOGRAFIA = "$_assets/geografia.png";
+  static final ToolsThemesBackgroundImage THEME_GEOGRAFIA_BACKGROUND =
+      ToolsThemesBackgroundImage(
+    urlImage: ToolsThemesAssets.THEME_GEOGRAFIA,
+    colorStrong: const Color(0xff4e6f4d),
+    colorLight: const Color(0xff896683).withOpacity(0.5),
+  );
+
   static const String THEME_HISTORIA = "$_assets/historia.png";
 }
