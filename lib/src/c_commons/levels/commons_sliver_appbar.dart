@@ -1,9 +1,9 @@
 import 'package:citmatel_strawberry_tools/src/c_commons/all/commons_all_exporter.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CommonsSliverAppBar {
   static SliverAppBar buildAppBar({
-    required BuildContext context,
     required Color backgroundColor,
     required String title,
     required String urlBackgroundImage,
@@ -12,7 +12,7 @@ class CommonsSliverAppBar {
     double? expandedHeight,
     BorderRadius? borderRadius,
   }) {
-    expandedHeight ??= MediaQuery.of(context).size.height * 0.3;
+    expandedHeight ??= Get.size.height * 0.3;
     borderRadius ??= const BorderRadius.vertical(bottom: Radius.circular(25));
 
     return SliverAppBar(
@@ -28,23 +28,7 @@ class CommonsSliverAppBar {
       flexibleSpace: FlexibleSpaceBar(
         title: Text(
           title,
-          style: const TextStyle(
-            fontFamily: 'Lobster',
-            fontSize: 30,
-            color: Colors.black,
-            shadows: [
-              Shadow(
-                color: Colors.blue,
-                blurRadius: 10.0,
-                offset: Offset(5.0, 5.0),
-              ),
-              Shadow(
-                color: Colors.red,
-                blurRadius: 10.0,
-                offset: Offset(-5.0, 5.0),
-              ),
-            ],
-          ),
+          style: Get.theme.textTheme.headline6,
           maxLines: 1,
         ),
         centerTitle: true,

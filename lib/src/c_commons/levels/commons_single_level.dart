@@ -67,7 +67,6 @@ class CommonsSingleLevel<SubLevelDomain> extends StatelessWidget {
           expandedHeight: expandedHeight,
           slivers: <Widget>[
             CommonsSliverAppBar.buildAppBar(
-              context: context,
               expandedHeight: expandedHeight,
               backgroundColor: colorPrimary,
               title: themeTitle,

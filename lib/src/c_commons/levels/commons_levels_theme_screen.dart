@@ -68,7 +68,6 @@ class CommonsLevelsThemeScreen<LevelDomain extends IntIdentifier>
           expandedHeight: expandedHeight,
           slivers: <Widget>[
             CommonsSliverAppBar.buildAppBar(
-              context: context,
               expandedHeight: expandedHeight,
               backgroundColor: appbarBackgroundColor,
               title: title,
