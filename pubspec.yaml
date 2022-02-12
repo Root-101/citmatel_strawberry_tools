@@ -84,14 +84,16 @@ flutter:
     - packages/citmatel_strawberry_tools/assets/images/brain_learn/brain_question.png
 
     #imagenes de los temas
-    - packages/citmatel_strawberry_tools/assets/images/themes/cultura_general.png
-    - packages/citmatel_strawberry_tools/assets/images/themes/ciencias.png
-    - packages/citmatel_strawberry_tools/assets/images/themes/geografia.png
-    - packages/citmatel_strawberry_tools/assets/images/themes/historia.png
-    - packages/citmatel_strawberry_tools/assets/images/themes/tecnologia.png
-    - packages/citmatel_strawberry_tools/assets/images/themes/tutorial.png
-    - packages/citmatel_strawberry_tools/assets/images/themes/mitology.png
-    - packages/citmatel_strawberry_tools/assets/images/themes/arte.png
+    - packages/citmatel_strawberry_tools/assets/images/themes/0_tutorial.png
+    - packages/citmatel_strawberry_tools/assets/images/themes/1_cultura_general.png
+    - packages/citmatel_strawberry_tools/assets/images/themes/2_ciencias.png
+    - packages/citmatel_strawberry_tools/assets/images/themes/3_tecnologia.png
+    - packages/citmatel_strawberry_tools/assets/images/themes/4_mitology.png
+    - packages/citmatel_strawberry_tools/assets/images/themes/5_deporte.png
+    - packages/citmatel_strawberry_tools/assets/images/themes/6_geografia.png
+    - packages/citmatel_strawberry_tools/assets/images/themes/7_historia.png
+    - packages/citmatel_strawberry_tools/assets/images/themes/8_arte.png
+    - packages/citmatel_strawberry_tools/assets/images/themes/9_animales.png
 
     #imagenes generale
     - packages/citmatel_strawberry_tools/assets/images/level_completed.png
