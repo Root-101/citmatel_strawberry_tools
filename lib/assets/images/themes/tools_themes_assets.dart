@@ -18,7 +18,7 @@ class ToolsThemesAssets {
 
   static const String THEME_GENERAL = "$_assets/1_cultura_general.png";
   static const String THEME_GENERAL_NAME = "General";
-  static final ToolsThemesBackgroundImage THEME_CULTURA_GENERAL_BACKGROUND =
+  static final ToolsThemesBackgroundImage THEME_GENERAL_BACKGROUND =
       ToolsThemesBackgroundImage(
     urlImage: ToolsThemesAssets.THEME_GENERAL,
     colorStrong: const Color(0xffd4801c),
