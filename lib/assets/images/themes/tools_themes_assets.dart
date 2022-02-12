@@ -23,7 +23,7 @@ class ToolsThemesAssets {
     colorLight: const Color(0xffe1a41b).withOpacity(0.5),
   );
 
-  static const String THEME_TECNOLOGIA = "$_assets/2_tecnologia.png";
+  static const String THEME_TECNOLOGIA = "$_assets/3_tecnologia.png";
   static final ToolsThemesBackgroundImage THEME_TECNOLOGIA_BACKGROUND =
       ToolsThemesBackgroundImage(
     urlImage: ToolsThemesAssets.THEME_TECNOLOGIA,
@@ -31,7 +31,7 @@ class ToolsThemesAssets {
     colorLight: const Color(0xffa9b5d5).withOpacity(0.5),
   );
 
-  static const String THEME_CIENCIAS = "$_assets/3_ciencias.png";
+  static const String THEME_CIENCIAS = "$_assets/2_ciencias.png";
   static final ToolsThemesBackgroundImage THEME_CIENCIAS_BACKGROUND =
       ToolsThemesBackgroundImage(
     urlImage: ToolsThemesAssets.THEME_CIENCIAS,
@@ -47,7 +47,7 @@ class ToolsThemesAssets {
     colorLight: const Color(0xff896683).withOpacity(0.5),
   );
 
-  static const String THEME_GEOGRAFIA = "$_assets/5_geografia.png";
+  static const String THEME_GEOGRAFIA = "$_assets/6_geografia.png";
   static final ToolsThemesBackgroundImage THEME_GEOGRAFIA_BACKGROUND =
       ToolsThemesBackgroundImage(
     urlImage: ToolsThemesAssets.THEME_GEOGRAFIA,
@@ -55,7 +55,7 @@ class ToolsThemesAssets {
     colorLight: const Color(0xff896683).withOpacity(0.5),
   );
 
-  static const String THEME_ARTE = "$_assets/6_arte.png";
+  static const String THEME_ARTE = "$_assets/8_arte.png";
   static final ToolsThemesBackgroundImage THEME_ARTE_BACKGROUND =
       ToolsThemesBackgroundImage(
     urlImage: ToolsThemesAssets.THEME_ARTE,
@@ -71,7 +71,7 @@ class ToolsThemesAssets {
     colorLight: const Color(0xffb079ac).withOpacity(0.5),
   );
 
-  static const String THEME_DEPORTE = "$_assets/8_deporte.png";
+  static const String THEME_DEPORTE = "$_assets/5_deporte.png";
   static final ToolsThemesBackgroundImage THEME_DEPORTE_BACKGROUND =
       ToolsThemesBackgroundImage(
     urlImage: ToolsThemesAssets.THEME_DEPORTE,
