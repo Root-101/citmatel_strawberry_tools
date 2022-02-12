@@ -5,7 +5,7 @@ import 'package:citmatel_strawberry_tools/src/a_utils/strawberry_loading_spinkit
 import 'package:flutter/material.dart';
 
 class PlainSubLevelLoading extends StatefulWidget {
-  static const Duration DEFAULT_DURATION = Duration(seconds: 3);
+  static const Duration DEFAULT_DURATION = Duration(seconds: 2);
   // final String backgroundURL;
   final List<String> firstText;
   final List<String> secondText;

@@ -1,6 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:citmatel_strawberry_tools/src/a_utils/utils_exporter.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class StrawberryAnimatedTextKit {
   static Widget colorizeAnimatedText({
@@ -16,8 +17,7 @@ class StrawberryAnimatedTextKit {
         ColorizeAnimatedText(
           // The text to show.
           text,
-          textStyle: TextStyle(
-            // The size of the font.
+          textStyle: Get.theme.textTheme.subtitle1!.copyWith(
             fontSize: fontSize,
           ),
           // To align the text to the center.
@@ -39,10 +39,8 @@ class StrawberryAnimatedTextKit {
     TextAlign textAlign = TextAlign.center,
   }) {
     return DefaultTextStyle(
-      style: TextStyle(
-        // The size of the font.
+      style: Get.theme.textTheme.subtitle1!.copyWith(
         fontSize: fontSize,
-        // The color of the font
         color: color,
       ),
       child: AnimatedTextKit(
@@ -73,10 +71,8 @@ class StrawberryAnimatedTextKit {
     Function()? onTap,
   }) {
     return DefaultTextStyle(
-      style: TextStyle(
-        // The size of the font.
+      style: Get.theme.textTheme.subtitle1!.copyWith(
         fontSize: fontSize,
-        // The color of the font
         color: color,
       ),
       child: AnimatedTextKit(
