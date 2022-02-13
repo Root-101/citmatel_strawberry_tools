@@ -46,7 +46,7 @@ class StrawberryFunction {
     Duration timeBeforeTheTransition = const Duration(seconds: 2),
     Function()? leftButtonFunction,
     Function()? rightButtonFunction,
-    String? childFirstText,
+    List<String>? childFirstText,
     ImageProvider? backgroundImage,
     required int stars,
     required int maxStar,

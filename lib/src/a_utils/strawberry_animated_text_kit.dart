@@ -64,7 +64,7 @@ class StrawberryAnimatedTextKit {
 
   static Widget typewriterAnimatedText({
     required List<String> texts,
-    double fontSize = 70.0,
+    double fontSize = 80.0,
     Color color = Colors.blueAccent,
     bool repeatForever = false,
     TextAlign textAlign = TextAlign.center,
