@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CommonsStarsGeneralIndicator extends StatelessWidget {
   final int winedStars;
@@ -27,8 +28,7 @@ class CommonsStarsGeneralIndicator extends StatelessWidget {
           children: [
             Text(
               "$winedStars / $maxStars",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
+              style: Get.textTheme.subtitle2?.copyWith(
                 fontSize: size,
               ),
             ),

@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:citmatel_strawberry_tools/src/a_utils/strawberry_custom_app_bar.dart';
 import 'package:citmatel_strawberry_tools/src/c_commons/all/commons_all_exporter.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CommonsSubLevelBuilder {
   static Scaffold buildScaffold({
@@ -37,8 +38,7 @@ class CommonsSubLevelBuilder {
               AutoSizeText(
                 "#$nivel ",
                 style: nivelTextStyle ??
-                    TextStyle(
-                      fontWeight: FontWeight.bold,
+                    Get.textTheme.subtitle2?.copyWith(
                       color: Colors.white,
                       fontSize: deviceSize.width / 20,
                     ),
@@ -49,8 +49,7 @@ class CommonsSubLevelBuilder {
                 child: AutoSizeText(
                   "$tema  ",
                   style: temaTextStyle ??
-                      TextStyle(
-                        fontWeight: FontWeight.bold,
+                      Get.textTheme.subtitle2?.copyWith(
                         color: Colors.white,
                         fontSize: deviceSize.width / 16,
                       ),
