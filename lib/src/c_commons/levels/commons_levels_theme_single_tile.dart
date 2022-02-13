@@ -1,7 +1,6 @@
 import 'package:animations/animations.dart';
-import 'package:citmatel_strawberry_tools/src/c_commons/all/commons_all_exporter.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:citmatel_strawberry_tools/tools_exporter.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -100,7 +99,7 @@ class CommonsLevelsThemeSingleTile<LevelDomain> extends StatelessWidget {
       left: 0,
       right: 0,
       bottom: 10,
-      child: Text(
+      child: AutoSizeText(
         themeName,
         textAlign: TextAlign.center,
         style: Get.theme.textTheme.headline6,
