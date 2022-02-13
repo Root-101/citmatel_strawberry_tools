@@ -28,7 +28,7 @@ class CommonsSliverAppBar {
       flexibleSpace: FlexibleSpaceBar(
         title: Text(
           title,
-          style: Get.theme.textTheme.headline6,
+          style: Get.theme.textTheme.headline5,
           maxLines: 1,
         ),
         centerTitle: true,

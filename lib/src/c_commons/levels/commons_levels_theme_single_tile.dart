@@ -97,13 +97,13 @@ class CommonsLevelsThemeSingleTile<LevelDomain> extends StatelessWidget {
       [singleLevelDomain],
     );
     return Positioned(
-      left: 0,
+      left: -10, //TODO -10 para que centre la letra, por el tipo de fuente
       right: 0,
       bottom: 10,
       child: Text(
         themeName,
         textAlign: TextAlign.center,
-        style: Get.theme.textTheme.subtitle2,
+        style: Get.theme.textTheme.headline6,
       ),
     );
   }

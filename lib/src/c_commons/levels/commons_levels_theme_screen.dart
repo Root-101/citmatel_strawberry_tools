@@ -43,7 +43,7 @@ class CommonsLevelsThemeScreen<LevelDomain extends IntIdentifier>
 
   @override
   Widget build(BuildContext context) {
-    double expandedHeight = MediaQuery.of(context).size.height * 0.3;
+    double expandedHeight = Get.size.height * 0.3;
     //scaffold para el fondo blanco
     return Scaffold(
       backgroundColor: Colors.white,
