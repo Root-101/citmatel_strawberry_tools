@@ -6,7 +6,12 @@ import 'package:flutter_animator/flutter_animator.dart';
 class StrawberryLevelWin extends StatefulWidget {
   static const ROUTE_NAME = "/tools-win-level-screen";
 
-  late String _childFirstText = 'Felicidades';
+  late List<String> _childFirstText = [
+    'Felicidades',
+    'Has Ganado',
+    'Lo Lograste',
+    'Eres lo Mejor'
+  ];
 
   final Function()? leftButtonFunction;
   final Function()? rightButtonFunction;
@@ -16,7 +21,7 @@ class StrawberryLevelWin extends StatefulWidget {
 
   StrawberryLevelWin({
     Key? key,
-    String? childFirstText,
+    List<String>? childFirstText,
     this.leftButtonFunction,
     this.rightButtonFunction,
     ImageProvider? backgroundImage,
@@ -122,15 +127,14 @@ class _StrawberryLevelWinState extends State<StrawberryLevelWin>
     );
   }
 
-  _buildAnimatedText(Size deviceSize, String text) {
+  _buildAnimatedText(Size deviceSize, List<String> text) {
     return Positioned(
       top: deviceSize.height / 2 - 135,
       left: 0.0,
       right: 0.0,
-      child: FittedBox(
-        child: StrawberryAnimatedTextKit.colorizeAnimatedText(
-          text: 'Felicidades',
-          repeatForever: true,
+      child: StrawberryAnimatedTextKit.rotateAnimatedText(
+        texts: widget._childFirstText,
+        repeatForever: true,
         ),
       ),
     );
