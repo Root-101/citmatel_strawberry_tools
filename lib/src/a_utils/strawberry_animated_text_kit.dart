@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 class StrawberryAnimatedTextKit {
   static Widget colorizeAnimatedText({
     required String text,
-    double fontSize = 60.0,
+    double fontSize = 30.0,
     List<MaterialColor> listOfColors = StrawberryConstants.listOfColors,
     bool repeatForever = false,
     TextAlign textAlign = TextAlign.center,
@@ -17,7 +17,7 @@ class StrawberryAnimatedTextKit {
         ColorizeAnimatedText(
           // The text to show.
           text,
-          textStyle: Get.theme.textTheme.subtitle1!.copyWith(
+          textStyle: Get.theme.textTheme.headline4!.copyWith(
             fontSize: fontSize,
           ),
           // To align the text to the center.
@@ -33,13 +33,13 @@ class StrawberryAnimatedTextKit {
 
   static Widget rotateAnimatedText({
     required List<String> texts,
-    double fontSize = 50.0,
+    double fontSize = 70.0,
     Color color = Colors.blueAccent,
     bool repeatForever = false,
     TextAlign textAlign = TextAlign.center,
   }) {
     return DefaultTextStyle(
-      style: Get.theme.textTheme.subtitle1!.copyWith(
+      style: Get.theme.textTheme.headline4!.copyWith(
         fontSize: fontSize,
         color: color,
       ),
@@ -64,14 +64,14 @@ class StrawberryAnimatedTextKit {
 
   static Widget typewriterAnimatedText({
     required List<String> texts,
-    double fontSize = 50.0,
+    double fontSize = 70.0,
     Color color = Colors.blueAccent,
     bool repeatForever = false,
     TextAlign textAlign = TextAlign.center,
     Function()? onTap,
   }) {
     return DefaultTextStyle(
-      style: Get.theme.textTheme.subtitle1!.copyWith(
+      style: Get.theme.textTheme.headline4!.copyWith(
         fontSize: fontSize,
         color: color,
       ),

@@ -53,8 +53,8 @@ class CommonsSingleSubLevelTile extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Text(
-            'Nivel: $level',
-            style: Get.theme.textTheme.subtitle2,
+            'Nivel: $level  ', //TODO con espacios para que se centre por la letra
+            style: Get.theme.textTheme.headline6,
           ),
           CommonsStarsIndicator(
             stars: stars,
@@ -62,8 +62,8 @@ class CommonsSingleSubLevelTile extends StatelessWidget {
             startMultiplier: startMultiplier,
           ),
           Text(
-            'Intentos: $contPlayedTimes',
-            style: Get.theme.textTheme.subtitle2,
+            'Intentos: $contPlayedTimes  ',
+            style: Get.theme.textTheme.headline6,
           ),
         ],
       ),
