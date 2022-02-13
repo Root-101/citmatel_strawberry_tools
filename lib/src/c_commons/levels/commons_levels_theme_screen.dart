@@ -51,8 +51,8 @@ class CommonsLevelsThemeScreen<LevelDomain extends IntIdentifier>
         color: backgroundColor,
         child: SliverFab(
           floatingWidget: StrawberryWidgets.circularButtonWithIcon(
-            backgroundColor: Colors.green[800]!,
-            splashColor: Colors.green,
+            backgroundColor: const Color(0xff00a4db),
+            splashColor: const Color(0xff002edb).withOpacity(0.5),
             onPressed: () {
               Get.to(
                 Scaffold(
@@ -61,7 +61,7 @@ class CommonsLevelsThemeScreen<LevelDomain extends IntIdentifier>
               );
             },
             child: StrawberryWidgets.pulseIconAnimation(
-              icon: Icons.play_arrow_rounded,
+              icon: Icons.shuffle, //TODO: icons
             ),
           ),
           floatingPosition: const FloatingPosition(right: 16),
