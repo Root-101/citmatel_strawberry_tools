@@ -78,7 +78,7 @@ class _StrawberryLevelLoseState extends State<StrawberryLevelLose>
       child: StrawberryAnimatedTextKit.rotateAnimatedText(
         repeatForever: true,
         texts: texts,
-        fontSize: deviceSize.width / 10,
+        fontSize: deviceSize.width / 5,
       ),
     );
   }
