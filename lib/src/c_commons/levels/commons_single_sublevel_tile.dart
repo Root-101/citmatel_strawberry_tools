@@ -1,4 +1,5 @@
 import 'package:animations/animations.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:citmatel_strawberry_tools/src/c_commons/all/commons_all_exporter.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -52,7 +53,7 @@ class CommonsSingleSubLevelTile extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Text(
+          AutoSizeText(
             'Nivel: $level',
             style: Get.theme.textTheme.headline6,
           ),
@@ -61,7 +62,7 @@ class CommonsSingleSubLevelTile extends StatelessWidget {
             maxStars: maxStars,
             startMultiplier: startMultiplier,
           ),
-          Text(
+          AutoSizeText(
             'Intentos: $contPlayedTimes',
             style: Get.theme.textTheme.headline6,
           ),
