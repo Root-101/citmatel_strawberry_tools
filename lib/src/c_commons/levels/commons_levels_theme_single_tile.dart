@@ -97,7 +97,7 @@ class CommonsLevelsThemeSingleTile<LevelDomain> extends StatelessWidget {
       [singleLevelDomain],
     );
     return Positioned(
-      left: -10, //TODO -10 para que centre la letra, por el tipo de fuente
+      left: 0,
       right: 0,
       bottom: 10,
       child: Text(

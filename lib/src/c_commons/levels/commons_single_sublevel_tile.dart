@@ -49,23 +49,26 @@ class CommonsSingleSubLevelTile extends StatelessWidget {
   _buildClosed() {
     return Container(
       color: backgroundColor,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Text(
-            'Nivel: $level  ', //TODO con espacios para que se centre por la letra
-            style: Get.theme.textTheme.headline6,
-          ),
-          CommonsStarsIndicator(
-            stars: stars,
-            maxStars: maxStars,
-            startMultiplier: startMultiplier,
-          ),
-          Text(
-            'Intentos: $contPlayedTimes  ',
-            style: Get.theme.textTheme.headline6,
-          ),
-        ],
+      child: FittedBox(
+        fit: BoxFit.contain,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Text(
+              'Nivel: $level',
+              style: Get.theme.textTheme.headline6,
+            ),
+            CommonsStarsIndicator(
+              stars: stars,
+              maxStars: maxStars,
+              startMultiplier: startMultiplier,
+            ),
+            Text(
+              'Intentos: $contPlayedTimes',
+              style: Get.theme.textTheme.headline6,
+            ),
+          ],
+        ),
       ),
     );
   }
