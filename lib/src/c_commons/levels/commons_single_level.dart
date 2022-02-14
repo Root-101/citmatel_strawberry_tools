@@ -66,6 +66,7 @@ class CommonsSingleLevel<SubLevelDomain> extends StatelessWidget {
               child: FaIcon(
                 FontAwesomeIcons.random,
                 size: deviceSize.width / 15,
+                color: Colors.white,
               ),
             ),
           ),

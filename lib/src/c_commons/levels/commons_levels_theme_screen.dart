@@ -67,6 +67,7 @@ class CommonsLevelsThemeScreen<LevelDomain extends IntIdentifier>
               child: FaIcon(
                 FontAwesomeIcons.random,
                 size: deviceSize.width / 15,
+                color: Colors.white,
               ),
             ),
           ),
