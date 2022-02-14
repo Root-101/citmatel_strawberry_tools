@@ -17,7 +17,7 @@ class CommonsStarsGeneralIndicator extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-        color: Colors.black45,
+        color: Colors.black38,
         borderRadius: BorderRadius.all(
           Radius.circular(25),
         ),
