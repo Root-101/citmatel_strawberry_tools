@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:citmatel_strawberry_tools/src/a_utils/strawberry_custom_app_bar.dart';
 import 'package:citmatel_strawberry_tools/src/c_commons/all/commons_all_exporter.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
 class CommonsSubLevelBuilder {
@@ -24,13 +25,13 @@ class CommonsSubLevelBuilder {
       appBar: StrawberryCustomAppBar(
         changeOrderOfTheChilds: true,
         smallChild: Center(
-          child: SizedBox(
-            width: deviceSize.width / 11,
-            height: deviceSize.width / 13,
-            child: BackButton(
-              key: backKey,
-              color: Colors.white,
-            ),
+          child: IconButton(
+            padding: EdgeInsets.zero,
+            alignment: Alignment.center,
+            key: backKey,
+            icon: const Icon(Icons.arrow_back_rounded),
+            color: Colors.white,
+            onPressed: () => Get.back(),
           ),
         ),
         largeChild: SizedBox(

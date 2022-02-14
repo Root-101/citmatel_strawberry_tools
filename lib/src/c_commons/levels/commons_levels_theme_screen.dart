@@ -64,10 +64,13 @@ class CommonsLevelsThemeScreen<LevelDomain extends IntIdentifier>
               );
             },
             child: Pulse(
-              child: FaIcon(
-                FontAwesomeIcons.random,
-                size: deviceSize.width / 15,
-                color: Colors.white,
+              child: Tooltip(
+                child: FaIcon(
+                  FontAwesomeIcons.random,
+                  size: deviceSize.width / 15,
+                  color: Colors.white,
+                ),
+                message: "Nivel Aleatorio.",
               ),
             ),
           ),
