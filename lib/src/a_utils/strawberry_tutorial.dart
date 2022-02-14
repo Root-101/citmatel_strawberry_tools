@@ -21,7 +21,7 @@ class StrawberryTutorial {
     bool showImage = true,
     bool showImageOnTop = true,
     double imagePadding = 20,
-    int? titleMaxLines,
+    int titleMaxLines = 1,
     int? descriptionMaxLines,
   }) {
     return TargetFocus(
@@ -84,7 +84,7 @@ class StrawberryTutorial {
     ShapeLightFocus shape = ShapeLightFocus.RRect,
     double imagePadding = 20,
     bool showImage = true,
-    int? titleMaxLines,
+    int titleMaxLines = 1,
     int? descriptionMaxLines,
   }) {
     return TargetFocus(
