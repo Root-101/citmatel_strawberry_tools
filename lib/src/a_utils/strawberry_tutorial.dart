@@ -197,7 +197,7 @@ class StrawberryTutorial {
     // This are the title settings.
     return AutoSizeText(
       title,
-      style: Get.theme.textTheme.subtitle1?.copyWith(color: textColor),
+      style: Get.theme.textTheme.subtitle2?.copyWith(color: textColor),
       maxLines: maxLines,
     );
   }
