@@ -1,6 +1,8 @@
 import 'package:citmatel_strawberry_tools/src/a_utils/strawberry_widgets.dart';
 import 'package:citmatel_strawberry_tools/src/c_commons/commons_exporter.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animator/flutter_animator.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:sliver_fab/sliver_fab.dart';
 
@@ -43,8 +45,8 @@ class CommonsSingleLevel<SubLevelDomain> extends StatelessWidget {
     BorderRadius borderRadius =
         const BorderRadius.vertical(bottom: Radius.circular(25));
     //const BorderRadius.all(Radius.elliptical(100, 50));
-
-    double expandedHeight = MediaQuery.of(context).size.height * 0.3;
+    Size deviceSize = MediaQuery.of(context).size;
+    double expandedHeight = deviceSize.height * 0.3;
     return Scaffold(
       backgroundColor: Colors.white,
       body: Container(
@@ -60,8 +62,11 @@ class CommonsSingleLevel<SubLevelDomain> extends StatelessWidget {
                 ),
               );
             },
-            child: StrawberryWidgets.pulseIconAnimation(
-              icon: Icons.shuffle, //TODO: icons
+            child: Pulse(
+              child: FaIcon(
+                FontAwesomeIcons.random,
+                size: deviceSize.width / 15,
+              ),
             ),
           ),
           floatingPosition: const FloatingPosition(right: 16),
