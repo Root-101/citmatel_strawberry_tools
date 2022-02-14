@@ -14,6 +14,10 @@ class CommonsSubLevelBuilder {
     int stars = 1,
     int maxStar = 3,
     Widget? body,
+    GlobalKey? starsKey,
+    GlobalKey? levelKey,
+    GlobalKey? themeKey,
+    GlobalKey? backKey,
   }) {
     return Scaffold(
       backgroundColor: Colors.transparent,
@@ -23,7 +27,8 @@ class CommonsSubLevelBuilder {
           child: SizedBox(
             width: deviceSize.width / 11,
             height: deviceSize.width / 13,
-            child: const BackButton(
+            child: BackButton(
+              key: backKey,
               color: Colors.white,
             ),
           ),
@@ -43,6 +48,7 @@ class CommonsSubLevelBuilder {
                       fontSize: deviceSize.width / 20,
                     ),
                 maxLines: 1,
+                key: levelKey,
               ),
               SizedBox(
                 width: deviceSize.width / 4,
@@ -54,9 +60,11 @@ class CommonsSubLevelBuilder {
                         fontSize: deviceSize.width / 16,
                       ),
                   maxLines: 1,
+                  key: themeKey,
                 ),
               ),
               CommonsStarsIndicator(
+                key: starsKey,
                 stars: stars,
                 maxStars: maxStar,
                 normalSize: deviceSize.width / 14,

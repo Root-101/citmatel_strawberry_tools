@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:citmatel_strawberry_tools/assets/assets_exporter.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -20,6 +21,8 @@ class StrawberryTutorial {
     bool showImage = true,
     bool showImageOnTop = true,
     double imagePadding = 20,
+    int titleMaxLines = 1,
+    int? descriptionMaxLines,
   }) {
     return TargetFocus(
       // The identifyer of the target.
@@ -42,8 +45,16 @@ class StrawberryTutorial {
               showImage && showImageOnTop
                   ? buildImage(imagePadding)
                   : Container(),
-              buildTitle(title, textColor),
-              buildDescription(description, textColor),
+              buildTitle(
+                title: title,
+                textColor: textColor,
+                maxLines: titleMaxLines,
+              ),
+              buildDescription(
+                description: description,
+                textColor: textColor,
+                maxLines: descriptionMaxLines,
+              ),
               showImage && !showImageOnTop
                   ? buildImage(imagePadding)
                   : Container(),
@@ -73,6 +84,8 @@ class StrawberryTutorial {
     ShapeLightFocus shape = ShapeLightFocus.RRect,
     double imagePadding = 20,
     bool showImage = true,
+    int titleMaxLines = 1,
+    int? descriptionMaxLines,
   }) {
     return TargetFocus(
       // The identifyer of the target.
@@ -93,12 +106,23 @@ class StrawberryTutorial {
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: textCrossAxisAlignment,
                   children: <Widget>[
-                    buildTitle(title, textColor),
-                    buildDescription(description, textColor),
+                    buildTitle(
+                      title: title,
+                      textColor: textColor,
+                      maxLines: titleMaxLines,
+                    ),
+                    buildDescription(
+                      description: description,
+                      textColor: textColor,
+                      maxLines: descriptionMaxLines,
+                    ),
                   ],
                 )
               : Center(
-                  child: buildTitle(title, textColor),
+                  child: buildTitle(
+                      title: title,
+                      textColor: textColor,
+                      maxLines: titleMaxLines),
                 ),
         ),
         TargetContent(
@@ -106,7 +130,11 @@ class StrawberryTutorial {
           align: contentImageAlign,
           child: showImage
               ? buildImage(imagePadding)
-              : buildDescription(description, textColor),
+              : buildDescription(
+                  description: description,
+                  textColor: textColor,
+                  maxLines: descriptionMaxLines,
+                ),
         ),
       ],
       // The shape of the target focus.
@@ -164,24 +192,28 @@ class StrawberryTutorial {
     );
   }
 
-  static Widget buildTitle(String title, Color textColor) {
+  static Widget buildTitle(
+      {required String title, required Color textColor, int? maxLines}) {
     // This are the title settings.
-    return Text(
+    return AutoSizeText(
       title,
-      style: Get.theme.textTheme.subtitle1?.copyWith(color: textColor),
+      style: Get.theme.textTheme.subtitle2?.copyWith(color: textColor),
+      maxLines: maxLines,
     );
   }
 
-  static Widget buildDescription(String description, Color textColor) {
+  static Widget buildDescription(
+      {required String description, Color? textColor, int? maxLines}) {
     // This are the description settings.
     return Padding(
       padding: const EdgeInsets.only(
         top: 10.0,
         bottom: 20,
       ),
-      child: Text(
+      child: AutoSizeText(
         description,
         style: Get.theme.textTheme.bodyText1?.copyWith(color: textColor),
+        maxLines: maxLines,
       ),
     );
   }
