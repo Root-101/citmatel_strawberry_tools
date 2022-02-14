@@ -1,6 +1,8 @@
 import 'package:citmatel_strawberry_tools/tools_exporter.dart';
 import 'package:clean_core/clean_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animator/flutter_animator.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:sliver_fab/sliver_fab.dart';
 
@@ -43,6 +45,7 @@ class CommonsLevelsThemeScreen<LevelDomain extends IntIdentifier>
 
   @override
   Widget build(BuildContext context) {
+    Size deviceSize = MediaQuery.of(context).size;
     double expandedHeight = Get.size.height * 0.3;
     //scaffold para el fondo blanco
     return Scaffold(
@@ -60,8 +63,11 @@ class CommonsLevelsThemeScreen<LevelDomain extends IntIdentifier>
                 ),
               );
             },
-            child: StrawberryWidgets.pulseIconAnimation(
-              icon: Icons.shuffle, //TODO: icons
+            child: Pulse(
+              child: FaIcon(
+                FontAwesomeIcons.random,
+                size: deviceSize.width / 15,
+              ),
             ),
           ),
           floatingPosition: const FloatingPosition(right: 16),
