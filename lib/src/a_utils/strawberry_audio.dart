@@ -4,26 +4,26 @@ import 'package:citmatel_strawberry_tools/tools_exporter.dart';
 class StrawberryAudio {
   final assetsAudioPlayer = AssetsAudioPlayer();
 
-  static void playAudioCorrect() {
-    playAudio(ToolsAssets.AUDIO_CORRECT);
+  static void playAudioCorrect(bool mute) {
+    playAudio(ToolsAssets.AUDIO_CORRECT, mute);
   }
 
-  static void playAudioWrong() {
-    playAudio(ToolsAssets.AUDIO_WRONG);
+  static void playAudioWrong(bool mute) {
+    playAudio(ToolsAssets.AUDIO_WRONG, mute);
   }
 
-  static void playAudioWin() {
-    playAudio(ToolsAssets.AUDIO_WIN);
+  static void playAudioWin(bool mute) {
+    playAudio(ToolsAssets.AUDIO_WIN, mute);
   }
 
-  static void playAudioLose() {
-    playAudio(ToolsAssets.AUDIO_LOSE);
+  static void playAudioLose(bool mute) {
+    playAudio(ToolsAssets.AUDIO_LOSE, mute);
   }
 
-  static void playAudio(String audioUrl) {
+  static void playAudio(String audioUrl, bool mute) {
     AssetsAudioPlayer.playAndForget(
       Audio(audioUrl),
-      volume: 100,
+      volume: mute ? 0 : 100,
     );
   }
 }
