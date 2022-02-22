@@ -14,8 +14,9 @@ class StrawberryFunction {
     ImageProvider? backgroundImage,
     required int stars,
     required int maxStar,
+    required bool mute,
   }) async {
-    StrawberryAudio.playAudioLose();
+    StrawberryAudio.playAudioLose(mute);
     // Time before push one page above other.
     await Future.delayed(timeBeforeTheTransition);
     Get.off(
@@ -50,8 +51,9 @@ class StrawberryFunction {
     ImageProvider? backgroundImage,
     required int stars,
     required int maxStar,
+    required bool mute,
   }) async {
-    StrawberryAudio.playAudioWin();
+    StrawberryAudio.playAudioWin(mute);
     // Time before push one page above other.
     await Future.delayed(timeBeforeTheTransition);
     StrawberryVibration.vibrateWithWinPattern();
