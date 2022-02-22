@@ -1,9 +1,9 @@
 name: citmatel_strawberry_tools
 description: Tools that have in commons all CITMATEL's 'strawberry' projects
 
-publish_to: 'none'
+publish_to: "none"
 
-version: 0.0.1-SNAPSHOT.20220104
+version: 1.0.0-SNAPSHOT.20220222
 
 environment:
   sdk: ">=2.15.0 <3.0.0"
@@ -15,6 +15,35 @@ dependencies:
 
   cupertino_icons: ^1.0.2
 
+  # Architecture & Management
+  get: ^4.5.1
+  clean_core: ^1.2.3-RELEASE.20220206
+
+  #Animations
+  animations: ^2.0.2
+  flutter_spinkit: ^5.1.0
+  flutter_animator: ^3.2.0
+  sliver_fab:
+    git:
+      url: https://github.com/JesusHdezWaterloo/sliver_fab
+  background_app_bar: ^2.0.0
+
+  #Utils
+  vibration: ^1.7.4-nullsafety.0
+  tutorial_coach_mark: ^1.2.1
+  font_awesome_flutter: ^9.2.0
+  auto_size_text: ^3.0.0
+
+  #Audio
+  assets_audio_player: ^3.0.3+9
+
+  #Make Conffeti Effect
+  animated_background: ^2.0.0
+  confetti: ^0.6.0
+
+  #Animated Letters
+  animated_text_kit: ^4.2.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -22,6 +51,49 @@ dev_dependencies:
   flutter_lints: ^1.0.0
 
 flutter:
-
   uses-material-design: true
 
+  assets:
+    - packages/citmatel_strawberry_tools/assets/audios/keyboard_correct.wav
+    - packages/citmatel_strawberry_tools/assets/audios/keyboard_error.mp3
+    - packages/citmatel_strawberry_tools/assets/audios/lose_sad_trombone.wav
+    - packages/citmatel_strawberry_tools/assets/audios/win_applause.wav
+
+    - packages/citmatel_strawberry_tools/assets/icons/baby_boy.png
+    - packages/citmatel_strawberry_tools/assets/icons/baby_girl.png
+
+    - packages/citmatel_strawberry_tools/assets/images/sad_brain/sad_brain.png
+
+    - packages/citmatel_strawberry_tools/assets/images/happy_brain/happy_1.png
+    - packages/citmatel_strawberry_tools/assets/images/happy_brain/happy_2.png
+    - packages/citmatel_strawberry_tools/assets/images/happy_brain/happy_3.png
+
+    - packages/citmatel_strawberry_tools/assets/images/trofie/cup_1.png
+    - packages/citmatel_strawberry_tools/assets/images/trofie/cup_2.png
+    - packages/citmatel_strawberry_tools/assets/images/trofie/cup_3.png
+    - packages/citmatel_strawberry_tools/assets/images/trofie/cup_4.png
+    - packages/citmatel_strawberry_tools/assets/images/trofie/cup_5.png
+    - packages/citmatel_strawberry_tools/assets/images/trofie/cup_6.png
+    - packages/citmatel_strawberry_tools/assets/images/trofie/cup_7.png
+    - packages/citmatel_strawberry_tools/assets/images/trofie/cup_8.png
+
+    - packages/citmatel_strawberry_tools/assets/images/brain_learn/brain_book.png
+    - packages/citmatel_strawberry_tools/assets/images/brain_learn/brain_light.png
+    - packages/citmatel_strawberry_tools/assets/images/brain_learn/brain_lupa.png
+    - packages/citmatel_strawberry_tools/assets/images/brain_learn/brain_ommm.png
+    - packages/citmatel_strawberry_tools/assets/images/brain_learn/brain_question.png
+
+    #imagenes de los temas
+    - packages/citmatel_strawberry_tools/assets/images/themes/0_tutorial.png
+    - packages/citmatel_strawberry_tools/assets/images/themes/1_cultura_general.png
+    - packages/citmatel_strawberry_tools/assets/images/themes/2_ciencias.png
+    - packages/citmatel_strawberry_tools/assets/images/themes/3_tecnologia.png
+    - packages/citmatel_strawberry_tools/assets/images/themes/4_mitology.png
+    - packages/citmatel_strawberry_tools/assets/images/themes/5_deporte.png
+    - packages/citmatel_strawberry_tools/assets/images/themes/6_geografia.png
+    - packages/citmatel_strawberry_tools/assets/images/themes/7_historia.png
+    - packages/citmatel_strawberry_tools/assets/images/themes/8_arte.png
+    - packages/citmatel_strawberry_tools/assets/images/themes/9_animales.png
+
+    #imagenes generale
+    - packages/citmatel_strawberry_tools/assets/images/level_completed.png
