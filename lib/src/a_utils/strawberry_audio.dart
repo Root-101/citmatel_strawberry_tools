@@ -21,9 +21,13 @@ class StrawberryAudio {
   }
 
   static void playAudio(String audioUrl, bool mute) {
-    AssetsAudioPlayer.playAndForget(
-      Audio(audioUrl),
-      volume: mute ? 0 : 100,
-    );
+    try {
+      AssetsAudioPlayer.playAndForget(
+        Audio(audioUrl),
+        volume: mute ? 0 : 100,
+      );
+    } catch (error) {
+      print('Error reproduciendo el sonido');
+    }
   }
 }
