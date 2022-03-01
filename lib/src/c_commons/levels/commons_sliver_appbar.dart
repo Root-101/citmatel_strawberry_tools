@@ -28,7 +28,9 @@ class CommonsSliverAppBar {
       flexibleSpace: FlexibleSpaceBar(
         title: Text(
           title,
-          style: Get.theme.textTheme.headline5,
+          style: Get.theme.textTheme.headline5?.copyWith(
+            fontSize: Get.size.width / 15,
+          ),
           maxLines: 1,
         ),
         centerTitle: true,
@@ -50,6 +52,7 @@ class CommonsSliverAppBar {
                   child: CommonsStarsGeneralIndicator(
                     winedStars: winedStars,
                     maxStars: maxStars,
+                    size: Get.size.width / 19,
                   ),
                 )
               ],
