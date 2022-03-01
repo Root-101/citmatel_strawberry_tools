@@ -3,7 +3,7 @@ description: Tools that have in commons all CITMATEL's 'strawberry' projects
 
 publish_to: "none"
 
-version: 1.0.0-SNAPSHOT.20220222
+version: 1.1.0-RELEASE.20220301
 
 environment:
   sdk: ">=2.15.0 <3.0.0"
@@ -33,6 +33,7 @@ dependencies:
   tutorial_coach_mark: ^1.2.1
   font_awesome_flutter: ^9.2.0
   auto_size_text: ^3.0.0
+  decorated_icon: ^1.2.1
 
   #Audio
   assets_audio_player: ^3.0.3+9

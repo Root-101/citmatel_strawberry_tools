@@ -55,16 +55,22 @@ class CommonsSingleSubLevelTile extends StatelessWidget {
         children: [
           AutoSizeText(
             'Nivel: $level',
-            style: Get.theme.textTheme.headline6,
+            style: Get.theme.textTheme.headline6?.copyWith(
+              fontSize: Get.size.width / 13,
+            ),
           ),
           CommonsStarsIndicator(
             stars: stars,
             maxStars: maxStars,
             startMultiplier: startMultiplier,
+            normalSize: Get.size.width / 11,
+            bigSize: Get.size.width / 7,
           ),
           AutoSizeText(
             'Intentos: $contPlayedTimes',
-            style: Get.theme.textTheme.headline6,
+            style: Get.theme.textTheme.headline6?.copyWith(
+              fontSize: Get.size.width / 15,
+            ),
           ),
         ],
       ),
