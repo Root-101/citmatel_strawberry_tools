@@ -35,10 +35,10 @@ class CommonsStarsGeneralIndicator extends StatelessWidget {
             const SizedBox(
               width: 5,
             ),
-            const Icon(
+            Icon(
               Icons.stars,
               color: Colors.yellow,
-              size: 20,
+              size: size + 5,
             )
           ],
         ),
