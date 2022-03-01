@@ -1,7 +1,9 @@
 import 'package:animations/animations.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:citmatel_strawberry_tools/tools_exporter.dart';
+import 'package:decorated_icon/decorated_icon.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
 class CommonsLevelsThemeSingleTile<LevelDomain> extends StatelessWidget {
@@ -85,7 +87,7 @@ class CommonsLevelsThemeSingleTile<LevelDomain> extends StatelessWidget {
       child: CommonsStarsGeneralIndicator(
         winedStars: winedStars,
         maxStars: maxStars,
-        size: 15,
+        size: Get.size.width / 23,
       ),
     );
   }
@@ -102,7 +104,9 @@ class CommonsLevelsThemeSingleTile<LevelDomain> extends StatelessWidget {
       child: AutoSizeText(
         themeName,
         textAlign: TextAlign.center,
-        style: Get.theme.textTheme.headline6,
+        style: Get.theme.textTheme.headline6?.copyWith(
+          fontSize: Get.size.width / 13,
+        ),
       ),
     );
   }
@@ -110,12 +114,23 @@ class CommonsLevelsThemeSingleTile<LevelDomain> extends StatelessWidget {
   _buildWoned() {
     return wonedLevel
         ? Positioned(
-            top: 10,
-            left: 10,
-            child: Image.asset(
-              ToolsAssets.THEME_COMPLETED,
-              width: 40,
-              height: 40,
+            top: 12,
+            left: 12,
+            child: DecoratedIcon(
+              FontAwesomeIcons.medal,
+              color: Colors.yellow.shade600,
+              size: Get.size.width / 15,
+              shadows: [
+                const BoxShadow(
+                  blurRadius: 12.0,
+                  color: Colors.black,
+                ),
+                BoxShadow(
+                  blurRadius: 12.0,
+                  color: Colors.yellow.shade900,
+                  offset: const Offset(0, 6.0),
+                ),
+              ],
             ),
           )
         : Container();
