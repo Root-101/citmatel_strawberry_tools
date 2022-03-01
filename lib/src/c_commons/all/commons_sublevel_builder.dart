@@ -2,7 +2,6 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:citmatel_strawberry_tools/src/a_utils/strawberry_custom_app_bar.dart';
 import 'package:citmatel_strawberry_tools/src/c_commons/all/commons_all_exporter.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
 class CommonsSubLevelBuilder {
@@ -42,7 +41,7 @@ class CommonsSubLevelBuilder {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               AutoSizeText(
-                "#$nivel ",
+                "#$nivel",
                 style: nivelTextStyle ??
                     Get.textTheme.subtitle2?.copyWith(
                       color: Colors.white,
@@ -68,7 +67,7 @@ class CommonsSubLevelBuilder {
                 key: starsKey,
                 stars: stars,
                 maxStars: maxStar,
-                normalSize: deviceSize.width / 14,
+                normalSize: deviceSize.width / 15,
                 bigSize: deviceSize.width / 9,
               ),
             ],
