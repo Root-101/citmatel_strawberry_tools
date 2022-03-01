@@ -54,6 +54,7 @@ class CommonsLevelsThemeScreen<LevelDomain extends IntIdentifier>
         color: backgroundColor,
         child: SliverFab(
           floatingWidget: StrawberryWidgets.circularButtonWithIcon(
+            size: deviceSize.width / 9,
             backgroundColor: const Color(0xff00a4db),
             splashColor: const Color(0xff002edb).withOpacity(0.5),
             onPressed: () {
@@ -67,7 +68,7 @@ class CommonsLevelsThemeScreen<LevelDomain extends IntIdentifier>
               child: Tooltip(
                 child: FaIcon(
                   FontAwesomeIcons.random,
-                  size: deviceSize.width / 15,
+                  size: deviceSize.width / 17,
                   color: Colors.white,
                 ),
                 message: "Nivel Aleatorio.",
