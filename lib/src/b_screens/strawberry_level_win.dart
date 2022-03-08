@@ -7,10 +7,10 @@ class StrawberryLevelWin extends StatefulWidget {
   static const ROUTE_NAME = "/tools-win-level-screen";
 
   late List<String> _childFirstText = [
-    'Felicidades',
-    'Has Ganado',
-    'Lo Lograste',
-    'Eres lo Mejor'
+    '¡Felicidades!',
+    '¡Has Ganado!',
+    '¡Lo Lograste!',
+    '¡Eres lo Mejor!'
   ];
 
   final Function()? leftButtonFunction;
