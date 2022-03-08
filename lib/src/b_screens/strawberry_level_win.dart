@@ -1,6 +1,7 @@
 import 'package:citmatel_strawberry_tools/tools_exporter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animator/flutter_animator.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 // ignore: must_be_immutable
 class StrawberryLevelWin extends StatefulWidget {
@@ -150,7 +151,7 @@ class _StrawberryLevelWinState extends State<StrawberryLevelWin>
           heroTag: 'leftButton',
           onPressed: widget.leftButtonFunction,
           child: StrawberryWidgets.heartBeatIconAnimation(
-            icon: Icons.next_plan_outlined,
+            icon: FontAwesomeIcons.angleDoubleRight,
           ),
         ),
       ),
