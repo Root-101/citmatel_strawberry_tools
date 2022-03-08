@@ -1,16 +1,17 @@
 import 'package:citmatel_strawberry_tools/tools_exporter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animator/flutter_animator.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 // ignore: must_be_immutable
 class StrawberryLevelWin extends StatefulWidget {
   static const ROUTE_NAME = "/tools-win-level-screen";
 
   late List<String> _childFirstText = [
-    'Felicidades',
-    'Has Ganado',
-    'Lo Lograste',
-    'Eres lo Mejor'
+    '¡Felicidades!',
+    '¡Has Ganado!',
+    '¡Lo Lograste!',
+    '¡Eres lo Mejor!'
   ];
 
   final Function()? leftButtonFunction;
@@ -129,7 +130,7 @@ class _StrawberryLevelWinState extends State<StrawberryLevelWin>
 
   _buildAnimatedText(Size deviceSize, List<String> text) {
     return Positioned(
-      top: deviceSize.height / 2 - 180,
+      top: deviceSize.height / 4.3,
       left: 0.0,
       right: 0.0,
       child: StrawberryAnimatedTextKit.rotateAnimatedText(
@@ -150,7 +151,7 @@ class _StrawberryLevelWinState extends State<StrawberryLevelWin>
           heroTag: 'leftButton',
           onPressed: widget.leftButtonFunction,
           child: StrawberryWidgets.heartBeatIconAnimation(
-            icon: Icons.next_plan_outlined,
+            icon: FontAwesomeIcons.angleDoubleRight,
           ),
         ),
       ),

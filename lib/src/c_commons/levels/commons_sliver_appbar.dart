@@ -24,7 +24,14 @@ class CommonsSliverAppBar {
       pinned: true,
       elevation: 2.0,
       backgroundColor: backgroundColor,
-      leading: const BackButton(color: Colors.white),
+      leading: IconButton(
+        icon: const Icon(
+          Icons.arrow_back_rounded,
+        ),
+        color: Colors.white,
+        onPressed: () => Get.back(),
+        iconSize: Get.size.width / 11,
+      ),
       flexibleSpace: FlexibleSpaceBar(
         title: Text(
           title,
