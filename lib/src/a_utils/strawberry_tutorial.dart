@@ -195,7 +195,7 @@ class StrawberryTutorial {
         image: AssetImage(
           ToolsAssetsBrainLearn.randomBrainLearn(),
         ),
-        width: 250,
+        width: Get.size.height / 3,
       ),
     );
   }
@@ -205,7 +205,10 @@ class StrawberryTutorial {
     // This are the title settings.
     return AutoSizeText(
       title,
-      style: Get.theme.textTheme.subtitle2?.copyWith(color: textColor),
+      style: Get.theme.textTheme.subtitle2?.copyWith(
+        color: textColor,
+        fontSize: Get.size.width / 15,
+      ),
       maxLines: maxLines,
     );
   }
@@ -220,7 +223,10 @@ class StrawberryTutorial {
       ),
       child: AutoSizeText(
         description,
-        style: Get.theme.textTheme.bodyText1?.copyWith(color: textColor),
+        style: Get.theme.textTheme.bodyText1?.copyWith(
+          color: textColor,
+          fontSize: Get.size.width / 19,
+        ),
         maxLines: maxLines,
       ),
     );
