@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:citmatel_strawberry_tools/tools_exporter.dart';
 import 'package:clean_core/clean_core.dart';
 import 'package:flutter/material.dart';
@@ -49,6 +51,8 @@ class CommonsLevelsThemeScreen<LevelDomain extends IntIdentifier>
   Widget build(BuildContext context) {
     Size deviceSize = MediaQuery.of(context).size;
     double expandedHeight = Get.size.height * 0.3;
+    //si es menos de 56 que es el por defecto lanza excepcion
+    double collapsedHeight = max(Get.size.width / 10, 60);
 
     double randomWidth = deviceSize.width / 17;
 
@@ -89,6 +93,7 @@ class CommonsLevelsThemeScreen<LevelDomain extends IntIdentifier>
           slivers: <Widget>[
             CommonsSliverAppBar.buildAppBar(
               expandedHeight: expandedHeight,
+              collapsedHeight: collapsedHeight,
               backgroundColor: appbarBackgroundColor,
               title: title,
               urlBackgroundImage: urlSliverBackground,
