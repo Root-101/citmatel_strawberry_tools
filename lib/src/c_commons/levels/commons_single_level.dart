@@ -20,6 +20,7 @@ class CommonsSingleLevel<SubLevelDomain> extends StatelessWidget {
   ///Widget que va a salir cuando se selecciona, el por detras se encarga de navegacion y scaffold y demas
   final dynamic levelDomain;
   final Function onRandomOfTap;
+  final bool mute;
 
   final Function(SubLevelDomain subLevel) singleSubLevelTileBuilder;
 
@@ -37,6 +38,7 @@ class CommonsSingleLevel<SubLevelDomain> extends StatelessWidget {
     required this.levelDomain,
     required this.onRandomOfTap,
     this.crossAxisCount = 2,
+    this.mute = false,
     Key? key,
   }) : super(key: key);
 
@@ -58,7 +60,8 @@ class CommonsSingleLevel<SubLevelDomain> extends StatelessWidget {
             onPressed: () {
               Get.to(
                 Scaffold(
-                  body: Function.apply(onRandomOfTap, [levelDomain]) as Widget,
+                  body: Function.apply(onRandomOfTap, [levelDomain, mute])
+                      as Widget,
                 ),
               );
             },

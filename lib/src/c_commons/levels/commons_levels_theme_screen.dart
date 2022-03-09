@@ -15,6 +15,7 @@ class CommonsLevelsThemeScreen<LevelDomain extends IntIdentifier>
 
   ///Widget que va a salir cuando se selecciona, el por detras se encarga de navegacion y scaffold y demas
   final Function onRandomTap;
+  final bool mute;
   final String urlSliverBackground;
   final Color backgroundColor;
   final Color appbarBackgroundColor;
@@ -35,6 +36,7 @@ class CommonsLevelsThemeScreen<LevelDomain extends IntIdentifier>
     this.title = "Temas",
     this.backgroundColor = Colors.grey,
     this.appbarBackgroundColor = Colors.redAccent,
+    this.mute = false,
     required this.maxStars,
     required this.winedStars,
     Key? key,
@@ -63,7 +65,7 @@ class CommonsLevelsThemeScreen<LevelDomain extends IntIdentifier>
             onPressed: () {
               Get.to(
                 Scaffold(
-                  body: Function.apply(onRandomTap, []) as Widget,
+                  body: Function.apply(onRandomTap, [mute]) as Widget,
                 ),
               );
             },
