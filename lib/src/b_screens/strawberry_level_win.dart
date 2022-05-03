@@ -130,13 +130,13 @@ class _StrawberryLevelWinState extends State<StrawberryLevelWin>
 
   _buildAnimatedText(Size deviceSize, List<String> text) {
     return Positioned(
-      top: deviceSize.height / 4.3,
+      top: deviceSize.height / 4.2,
       left: 0.0,
       right: 0.0,
       child: StrawberryAnimatedTextKit.rotateAnimatedText(
         texts: widget._childFirstText,
         repeatForever: true,
-        fontSize: deviceSize.width / 6,
+        fontSize: deviceSize.width / 7,
       ),
     );
   }
