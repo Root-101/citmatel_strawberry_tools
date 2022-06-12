@@ -45,6 +45,9 @@ dependencies:
   #Animated Letters
   animated_text_kit: ^4.2.1
 
+  #DB
+  clean_repo_objectbox: ^0.2.1-SNAPSHOT.20220223
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
