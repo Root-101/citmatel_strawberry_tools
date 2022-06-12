@@ -104,7 +104,7 @@ class _StrawberryLevelLoseState extends State<StrawberryLevelLose>
 
   _buildLeftButton() {
     return Positioned(
-      left: 10.0,
+      right: 10.0,
       bottom: 10.0,
       child: Padding(
         padding: const EdgeInsets.all(10.0),
@@ -120,7 +120,7 @@ class _StrawberryLevelLoseState extends State<StrawberryLevelLose>
   _buildRightButton() {
     return Positioned(
       bottom: 10.0,
-      right: 10.0,
+      left: 10.0,
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: StrawberryWidgets.circularButtonWithIcon(
