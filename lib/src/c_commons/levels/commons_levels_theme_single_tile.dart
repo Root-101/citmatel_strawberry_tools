@@ -68,7 +68,7 @@ class CommonsLevelsThemeSingleTile<LevelDomain> extends StatelessWidget {
       child: Stack(
         children: [
           _buildThemeTitle(),
-          _buildThemeStars(),
+          //_buildThemeStars(),//no stars for only dnd
           _buildWoned(),
         ],
       ),
