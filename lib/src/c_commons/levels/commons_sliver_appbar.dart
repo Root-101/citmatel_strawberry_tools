@@ -10,6 +10,7 @@ class CommonsSliverAppBar {
     required int maxStars,
     required int winedStars,
     double? expandedHeight,
+    double? collapsedHeight,
     BorderRadius? borderRadius,
   }) {
     expandedHeight ??= Get.size.height * 0.3;
@@ -20,11 +21,19 @@ class CommonsSliverAppBar {
         borderRadius: borderRadius,
       ),
       expandedHeight: expandedHeight,
+      collapsedHeight: collapsedHeight,
       floating: true,
       pinned: true,
       elevation: 2.0,
       backgroundColor: backgroundColor,
-      leading: const BackButton(color: Colors.white),
+      leading: IconButton(
+        icon: const Icon(
+          Icons.arrow_back_rounded,
+        ),
+        color: Colors.white,
+        onPressed: () => Get.back(),
+        iconSize: Get.size.width / 16,
+      ),
       flexibleSpace: FlexibleSpaceBar(
         title: Text(
           title,

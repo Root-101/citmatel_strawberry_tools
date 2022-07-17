@@ -8,14 +8,16 @@ class StrawberryFunction {
   static Timer? _timer;
 
   static dispose() {
-    _timer?.cancel();
+    if (_timer != null && _timer!.isActive) {
+      _timer?.cancel();
+    }
   }
 
   // This show a screen that tell to user it lost.
   static void looseLevel({
     Transition transition = Transition.zoom,
-    Duration duration = const Duration(milliseconds: 500),
-    Duration timeBeforeTheTransition = const Duration(seconds: 2),
+    Duration duration = const Duration(milliseconds: 250),
+    Duration timeBeforeTheTransition = const Duration(seconds: 3),
     Function()? leftButtonFunction,
     Function()? rightButtonFunction,
     List<String>? childFirstText,
@@ -47,6 +49,7 @@ class StrawberryFunction {
           transition: transition,
           // The duration of the transition.
           duration: duration,
+          preventDuplicates: false,
         );
       },
     );
@@ -55,8 +58,8 @@ class StrawberryFunction {
   // This show a screen that tell to user it win.
   static void winLevel({
     Transition transition = Transition.zoom,
-    Duration duration = const Duration(milliseconds: 500),
-    Duration timeBeforeTheTransition = const Duration(seconds: 2),
+    Duration duration = const Duration(milliseconds: 250),
+    Duration timeBeforeTheTransition = const Duration(seconds: 3),
     Function()? leftButtonFunction,
     Function()? rightButtonFunction,
     List<String>? childFirstText,
@@ -89,6 +92,7 @@ class StrawberryFunction {
           transition: transition,
           // The duration of the transition.
           duration: duration,
+          preventDuplicates: false,
         );
       },
     );

@@ -1,16 +1,17 @@
 import 'package:citmatel_strawberry_tools/tools_exporter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animator/flutter_animator.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 // ignore: must_be_immutable
 class StrawberryLevelWin extends StatefulWidget {
   static const ROUTE_NAME = "/tools-win-level-screen";
 
   late List<String> _childFirstText = [
-    'Felicidades',
-    'Has Ganado',
-    'Lo Lograste',
-    'Eres lo Mejor'
+    '¡Felicidades!',
+    '¡Has Ganado!',
+    '¡Lo Lograste!',
+    '¡Eres lo Mejor!'
   ];
 
   final Function()? leftButtonFunction;
@@ -129,20 +130,20 @@ class _StrawberryLevelWinState extends State<StrawberryLevelWin>
 
   _buildAnimatedText(Size deviceSize, List<String> text) {
     return Positioned(
-      top: deviceSize.height / 2 - 180,
+      top: deviceSize.height / 4.2,
       left: 0.0,
       right: 0.0,
       child: StrawberryAnimatedTextKit.rotateAnimatedText(
         texts: widget._childFirstText,
         repeatForever: true,
-        fontSize: deviceSize.width / 6,
+        fontSize: deviceSize.width / 7,
       ),
     );
   }
 
   _buildLeftButton() {
     return Positioned(
-      left: 10.0,
+      right: 10.0,
       bottom: 10.0,
       child: Padding(
         padding: const EdgeInsets.all(10.0),
@@ -150,7 +151,7 @@ class _StrawberryLevelWinState extends State<StrawberryLevelWin>
           heroTag: 'leftButton',
           onPressed: widget.leftButtonFunction,
           child: StrawberryWidgets.heartBeatIconAnimation(
-            icon: Icons.next_plan_outlined,
+            icon: FontAwesomeIcons.angleDoubleRight,
           ),
         ),
       ),
@@ -160,7 +161,7 @@ class _StrawberryLevelWinState extends State<StrawberryLevelWin>
   _buildRightButton() {
     return Positioned(
       bottom: 10.0,
-      right: 10.0,
+      left: 10.0,
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: StrawberryWidgets.circularButtonWithIcon(

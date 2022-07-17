@@ -155,26 +155,34 @@ class StrawberryTutorial {
     FutureOr<void> Function(TargetFocus)? onClickOverlay,
   }) {
     return TutorialCoachMark(
-        // The context in wich the tutirial is going to show.
-        context,
-        // The list with the tutorial targets.
-        targets: targets,
-        // The background shadow color.
-        colorShadow: colorShadow,
-        // The text in the skip button.
-        textSkip: textSkip,
-        // The padding to the target focus.
-        paddingFocus: 10,
-        // The opacity in the shadow.
-        opacityShadow: 0.95,
-        // What happends when the tutorial finish.
-        onFinish: onFinish,
-        // What happends when a target is pressed.
-        onClickTarget: onClickTarget,
-        // What happends when the skip button is pressed.
-        onSkip: onSkip,
-        // What happends when the overlay is pressed.
-        onClickOverlay: onClickOverlay)
+      // The context in wich the tutirial is going to show.
+      context,
+      // The list with the tutorial targets.
+      targets: targets,
+      // The background shadow color.
+      colorShadow: colorShadow,
+      // The text in the skip button.
+      textSkip: textSkip,
+      // The padding to the target focus.
+      paddingFocus: 10,
+      // The opacity in the shadow.
+      opacityShadow: 0.95,
+      // What happends when the tutorial finish.
+      onFinish: onFinish,
+      // What happends when a target is pressed.
+      onClickTarget: onClickTarget,
+      // What happends when the skip button is pressed.
+      onSkip: onSkip,
+      // What happends when the overlay is pressed.
+      onClickOverlay: onClickOverlay,
+      skipWidget: Text(
+        textSkip,
+        style: Get.theme.textTheme.subtitle2?.copyWith(
+          color: Colors.white,
+          fontSize: Get.size.width / 15,
+        ),
+      ),
+    )
       // And finally show the TutorialCoachMark previously initializated.
       ..show();
   }
@@ -187,7 +195,7 @@ class StrawberryTutorial {
         image: AssetImage(
           ToolsAssetsBrainLearn.randomBrainLearn(),
         ),
-        width: 250,
+        width: Get.size.height / 3,
       ),
     );
   }
@@ -197,7 +205,10 @@ class StrawberryTutorial {
     // This are the title settings.
     return AutoSizeText(
       title,
-      style: Get.theme.textTheme.subtitle2?.copyWith(color: textColor),
+      style: Get.theme.textTheme.subtitle2?.copyWith(
+        color: textColor,
+        fontSize: Get.size.width / 15,
+      ),
       maxLines: maxLines,
     );
   }
@@ -212,7 +223,10 @@ class StrawberryTutorial {
       ),
       child: AutoSizeText(
         description,
-        style: Get.theme.textTheme.bodyText1?.copyWith(color: textColor),
+        style: Get.theme.textTheme.bodyText1?.copyWith(
+          color: textColor,
+          fontSize: Get.size.width / 19,
+        ),
         maxLines: maxLines,
       ),
     );

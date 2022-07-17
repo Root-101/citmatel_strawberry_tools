@@ -20,6 +20,7 @@ class CommonsSingleLevel<SubLevelDomain> extends StatelessWidget {
   ///Widget que va a salir cuando se selecciona, el por detras se encarga de navegacion y scaffold y demas
   final dynamic levelDomain;
   final Function onRandomOfTap;
+  final bool mute;
 
   final Function(SubLevelDomain subLevel) singleSubLevelTileBuilder;
 
@@ -37,16 +38,16 @@ class CommonsSingleLevel<SubLevelDomain> extends StatelessWidget {
     required this.levelDomain,
     required this.onRandomOfTap,
     this.crossAxisCount = 2,
+    this.mute = false,
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    BorderRadius borderRadius =
-        const BorderRadius.vertical(bottom: Radius.circular(25));
-    //const BorderRadius.all(Radius.elliptical(100, 50));
     Size deviceSize = MediaQuery.of(context).size;
     double expandedHeight = deviceSize.height * 0.3;
+
+    double randomWidth = deviceSize.width / 17;
     return Scaffold(
       backgroundColor: Colors.white,
       body: Container(
@@ -59,7 +60,8 @@ class CommonsSingleLevel<SubLevelDomain> extends StatelessWidget {
             onPressed: () {
               Get.to(
                 Scaffold(
-                  body: Function.apply(onRandomOfTap, [levelDomain]) as Widget,
+                  body: Function.apply(onRandomOfTap, [levelDomain, mute])
+                      as Widget,
                 ),
               );
             },
@@ -67,14 +69,17 @@ class CommonsSingleLevel<SubLevelDomain> extends StatelessWidget {
               child: Tooltip(
                 child: FaIcon(
                   FontAwesomeIcons.random,
-                  size: deviceSize.width / 17,
+                  size: randomWidth,
                   color: Colors.white,
                 ),
                 message: "Nivel Aleatorio.",
               ),
             ),
           ),
-          floatingPosition: const FloatingPosition(right: 16),
+          floatingPosition: FloatingPosition(
+            right: 16,
+            top: -(2 * randomWidth - 48),
+          ),
           expandedHeight: expandedHeight,
           slivers: <Widget>[
             CommonsSliverAppBar.buildAppBar(

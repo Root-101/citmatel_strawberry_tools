@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:citmatel_strawberry_tools/tools_exporter.dart';
 import 'package:clean_core/clean_core.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +17,7 @@ class CommonsLevelsThemeScreen<LevelDomain extends IntIdentifier>
 
   ///Widget que va a salir cuando se selecciona, el por detras se encarga de navegacion y scaffold y demas
   final Function onRandomTap;
+  final bool mute;
   final String urlSliverBackground;
   final Color backgroundColor;
   final Color appbarBackgroundColor;
@@ -35,6 +38,7 @@ class CommonsLevelsThemeScreen<LevelDomain extends IntIdentifier>
     this.title = "Temas",
     this.backgroundColor = Colors.grey,
     this.appbarBackgroundColor = Colors.redAccent,
+    this.mute = false,
     required this.maxStars,
     required this.winedStars,
     Key? key,
@@ -47,6 +51,11 @@ class CommonsLevelsThemeScreen<LevelDomain extends IntIdentifier>
   Widget build(BuildContext context) {
     Size deviceSize = MediaQuery.of(context).size;
     double expandedHeight = Get.size.height * 0.3;
+    //si es menos de 56 que es el por defecto lanza excepcion
+    double collapsedHeight = max(Get.size.width / 10, 60);
+
+    double randomWidth = deviceSize.width / 17;
+
     //scaffold para el fondo blanco
     return Scaffold(
       backgroundColor: Colors.white,
@@ -60,7 +69,7 @@ class CommonsLevelsThemeScreen<LevelDomain extends IntIdentifier>
             onPressed: () {
               Get.to(
                 Scaffold(
-                  body: Function.apply(onRandomTap, []) as Widget,
+                  body: Function.apply(onRandomTap, [mute]) as Widget,
                 ),
               );
             },
@@ -68,18 +77,23 @@ class CommonsLevelsThemeScreen<LevelDomain extends IntIdentifier>
               child: Tooltip(
                 child: FaIcon(
                   FontAwesomeIcons.random,
-                  size: deviceSize.width / 17,
+                  size: randomWidth,
                   color: Colors.white,
                 ),
                 message: "Nivel Aleatorio.",
               ),
             ),
           ),
-          floatingPosition: const FloatingPosition(right: 16),
+          floatingPosition: FloatingPosition(
+            right: 16,
+            top: -(2 * randomWidth - 48),
+          ),
+          //formula para que el boton no caiga encima de la puntuacion
           expandedHeight: expandedHeight,
           slivers: <Widget>[
             CommonsSliverAppBar.buildAppBar(
               expandedHeight: expandedHeight,
+              collapsedHeight: collapsedHeight,
               backgroundColor: appbarBackgroundColor,
               title: title,
               urlBackgroundImage: urlSliverBackground,
